@@ -57,7 +57,7 @@
 
         <div class="space-y-1.5">
           <label for="password" class="block font-semibold text-teal">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter password url" class="w-full block px-3 py-2.5 rounded-md bg-beige placeholder:text-mint-hover text-teal" />
+          <input type="password" id="password" name="password" placeholder="Enter password" class="w-full block px-3 py-2.5 rounded-md bg-beige placeholder:text-mint-hover text-teal" />
           @error('password')
           <p class="text-red-400">{{ $message }}</p>
           @enderror
