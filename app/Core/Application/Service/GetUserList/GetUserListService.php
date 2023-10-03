@@ -23,13 +23,11 @@ class GetUserListService
     public function execute()
     {
         $list_user = $this->user_repository->getAll();
-        
+
         $response = [];
         foreach ($list_user as $user) {
             $response[] = new GetUserListResponse($user);
         }
-
-        dd($response);
 
         return $response;
     }

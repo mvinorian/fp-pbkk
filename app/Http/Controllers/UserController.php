@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\DB;
 use App\Core\Application\Service\GetUserList\GetUserListService;
 use App\Core\Application\Service\RegisterUser\RegisterUserRequest;
 use App\Core\Application\Service\RegisterUser\RegisterUserService;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
     public function createUser(Request $request, RegisterUserService $service): JsonResponse
     {
         $request->validate([
-            'email' => 'email|email',
+            'email' => 'email:rfc',
             'password' => 'min:8|max:64|string',
             'name' => 'min:8|max:128|string',
         ]);
@@ -40,10 +41,9 @@ class UserController extends Controller
         return $this->success("Berhasil Registrasi");
     }
 
-    public function getUserList(GetUserListService $service): JsonResponse
+    public function getUserList(GetUserListService $service)
     {
         $response = $service->execute();
-        dd($response);
-        return $this->successWithData($response, "Berhasil Mendapatkan List User");
+        return view('users', ['users' => $response]);
     }
 }

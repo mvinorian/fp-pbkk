@@ -7,7 +7,7 @@ use App\Core\Domain\Models\User\User;
 
 class GetUserListResponse implements JsonSerializable
 {
-    private User $user;
+    public User $user;
 
     /**
      * @param User $user
