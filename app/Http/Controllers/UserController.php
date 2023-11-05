@@ -46,4 +46,10 @@ class UserController extends Controller
         $response = $service->execute();
         return view('users', ['users' => $response]);
     }
+
+    public function getUserListApi(GetUserListService $service)
+    {
+        $response = $service->execute();
+        return $this->successWithData($response, "Berhasil mendapatkan data");
+    }
 }

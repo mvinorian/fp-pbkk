@@ -54,6 +54,20 @@ class SqlUserRepository implements UserRepositoryInterface
         return $this->constructFromRows($row->all());
     }
 
+    /**
+     * @throws Exception
+     */
+    public function getAllWithSearch(string $search): ?array
+    {
+        $row = DB::table('users')->where('name', 'like', '%' . $search . '%')->get();
+        
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows($row->all());
+    }
+
     
     /**
      * @throws Exception
