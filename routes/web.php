@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Jobs\SendEmail;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,15 @@ Route::get('/users', [UserController::class, 'getUserList']);
 
 Route::post('/users', [UserController::class, 'createUser']);
 
-Route::get('/queue', function(){
+Route::get('/queue', function () {
     SendEmail::dispatch();
     return "Email sent";
 });
+
+Route::get('/', function () {
+    return Inertia::render('Home');
+})->name('home');
+
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
