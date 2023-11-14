@@ -1,30 +1,36 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./resources/**/*.blade.php", "./resources/**/*.js"],
+export default {
+  darkMode: ['class'],
+  content: [
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    './storage/framework/views/*.php',
+    './resources/views/**/*.blade.php',
+    './resources/js/**/*.tsx',
+  ],
   theme: {
-    extend: {
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
       },
-      colors: {
-        white: {
-          DEFAULT: "#FFF8D6",
-          hover: "#E5DFC1",
+    },
+    extend: {
+      keyframes: {
+        'accordion-down': {
+          from: { height: 0 },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
-        beige: {
-          DEFAULT: "#F7E1AE",
-          hover: "#DECA9C",
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: 0 },
         },
-        mint: {
-          DEFAULT: "#A4D0A4",
-          hover: "#91B891",
-        },
-        teal: {
-          DEFAULT: "#617A55",
-          hover: "#4D6144",
-        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 };
