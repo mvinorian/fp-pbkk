@@ -13,6 +13,16 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
+    public function test(): JsonResponse
+    {
+        return response()->json(
+            [
+                'success' => true,
+                'message' => "Test",
+            ]
+        );
+    }
+
     public function createUser(Request $request, RegisterUserService $service): JsonResponse
     {
         $request->validate([

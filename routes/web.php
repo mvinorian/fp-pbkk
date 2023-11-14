@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Jobs\SendEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use App\Http\Controllers\UserController;
 Route::get('/users', [UserController::class, 'getUserList']);
 
 Route::post('/users', [UserController::class, 'createUser']);
+
+Route::get('/queue', function(){
+    SendEmail::dispatch();
+    return "Email sent";
+});

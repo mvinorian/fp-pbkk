@@ -14,6 +14,7 @@ class UserTest extends TestCase
     public function testGetUsers()
     {
         $response = $this->get('/api/users');
+        // dd(count($response["data"]));
 
         $response->assertStatus(200);
 
