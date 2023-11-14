@@ -15,8 +15,10 @@ return new class extends Migration
             $table->integer('id')->primary();
             $table->integer('penerbit_id');
             $table->string('judul', 128);
-            $table->string('sinopsis');
+            $table->text('sinopsis');
             $table->string('tahun_terbit', 128);
+            $table->string('skor', 128);
+            $table->string('foto', 128);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
