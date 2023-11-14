@@ -1,6 +1,6 @@
 <?php
 
-use App\Infrastrucutre\Repository\SqlUserRepository;
+use App\Infrastructure\Repository\SqlUserRepository;
 use App\Core\Domain\Repository\UserRepositoryInterface;
 
 /** @var Application $app */

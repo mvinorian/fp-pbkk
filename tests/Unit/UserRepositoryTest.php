@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Http\Controllers\UserController;
-use App\Infrastrucutre\Repository\SqlUserRepository;
+use App\Infrastructure\Repository\SqlUserRepository;
 
 class UserRepositoryTest extends TestCase
 {

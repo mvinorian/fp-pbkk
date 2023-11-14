@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class User
 {
     private UserId $id;
+    private int $kabupaten_id;
     private string $name;
     private Email $email;
     private string $no_telp;
@@ -19,6 +20,7 @@ class User
 
     /**
      * @param UserId $id
+     * @param int $kabupaten_id
      * @param string $name
      * @param Email $email
      * @param string $no_telp
@@ -27,9 +29,10 @@ class User
      * @param string $image_url
      * @param string $hashed_password
      */
-    public function __construct(UserId $id, string $name, Email $email, string $no_telp, UserType $user_type, int $age, string $image_url, string $hashed_password)
+    public function __construct(UserId $id, int $kabupaten_id, string $name, Email $email, string $no_telp, UserType $user_type, int $age, string $image_url, string $hashed_password)
     {
         $this->id = $id;
+        $this->kabupaten_id = $kabupaten_id;
         $this->name = $name;
         $this->email = $email;
         $this->no_telp = $no_telp;
@@ -42,10 +45,11 @@ class User
     /**
      * @throws Exception
      */
-    public static function create(string $name, Email $email, string $no_telp, UserType $user_type, int $age, string $image_url, string $hashed_password): self
+    public static function create(int $kabupaten_id, string $name, Email $email, string $no_telp, UserType $user_type, int $age, string $image_url, string $hashed_password): self
     {
         return new self(
             UserId::generate(),
+            $kabupaten_id,
             $name,
             $email,
             $no_telp,
@@ -62,6 +66,14 @@ class User
     public function getId(): UserId
     {
         return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getKabupatenId(): int
+    {
+        return $this->kabupaten_id;
     }
 
     /**
