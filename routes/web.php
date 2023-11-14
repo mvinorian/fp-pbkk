@@ -39,9 +39,9 @@ Route::get('/queue', function () {
 });
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('home');
 })->name('home');
 
 Route::get('/about', function () {
-    return Inertia::render('About');
+    return Inertia::render('about');
 })->name('about');
