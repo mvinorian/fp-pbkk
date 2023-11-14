@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('penulis', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('nama', 128);
+            $table->string('nama_depan', 128);
+            $table->string('nama_belakang', 128);
             $table->string('peran', 128);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
