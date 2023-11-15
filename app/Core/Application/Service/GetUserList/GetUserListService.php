@@ -2,8 +2,8 @@
 
 namespace App\Core\Application\Service\GetUserList;
 
+use App\Infrastructure\Repository\SqlUserRepository;
 use Exception;
-use App\Infrastrucutre\Repository\SqlUserRepository;
 
 class GetUserListService
 {

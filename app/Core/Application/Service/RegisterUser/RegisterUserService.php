@@ -13,7 +13,7 @@ use App\Core\Application\ImageUpload\ImageUpload;
 use App\Core\Application\Mail\AccountVerificationEmail;
 use App\Core\Domain\Models\AccountVerification\AccountVerification;
 use App\Core\Domain\Repository\AccountVerificationRepositoryInterface;
-use App\Infrastrucutre\Repository\SqlUserRepository;
+use App\Infrastructure\Repository\SqlUserRepository;
 
 class RegisterUserService
 {
