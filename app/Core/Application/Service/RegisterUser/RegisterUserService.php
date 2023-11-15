@@ -11,19 +11,19 @@ use App\Core\Domain\Models\User\User;
 use App\Core\Domain\Models\User\UserType;
 use App\Core\Application\ImageUpload\ImageUpload;
 use App\Core\Application\Mail\AccountVerificationEmail;
-use App\Core\Domain\Repository\UserRepositoryInterface;
 use App\Core\Domain\Models\AccountVerification\AccountVerification;
 use App\Core\Domain\Repository\AccountVerificationRepositoryInterface;
+use App\Infrastrucutre\Repository\SqlUserRepository;
 
 class RegisterUserService
 {
-    private UserRepositoryInterface $user_repository;
+    private SqlUserRepository $user_repository;
 
     /**
-     * @param UserRepositoryInterface $user_repository
+     * @param SqlUserRepository $user_repository
      * @param AccountVerificationRepositoryInterface $account_verification_repository
      */
-    public function __construct(UserRepositoryInterface $user_repository)
+    public function __construct(SqlUserRepository $user_repository)
     {
         $this->user_repository = $user_repository;
     }
@@ -33,10 +33,10 @@ class RegisterUserService
      */
     public function execute(RegisterUserRequest $request)
     {
-        // $registeredUser = $this->user_repository->findByEmail(new Email($request->getEmail()));
-        // if ($registeredUser) {
-        //     UserException::throw("Mohon Periksa Email Anda Untuk Proses Verifikasi Akun", 1022, 404);
-        // }
+        $registeredUser = $this->user_repository->findByEmail($request->getEmail());
+        if ($registeredUser) {
+            UserException::throw("email sudah terdaftar", 1022, 404);
+        }
 
         $image_url = ImageUpload::create(
             $request->getImage(),
@@ -46,6 +46,7 @@ class RegisterUserService
         )->upload();
 
         $user = User::create(
+            1,
             $request->getName(),
             new Email($request->getEmail()),
             $request->getNoTelp(),

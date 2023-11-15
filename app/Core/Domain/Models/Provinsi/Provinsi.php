@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\Domain\Models\Penerbit;
+namespace App\Core\Domain\Models\Provinsi;
 
-class Penerbit
+class Provinsi
 {
     private int $id;
     private string $name;
