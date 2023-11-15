@@ -3,16 +3,16 @@
 namespace App\Core\Application\Service\GetUserList;
 
 use Exception;
-use App\Core\Domain\Repository\UserRepositoryInterface;
+use App\Infrastrucutre\Repository\SqlUserRepository;
 
 class GetUserListService
 {
-    private UserRepositoryInterface $user_repository;
+    private SqlUserRepository $user_repository;
 
     /**
-     * @param UserRepositoryInterface $user_repository
+     * @param SqlUserRepository $user_repository
      */
-    public function __construct(UserRepositoryInterface $user_repository)
+    public function __construct(SqlUserRepository $user_repository)
     {
         $this->user_repository = $user_repository;
     }

@@ -15,7 +15,7 @@ class Cart
      * @param UserId $user_id
      * @param int $volume_id
      */
-    public function __construct(int $id, UserId $user_id, int $volume_id)
+    public function __construct(CartId $id, UserId $user_id, int $volume_id)
     {
         $this->id = $id;
         $this->user_id = $user_id;

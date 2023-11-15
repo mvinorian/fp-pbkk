@@ -16,6 +16,7 @@ class SqlUserRepository implements UserRepositoryInterface
     {
         DB::table('users')->upsert([
             'id' => $users->getId()->toString(),
+            'kabupaten_id' => $users->getKabupatenId(),
             'name' => $users->getName(),
             'email' => $users->getEmail()->toString(),
             'no_telp' => $users->getNoTelp(),
@@ -32,6 +33,20 @@ class SqlUserRepository implements UserRepositoryInterface
     public function find(UserId $id): ?User
     {
         $row = DB::table('users')->where('id', $id->toString())->first();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows([$row])[0];
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function findByEmail(string $email): ?User
+    {
+        $row = DB::table('users')->where('email', $email)->first();
 
         if (!$row) {
             return null;
@@ -78,6 +93,7 @@ class SqlUserRepository implements UserRepositoryInterface
         foreach ($rows as $row) {
             $users[] = new User(
                 new UserId($row->id),
+                $row->kabupaten_id,
                 $row->name,
                 new Email($row->email),
                 $row->no_telp,

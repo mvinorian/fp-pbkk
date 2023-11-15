@@ -16,7 +16,7 @@ class PeminjamanVolume
      * @param PeminjamanId $peminjaman_id
      * @param int $volume_id
      */
-    public function __construct(int $id, PeminjamanId $peminjaman_id, int $volume_id)
+    public function __construct(PeminjamanVolumeId $id, PeminjamanId $peminjaman_id, int $volume_id)
     {
         $this->id = $id;
         $this->peminjaman_id = $peminjaman_id;
