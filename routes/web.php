@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Jobs\SendEmail;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeriController;
+use App\Http\Controllers\UserController;
 use Inertia\Inertia;
 
 /*
@@ -19,8 +20,18 @@ use Inertia\Inertia;
 Route::post('/users', [UserController::class, 'storeUser'])->name('register');
 Route::post('/users/login', [UserController::class, 'storeLogin'])->name('login');
 Route::post('/users/logout', [UserController::class, 'destroyLogin'])->name('logout');
-
 Route::get('/users', [UserController::class, 'getUserList']);
+
+Route::get('/seri', [SeriController::class, 'getSeriList']);
+
+
+
+
+
+
+
+
+
 
 Route::get('/queue', function () {
     SendEmail::dispatch();

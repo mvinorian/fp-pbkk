@@ -30,6 +30,19 @@ class SqlGenreRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getGenreBySeriId(int $seri_id): array
+    {
+        $rows = DB::table('genre')
+            ->join('seri_genre', 'genre.id', '=', 'seri_genre.genre_id')
+            ->where('seri_genre.seri_id', $seri_id)
+            ->get();
+        $genre = [];
+        foreach ($rows as $row) {
+            $genre[] = $this->constructFromRows([$row])[0];
+        }
+        return $genre;
+    }
+
     /**
      * @throws Exception
      */

@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
+use App\Core\Application\Service\GetSeriList\GetSeriListService;
+
+class SeriController extends Controller
+{
+    public function getSeriList(Request $request, GetSeriListService $service)
+    {
+        $request->validate([
+            'per_page' => 'numeric',
+            'page' => 'numeric',
+            'filter' => ['sometimes', function ($attr, $val, $fail) {
+                if (!is_array($val)) {
+                    $fail($attr . ' must be an array of numbers');
+                }
+                if (is_array($val)) {
+                    foreach ($val as $number) {
+                        if (!is_numeric($number)) {
+                            $fail($attr . ' must be an array of numbers');
+                        }
+                    }
+                }
+            }],
+            'search' => 'string',
+        ]);
+
+        $req = new GetSeriListRequest(
+            $request->input('per_page') ?? 5,
+            $request->input('page') ?? 1,
+            $request->input('filter'),
+            $request->input('search')
+        );
+        $response = $service->execute($req);
+
+        dd($response);
+        return view('users', ['users' => $response]);
+    }
+}
