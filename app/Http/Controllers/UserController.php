@@ -6,10 +6,11 @@ use Throwable;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use App\Core\Application\Service\GetUserList\GetUserListService;
 use App\Core\Application\Service\RegisterUser\RegisterUserRequest;
 use App\Core\Application\Service\RegisterUser\RegisterUserService;
-use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
         );
     }
 
-    public function createUser(Request $request, RegisterUserService $service): JsonResponse
+    public function storeUser(Request $request, RegisterUserService $service)
     {
         $request->validate([
             'email' => 'email:rfc',
@@ -48,7 +49,34 @@ class UserController extends Controller
             throw $e;
         }
         DB::commit();
-        return $this->success("Berhasil Registrasi");
+        return redirect()->route('login');
+    }
+
+    public function storeLogin(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $userdata = [
+            'email'     => $request->email,
+            'password'  => $request->password
+        ];
+
+        if (Auth::attempt($userdata)) {
+            // Alert::success('Berhasil Login');
+            return redirect()->intended('/');
+        } else {
+            // Alert::error('Email atau Password Salah');
+            return redirect('login');
+        }
+    }
+
+    public function destroyLogin(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect('/');
     }
 
     public function getUserList(GetUserListService $service)

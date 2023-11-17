@@ -16,9 +16,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/users', [UserController::class, 'getUserList']);
+Route::post('/users', [UserController::class, 'storeUser'])->name('register');
+Route::post('/users/login', [UserController::class, 'storeLogin'])->name('login');
+Route::post('/users/logout', [UserController::class, 'destroyLogin'])->name('logout');
 
-Route::post('/users', [UserController::class, 'createUser']);
+Route::get('/users', [UserController::class, 'getUserList']);
 
 Route::get('/queue', function () {
     SendEmail::dispatch();
