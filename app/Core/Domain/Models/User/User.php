@@ -4,10 +4,16 @@ namespace App\Core\Domain\Models\User;
 
 use Exception;
 use App\Core\Domain\Models\Email;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User
+class User extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
+
     private UserId $id;
     private int $kabupaten_id;
     private string $name;
