@@ -6,6 +6,8 @@ use App\Core\Domain\Models\Seri\Seri;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\select;
+
 class SqlSeriRepository
 {
     public function persist(Seri $seri): void
@@ -33,6 +35,31 @@ class SqlSeriRepository
         }
 
         return $this->constructFromRows([$row])[0];
+    }
+
+    public function getAll(int $page, int $per_page, ?string $search, ?array $filter): array
+    {
+        $rows = DB::table('seri')
+                ->join('seri_genre', 'seri.id', '=', 'seri_genre.seri_id')
+                ->join('genre', 'seri_genre.genre_id', '=', 'genre.id')
+                ->select('seri.*');
+        if ($filter) {
+            $rows->where('genre.id', $filter);
+        }
+        if($search) {
+            $rows->where('seri.judul', 'like', '%'.$search.'%');
+        }
+        
+        $rows = $rows->paginate($per_page, ['*'], 'seri_page', $page);
+        $seris = [];
+        foreach ($rows as $row) {
+            $seris[] = $this->constructFromRows([$row])[0];
+        }
+
+        return [
+            "data" => $seris,
+            "max_page" => ceil($rows->total() / $per_page)
+        ];
     }
 
     /**

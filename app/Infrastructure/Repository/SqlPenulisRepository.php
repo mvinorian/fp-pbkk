@@ -32,6 +32,19 @@ class SqlPenulisRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getPenulisBySeriId(int $seri_id): array
+    {
+        $rows = DB::table('penulis')
+            ->join('seri_penulis', 'penulis.id', '=', 'seri_penulis.penulis_id')
+            ->where('seri_penulis.seri_id', $seri_id)
+            ->get();
+        $penulis = [];
+        foreach ($rows as $row) {
+            $penulis[] = $this->constructFromRows([$row])[0];
+        }
+        return $penulis;
+    }
+
     /**
      * @throws Exception
      */

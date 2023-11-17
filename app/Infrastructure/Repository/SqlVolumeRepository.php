@@ -33,6 +33,16 @@ class SqlVolumeRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getVolumeBySeriId(int $seri_id): array
+    {
+        $rows = DB::table('volume')->where('seri_id', $seri_id)->get();
+        $volume = [];
+        foreach ($rows as $row) {
+            $volume[] = $this->constructFromRows([$row])[0];
+        }
+        return $volume;
+    }
+
     /**
      * @throws Exception
      */
