@@ -43,6 +43,15 @@ class SqlVolumeRepository
         return $volume;
     }
 
+    public function getVolumeById(int $id): ?Volume
+    {
+        $row = DB::table('volume')->where('id', $id)->first();
+        if (!$row) {
+            return null;
+        }
+        return $this->constructFromRows([$row])[0];
+    }
+
     /**
      * @throws Exception
      */
