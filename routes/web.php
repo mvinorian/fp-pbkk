@@ -42,6 +42,5 @@ Route::get('/', function () {
     return Inertia::render('home');
 })->name('home');
 
-Route::get('/about', function () {
-    return Inertia::render('about');
-})->name('about');
+Route::inertia('/sign-in', 'auth/sign-in')->name('sign-in');
+Route::inertia('/sign-up', 'auth/sign-up')->name('sign-up');
