@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
 use Illuminate\Http\Request;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
@@ -35,6 +36,14 @@ class SeriController extends Controller
             $request->input('search')
         );
         $response = $service->execute($req);
+
+        dd($response);
+        return view('users', ['users' => $response]);
+    }
+
+    public function getDetailSeri(Request $request, GetDetailSeriService $service)
+    {
+        $response = $service->execute($request->route('id'));
 
         dd($response);
         return view('users', ['users' => $response]);
