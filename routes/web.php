@@ -1,10 +1,11 @@
 <?php
 
+use Inertia\Inertia;
 use App\Jobs\SendEmail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SeriController;
 use App\Http\Controllers\UserController;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::get('/seri', [SeriController::class, 'getSeriList']);
 Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
 
 Route::post('/cart', [CartController::class, 'createCart'])->name('create-cart');
+Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('delete-cart');
+Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('delete-cart-volume');
 
 
 

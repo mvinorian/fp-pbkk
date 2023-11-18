@@ -33,6 +33,25 @@ class SqlCartRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function findByVolumeId(int $volume_id): ?Cart
+    {
+        $row = DB::table('cart')->where('volume_id', $volume_id)->first();
+        if (!$row) {
+            return null;
+        }
+        return $this->constructFromRows([$row])[0];
+    }
+
+    public function delete(CartId $id): void
+    {
+        DB::table('cart')->where('id', $id->toString())->delete();
+    }
+
+    public function deleteByVolumeId(int $volume_id): void
+    {
+        DB::table('cart')->where('volume_id', $volume_id)->delete();
+    }
+
     /**
      * @throws Exception
      */

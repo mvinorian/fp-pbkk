@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Core\Application\Service\CreateCart\CreateCartRequest;
 use App\Core\Application\Service\CreateCart\CreateCartService;
+use App\Core\Application\Service\DeleteCart\DeleteCartService;
 use App\Core\Application\Service\GetCartList\GetCartListRequest;
 use App\Core\Application\Service\GetCartList\GetCartListService;
 use App\Core\Application\Service\GetDetailCart\GetDetailCartService;
+use App\Core\Application\Service\DeleteCartByVolumeId\DeleteCartByVolumeIdService;
 
 class CartController extends Controller
 {
@@ -29,6 +31,40 @@ class CartController extends Controller
         DB::beginTransaction();
         try {
             $service->execute($input, Auth::user()->id);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        DB::commit();
+        return redirect()->route('sign-in');
+    }
+
+    public function deleteCart(Request $request, DeleteCartService $service)
+    {
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $service->execute($request->route('id'), Auth::user()->id);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        DB::commit();
+        return redirect()->route('sign-in');
+    }
+
+    public function deleteCartByVolumeId(Request $request, DeleteCartByVolumeIdService $service)
+    {
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $service->execute($request->route('id'), Auth::user()->id);
         } catch (Throwable $e) {
             DB::rollBack();
             throw $e;
