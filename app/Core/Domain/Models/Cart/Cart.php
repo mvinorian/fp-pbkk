@@ -22,6 +22,15 @@ class Cart
         $this->volume_id = $volume_id;
     }
 
+    public static function create(UserId $user_id, int $volume_id)
+    {
+        return new self(
+            CartId::generate(),
+            $user_id,
+            $volume_id
+        );
+    }
+
     public function getId(): CartId
     {
         return $this->id;

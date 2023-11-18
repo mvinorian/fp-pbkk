@@ -25,6 +25,7 @@ Route::get('/users', [UserController::class, 'getUserList']);
 Route::get('/seri', [SeriController::class, 'getSeriList']);
 Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
 
+Route::post('/cart', [CartController::class, 'createCart'])->name('create-cart');
 
 
 
