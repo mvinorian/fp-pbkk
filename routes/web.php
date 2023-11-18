@@ -23,6 +23,7 @@ Route::post('/users/logout', [UserController::class, 'destroyLogin'])->name('log
 Route::get('/users', [UserController::class, 'getUserList']);
 
 Route::get('/seri', [SeriController::class, 'getSeriList']);
+Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
 
 
 
