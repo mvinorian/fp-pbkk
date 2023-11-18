@@ -33,8 +33,8 @@ class UserController extends Controller
         ]);
 
         $input = new RegisterUserRequest(
-            $request->input('email'),
             $request->input('name'),
+            $request->input('email'),
             $request->input('no_telp'),
             $request->input('age'),
             $request->file('image'),
@@ -49,7 +49,7 @@ class UserController extends Controller
             throw $e;
         }
         DB::commit();
-        return redirect()->route('login');
+        return redirect()->route('sign-in');
     }
 
     public function storeLogin(Request $request): RedirectResponse
@@ -66,10 +66,10 @@ class UserController extends Controller
 
         if (Auth::attempt($userdata)) {
             // Alert::success('Berhasil Login');
-            return redirect()->intended('/');
+            return redirect()->route('sign-up');
         } else {
             // Alert::error('Email atau Password Salah');
-            return redirect('login');
+            return redirect()->route('sign-in');
         }
     }
 

@@ -46,7 +46,7 @@ class RegisterUserService
         )->upload();
 
         $user = User::create(
-            1,
+            1101,
             $request->getName(),
             new Email($request->getEmail()),
             $request->getNoTelp(),
