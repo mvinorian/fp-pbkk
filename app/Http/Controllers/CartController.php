@@ -9,13 +9,17 @@ use Illuminate\Support\Facades\Auth;
 use App\Core\Application\Service\CreateCart\CreateCartRequest;
 use App\Core\Application\Service\CreateCart\CreateCartService;
 use App\Core\Application\Service\DeleteCart\DeleteCartService;
-use App\Core\Application\Service\GetCartList\GetCartListRequest;
-use App\Core\Application\Service\GetCartList\GetCartListService;
-use App\Core\Application\Service\GetDetailCart\GetDetailCartService;
+use App\Core\Application\Service\GetCartUser\GetCartUserService;
 use App\Core\Application\Service\DeleteCartByVolumeId\DeleteCartByVolumeIdService;
 
 class CartController extends Controller
 {
+    public function getCartUser(GetCartUserService $service)
+    {
+        $cartList = $service->execute(Auth::user()->id);
+        dd($cartList);
+        return view('cart.index', compact('cartList'));
+    }
     public function createCart(Request $request, CreateCartService $service)
     {
         $request->validate([

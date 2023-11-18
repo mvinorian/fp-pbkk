@@ -52,6 +52,22 @@ class SqlCartRepository
         DB::table('cart')->where('volume_id', $volume_id)->delete();
     }
 
+    public function getCartVolumeByUserId(UserId $user_id): array
+    {
+        $rows = DB::table('cart')->where('user_id', $user_id->toString())->groupBy('volume_id')->get();
+        $cart = [];
+        foreach ($rows as $row) {
+            $cart[] = $this->constructFromRows([$row])[0];
+        }
+        return $cart;
+    }
+
+    public function countJumlahSewa(string $volume_id, UserId $user_id): int
+    {
+        $rows = DB::table('cart')->where('user_id', $user_id->toString())->where('volume_id', $volume_id)->count();
+        return $rows;
+    }
+
     /**
      * @throws Exception
      */
