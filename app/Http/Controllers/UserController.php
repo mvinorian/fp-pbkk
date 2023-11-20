@@ -11,6 +11,8 @@ use Illuminate\Http\RedirectResponse;
 use App\Core\Application\Service\GetUserList\GetUserListService;
 use App\Core\Application\Service\RegisterUser\RegisterUserRequest;
 use App\Core\Application\Service\RegisterUser\RegisterUserService;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class UserController extends Controller
 {
@@ -46,13 +48,13 @@ class UserController extends Controller
             $service->execute($input);
         } catch (Throwable $e) {
             DB::rollBack();
-            throw $e;
+            return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
         }
         DB::commit();
-        return redirect()->route('sign-in');
+        return Inertia::render('auth/login');
     }
 
-    public function storeLogin(Request $request): RedirectResponse
+    public function storeLogin(Request $request): Response
     {
         $request->validate([
             'email' => 'required|string|email',
@@ -65,12 +67,10 @@ class UserController extends Controller
         ];
 
         if (Auth::attempt($userdata)) {
-            // Alert::success('Berhasil Login');
-            return redirect()->route('sign-up');
-        } else {
-            // Alert::error('Email atau Password Salah');
-            return redirect()->route('sign-in');
+            return Inertia::render('auth/register', $this->successProps('Berhasil Login'));
         }
+
+        return Inertia::render('auth/login', $this->errorProps(1234, 'Email atau Password Salah'));
     }
 
     public function destroyLogin(): RedirectResponse

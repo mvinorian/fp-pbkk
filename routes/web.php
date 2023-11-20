@@ -18,13 +18,21 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/users', [UserController::class, 'storeUser'])->name('register');
-Route::post('/users/login', [UserController::class, 'storeLogin'])->name('login');
-Route::post('/users/logout', [UserController::class, 'destroyLogin'])->name('logout');
+// #region //*=============== user ===============
+
+Route::inertia('/auth/register', 'auth/register')->name('auth.register.view');
+Route::inertia('/auth/login', 'auth/login')->name('auth.login.view');
+Route::post('/auth/register', [UserController::class, 'storeUser'])->name('auth.register');
+Route::post('/auth/login', [UserController::class, 'storeLogin'])->name('auth.login');
+Route::post('/auth/logout', [UserController::class, 'destroyLogin'])->name('auth.logout');
 Route::get('/users', [UserController::class, 'getUserList']);
+
+// #region //*=============== seri ===============
 
 Route::get('/seri', [SeriController::class, 'getSeriList']);
 Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
+
+// #region //*=============== cart ===============
 
 Route::get('/cart', [CartController::class, 'getCartUser']);
 Route::post('/cart', [CartController::class, 'createCart'])->name('create-cart');
@@ -47,6 +55,3 @@ Route::get('/queue', function () {
 Route::get('/', function () {
     return Inertia::render('home');
 })->name('home');
-
-Route::inertia('/sign-in', 'auth/sign-in')->name('sign-in');
-Route::inertia('/sign-up', 'auth/sign-up')->name('sign-up');

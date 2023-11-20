@@ -32,4 +32,30 @@ class Controller extends BaseController
             ]
         );
     }
+
+    protected function successProps($message)
+    {
+        return [
+            'success' => true,
+            'message' => $message
+        ];
+    }
+
+    protected function successWithDataProps($data, $message)
+    {
+        return [
+            'success' => true,
+            'data' =>  $data,
+            'message' => $message
+        ];
+    }
+
+    protected function errorProps($code, $message)
+    {
+        return [
+            'success' => false,
+            'code' => $code,
+            'message' => $message
+        ];
+    }
 }
