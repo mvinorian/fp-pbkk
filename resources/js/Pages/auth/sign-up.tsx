@@ -1,3 +1,8 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Link, router } from '@inertiajs/react';
+import { serialize } from 'object-to-formdata';
+import { useForm } from 'react-hook-form';
+
 import { Button } from '@/Components/ui/button';
 import {
   Form,
@@ -10,11 +15,7 @@ import {
 import { Input } from '@/Components/ui/input';
 import Typography from '@/Components/ui/typography';
 import AuthLayout from '@/Layouts/auth';
-import { SignUpSchema, SignUpRequest } from '@/Schemas/auth';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, router } from '@inertiajs/react';
-import { useForm } from 'react-hook-form';
-import { serialize } from 'object-to-formdata';
+import { SignUpRequest, SignUpSchema } from '@/Schemas/auth';
 
 export default function SignUpPage() {
   const form = useForm<SignUpRequest>({ resolver: zodResolver(SignUpSchema) });
@@ -129,7 +130,7 @@ export default function SignUpPage() {
             <FormField
               control={control}
               name='image'
-              render={({ field: { value, onChange, ...field } }) => (
+              render={({ field: { value: _value, onChange, ...field } }) => (
                 <FormItem>
                   <FormLabel>Image</FormLabel>
                   <FormControl>

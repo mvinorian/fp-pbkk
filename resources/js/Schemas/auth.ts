@@ -1,5 +1,6 @@
-import { REG_PHONE } from '@/Constants/regex';
 import { z } from 'zod';
+
+import { REG_PHONE } from '@/Constants/regex';
 
 export const SignInSchema = z.object({
   email: z
