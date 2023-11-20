@@ -1,5 +1,6 @@
-import { cn } from '@/Libs/utils';
 import React from 'react';
+
+import { cn } from '@/Libs/utils';
 
 export default function AuthLayout({
   children,
