@@ -5,9 +5,11 @@ declare module 'ziggy-js' {
     'ignition.healthCheck': [];
     'ignition.executeSolution': [];
     'ignition.updateConfig': [];
-    register: [];
-    login: [];
-    logout: [];
+    'auth.register.view': [];
+    'auth.login.view': [];
+    'auth.register': [];
+    'auth.login': [];
+    'auth.logout': [];
     'create-cart': [];
     'delete-cart': [
       {
@@ -20,8 +22,6 @@ declare module 'ziggy-js' {
       },
     ];
     home: [];
-    'sign-in': [];
-    'sign-up': [];
   }
 }
 export {};
