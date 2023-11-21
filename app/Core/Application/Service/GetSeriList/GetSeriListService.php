@@ -82,10 +82,13 @@ class GetSeriListService
                 $seri->getPenerbitId(),
                 $volume,
                 $penulis,
-                $genre,
+                $genre
             );
         }
-        
-        return $response;
+
+        return [
+            'data' => $response,
+            'max_page' => $list_seri['max_page']
+        ];
     }
 }

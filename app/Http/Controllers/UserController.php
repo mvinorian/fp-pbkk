@@ -54,7 +54,7 @@ class UserController extends Controller
         return Inertia::render('auth/login');
     }
 
-    public function storeLogin(Request $request): Response
+    public function storeLogin(Request $request)
     {
         $request->validate([
             'email' => 'required|string|email',
@@ -67,7 +67,7 @@ class UserController extends Controller
         ];
 
         if (Auth::attempt($userdata)) {
-            return Inertia::render('auth/register', $this->successProps('Berhasil Login'));
+            return redirect()->route('seri.index');
         }
 
         return Inertia::render('auth/login', $this->errorProps(1234, 'Email atau Password Salah'));
