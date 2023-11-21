@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use App\Jobs\SendEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\SeriController;
 use App\Http\Controllers\UserController;
 
@@ -17,6 +18,8 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/peminjaman', [PeminjamanController::class, 'create']);
+Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 
 // #region //*=============== user ===============
 
@@ -38,13 +41,6 @@ Route::get('/cart', [CartController::class, 'getCartUser']);
 Route::post('/cart', [CartController::class, 'createCart'])->name('create-cart');
 Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('delete-cart');
 Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('delete-cart-volume');
-
-
-
-
-
-
-
 
 
 Route::get('/queue', function () {
