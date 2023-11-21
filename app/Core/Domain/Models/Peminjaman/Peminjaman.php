@@ -34,6 +34,19 @@ class Peminjaman
         $this->harga_total = $harga_total;
     }
 
+    public static function create(PeminjamanId $id, UserId $user_id, string $paid_at, string $invoice_url, string $status, int $jumlah, int $harga_total)
+    {
+        return new self(
+            $id,
+            $user_id,
+            $paid_at,
+            $invoice_url,
+            $status,
+            $jumlah,
+            $harga_total
+        );
+    }
+
     public function getId(): PeminjamanId
     {
         return $this->id;
@@ -67,6 +80,11 @@ class Peminjaman
     public function getHargaTotal(): int
     {
         return $this->harga_total;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
     
 }
