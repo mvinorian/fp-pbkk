@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use App\Infrastructure\Repository\SqlPeminjamanRepository;
+use DateTime;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -12,7 +14,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            $peminjamanSql = new SqlPeminjamanRepository();
+            $peminjaman = $peminjamanSql->getAllPeminjaman("SETLED");
+
+            foreach ($peminjaman as $p) {
+                $interval = $p->getPaidAt()->diff(new DateTime());
+                if ($interval->time > 86400) {
+                    $p->setStatus("RETURNED");
+                    $peminjamanSql->persist($p);
+                }
+            }
+        })->everyFiveMinutes();
     }
 
     /**
