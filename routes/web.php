@@ -32,7 +32,7 @@ Route::get('/users', [UserController::class, 'getUserList']);
 
 // #region //*=============== seri ===============
 
-Route::get('/seri', [SeriController::class, 'getSeriList']);
+Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
 Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
 
 // #region //*=============== cart ===============
@@ -47,7 +47,3 @@ Route::get('/queue', function () {
     SendEmail::dispatch();
     return "Email sent";
 });
-
-Route::get('/', function () {
-    return Inertia::render('home');
-})->name('home');

@@ -10,6 +10,7 @@ declare module 'ziggy-js' {
     'auth.register': [];
     'auth.login': [];
     'auth.logout': [];
+    'seri.index': [];
     'create-cart': [];
     'delete-cart': [
       {
@@ -21,7 +22,6 @@ declare module 'ziggy-js' {
         name: 'id';
       },
     ];
-    home: [];
   }
 }
 export {};

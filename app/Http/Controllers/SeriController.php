@@ -6,6 +6,7 @@ use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
 use Illuminate\Http\Request;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
+use Inertia\Inertia;
 
 class SeriController extends Controller
 {
@@ -30,15 +31,17 @@ class SeriController extends Controller
         ]);
 
         $req = new GetSeriListRequest(
-            $request->input('per_page') ?? 5,
+            $request->input('per_page') ?? 12,
             $request->input('page') ?? 1,
             $request->input('filter'),
             $request->input('search')
         );
         $response = $service->execute($req);
 
-        dd($response);
-        return view('users', ['users' => $response]);
+        return Inertia::render('seri/index', $this->successWithDataProps($response, 'Berhasil mendapatkan list seri'));
+
+        // dd($response);
+        // return view('users', ['users' => $response]);
     }
 
     public function getDetailSeri(Request $request, GetDetailSeriService $service)
