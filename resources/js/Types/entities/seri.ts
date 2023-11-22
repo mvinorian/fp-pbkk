@@ -30,3 +30,8 @@ export type Seri = {
   penulis: Penulis[];
   genre: Genre[];
 };
+
+export type SeriMeta = {
+  max_page: number;
+  genre: Genre[];
+};

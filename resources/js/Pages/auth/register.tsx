@@ -162,7 +162,9 @@ export default function SignUpPage({ success, message }: PageProps) {
           <div className='space-y-1.5'>
             {success === false && (
               <Alert variant='destructive' className='text-center'>
-                <AlertDescription>{message}</AlertDescription>
+                <AlertDescription className='capitalize'>
+                  {message}
+                </AlertDescription>
               </Alert>
             )}
 

@@ -1,31 +1,56 @@
+import React from 'react';
+
 import MangaCard from '@/Components/card/manga';
+import Filter, { FilterData } from '@/Components/control/filter';
 import Navigation from '@/Components/control/navigation';
+import Search from '@/Components/control/search';
+import DashboardLayout from '@/Layouts/dashboard';
 import { PageProps, Paginated } from '@/Types/entities/page';
-import { Seri } from '@/Types/entities/seri';
+import { Seri, SeriMeta } from '@/Types/entities/seri';
 
 export default function SeriPage({
   success,
   data,
-}: PageProps<Paginated<Seri[]>>) {
+  user,
+}: PageProps<Paginated<Seri[], SeriMeta>>) {
+  const genreData: FilterData[] =
+    data?.meta.genre.map(({ id, nama }) => ({
+      id: id.toString(),
+      value: nama,
+    })) ?? [];
+
   return (
-    <main className='space-y-8 min-h-screen bg-background'>
-      <section className='w-full flex flex-col items-end gap-8 px-12 py-8'>
+    <DashboardLayout user={user} className='space-y-8'>
+      <section className='w-full max-w-[1440px] flex flex-col items-end gap-4 md:gap-8 px-3 md:px-12 py-4 md:py-8'>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2'>
+          <Search baseUrl={route('seri.index')} />
+          <Filter
+            baseUrl={route('seri.index')}
+            filterData={genreData}
+            placeholder='Select Genres'
+            className='md:col-start-2 lg:col-start-3'
+            maxFilter={3}
+          />
+        </div>
         {success && (
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
             {data?.data.map(
-              ({
-                id,
-                judul,
-                penulis,
-                skor,
-                foto,
-                volume,
-                tahun_terbit,
-                sinopsis,
-                genre,
-              }) => (
+              (
+                {
+                  id,
+                  judul,
+                  penulis,
+                  skor,
+                  foto,
+                  volume,
+                  tahun_terbit,
+                  sinopsis,
+                  genre,
+                },
+                index,
+              ) => (
                 <MangaCard
-                  key={id}
+                  key={index}
                   id={id}
                   name={judul}
                   author={penulis[0]}
@@ -43,9 +68,9 @@ export default function SeriPage({
         <Navigation
           baseUrl={route('seri.index')}
           pageCount={5}
-          maxPage={data?.max_page ?? 1}
+          maxPage={data?.meta.max_page ?? 1}
         />
       </section>
-    </main>
+    </DashboardLayout>
   );
 }
