@@ -7,7 +7,6 @@ use App\Infrastructure\Repository\SqlSeriRepository;
 use App\Infrastructure\Repository\SqlGenreRepository;
 use App\Infrastructure\Repository\SqlVolumeRepository;
 use App\Infrastructure\Repository\SqlPenulisRepository;
-use App\Infrastructure\Repository\SqlSeriGenreRepository;
 use App\Core\Application\Service\GetSeriList\GetGenreResponse;
 use App\Core\Application\Service\GetSeriList\GetVolumeResponse;
 

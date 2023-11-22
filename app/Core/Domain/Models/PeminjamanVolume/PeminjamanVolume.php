@@ -23,6 +23,15 @@ class PeminjamanVolume
         $this->volume_id = $volume_id;
     }
 
+    public static function create(PeminjamanId $peminjaman_id, int $volume_id)
+    {
+        return new self(
+            PeminjamanVolumeId::generate(),
+            $peminjaman_id,
+            $volume_id
+        );
+    }
+
     public function getId(): PeminjamanVolumeId
     {
         return $this->id;

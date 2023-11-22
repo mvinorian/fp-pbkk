@@ -42,6 +42,16 @@ class SqlCartRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function findByUserId(UserId $user_id): ?array
+    {
+        $rows = DB::table('cart')->where('user_id', $user_id->toString())->get();
+        $cart = [];
+        foreach ($rows as $row) {
+            $cart[] = $this->constructFromRows([$row])[0];
+        }
+        return $cart;
+    }
+
     public function delete(CartId $id): void
     {
         DB::table('cart')->where('id', $id->toString())->delete();
