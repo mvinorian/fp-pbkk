@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -37,7 +38,8 @@ class Controller extends BaseController
     {
         return [
             'success' => true,
-            'message' => $message
+            'message' => $message,
+            'user' => Auth::user()
         ];
     }
 
@@ -46,7 +48,8 @@ class Controller extends BaseController
         return [
             'success' => true,
             'data' =>  $data,
-            'message' => $message
+            'message' => $message,
+            'user' => Auth::user()
         ];
     }
 
@@ -55,7 +58,8 @@ class Controller extends BaseController
         return [
             'success' => false,
             'code' => $code,
-            'message' => $message
+            'message' => $message,
+            'user' => Auth::user()
         ];
     }
 }

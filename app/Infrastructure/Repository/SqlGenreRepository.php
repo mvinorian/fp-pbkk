@@ -43,6 +43,12 @@ class SqlGenreRepository
         return $genre;
     }
 
+    public function getAll(): array
+    {
+        $rows = DB::table('genre')->get();
+        return $rows->toArray();
+    }
+
     /**
      * @throws Exception
      */
