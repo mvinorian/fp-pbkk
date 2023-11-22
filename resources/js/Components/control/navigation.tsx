@@ -1,7 +1,9 @@
 import { router } from '@inertiajs/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import queryString from 'query-string';
 
 import { cn } from '@/Libs/utils';
+import { PaginatedQuery } from '@/Types/entities/page';
 
 import { Button } from '../ui/button';
 
@@ -16,16 +18,19 @@ export default function Navigation({
   pageCount,
   maxPage,
 }: NavigationProps) {
-  const params = new URLSearchParams(window.location.search);
+  const query = queryString.parse(location.search, {
+    arrayFormat: 'index',
+  }) as PaginatedQuery;
 
-  const page = parseInt(params.get('page') ?? '1');
-  const perPage = parseInt(params.get('per_page') ?? '');
+  const [page, perPage] = [query.page ?? 1, query.per_page];
 
   const handleNavigation = (page: number, perPage?: number) => {
-    const url = `${baseUrl}?page=${page}${
-      perPage ? `&per_page=${perPage}` : ''
-    }`;
-    router.visit(url, { replace: true });
+    const queryParams = queryString.stringify(
+      { ...query, page, per_page: perPage },
+      { arrayFormat: 'index' },
+    );
+
+    router.visit(`${baseUrl}?${queryParams}`, { replace: true });
   };
 
   const pages = [...Array(maxPage)]
@@ -45,7 +50,7 @@ export default function Navigation({
     <div className='flex gap-1.5'>
       <Button
         size='icon'
-        disabled={page === 1}
+        disabled={page == 1}
         onClick={() => handleNavigation(1, perPage)}
       >
         <ChevronLeft className='h-4 w-4' />
@@ -53,17 +58,17 @@ export default function Navigation({
       {pages.map((pageNumber, id) => (
         <Button
           key={id}
-          variant={page === pageNumber ? 'default' : 'outline'}
+          variant={page == pageNumber ? 'default' : 'outline'}
           size='icon'
           onClick={() => handleNavigation(pageNumber, perPage)}
-          className={cn(page === pageNumber && 'pointer-events-none')}
+          className={cn(page == pageNumber && 'pointer-events-none')}
         >
           {pageNumber}
         </Button>
       ))}
       <Button
         size='icon'
-        disabled={page === maxPage}
+        disabled={page == maxPage}
         onClick={() => handleNavigation(maxPage, perPage)}
       >
         <ChevronRight className='h-4 w-4' />

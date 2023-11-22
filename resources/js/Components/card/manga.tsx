@@ -40,7 +40,7 @@ export default function MangaCard({
           className='w-full h-full object-cover'
         />
 
-        <div className='absolute w-full -space-y-1 px-3 py-1 5 bottom-0 bg-primary opacity-90 group'>
+        <div className='absolute w-full -space-y-1 px-3 py-1 5 bottom-0 bg-foreground opacity-90 group'>
           <Typography
             as='h6'
             variant='p-16/24'
@@ -75,7 +75,7 @@ export default function MangaCard({
 
         <ScrollArea className='w-full'>
           <div className='bg-muted-foreground/20 w-full flex gap-2.5 p-3 overflow-hidden'>
-            {genre ? (
+            {genre && genre.length > 0 ? (
               genre.map(({ id, nama }) => (
                 <div
                   key={id}
@@ -91,7 +91,15 @@ export default function MangaCard({
                 </div>
               ))
             ) : (
-              <div className='bg-foreground px-3 py-0.5 rounded-3xl whitespace-nowrap'></div>
+              <div className='bg-foreground px-3 py-0.5 rounded-3xl whitespace-nowrap'>
+                <Typography
+                  variant='body-14/24'
+                  weight='bold'
+                  className='text-background'
+                >
+                  No Genre
+                </Typography>
+              </div>
             )}
           </div>
           <ScrollBar orientation='horizontal' />
