@@ -40,16 +40,17 @@ class SqlSeriRepository
     public function getAll(int $page, int $per_page, ?string $search, ?array $filter): array
     {
         $rows = DB::table('seri')
-                ->join('seri_genre', 'seri.id', '=', 'seri_genre.seri_id')
-                ->join('genre', 'seri_genre.genre_id', '=', 'genre.id')
-                ->select('seri.*');
+            ->leftJoin('seri_genre', 'seri.id', '=', 'seri_genre.seri_id')
+            ->leftJoin('genre', 'seri_genre.genre_id', '=', 'genre.id')
+            ->select('seri.*')
+            ->groupBy('seri.id');
         if ($filter) {
             $rows->where('genre.id', $filter);
         }
-        if($search) {
-            $rows->where('seri.judul', 'like', '%'.$search.'%');
+        if ($search) {
+            $rows->where('seri.judul', 'like', '%' . $search . '%');
         }
-        
+
         $rows = $rows->paginate($per_page, ['*'], 'seri_page', $page);
         $seris = [];
         foreach ($rows as $row) {

@@ -48,10 +48,10 @@ class UserController extends Controller
             $service->execute($input);
         } catch (Throwable $e) {
             DB::rollBack();
-            return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();
-        return Inertia::render('auth/login');
+        return redirect()->route('auth.login.view');
     }
 
     public function storeLogin(Request $request)
@@ -76,7 +76,7 @@ class UserController extends Controller
     public function destroyLogin(): RedirectResponse
     {
         Auth::logout();
-        return redirect('/');
+        return redirect()->route('auth.login.view');
     }
 
     public function getUserList(GetUserListService $service)

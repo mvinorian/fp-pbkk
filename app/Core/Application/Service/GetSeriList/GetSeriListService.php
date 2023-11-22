@@ -86,9 +86,14 @@ class GetSeriListService
             );
         }
 
+        $meta = [
+            'max_page' => $list_seri['max_page'],
+            'genre' => $this->genre_repository->getAll()
+        ];
+
         return [
             'data' => $response,
-            'max_page' => $list_seri['max_page']
+            'meta' => $meta
         ];
     }
 }

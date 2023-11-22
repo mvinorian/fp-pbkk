@@ -6,6 +6,7 @@ use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
 use Illuminate\Http\Request;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class SeriController extends Controller
@@ -39,16 +40,13 @@ class SeriController extends Controller
         $response = $service->execute($req);
 
         return Inertia::render('seri/index', $this->successWithDataProps($response, 'Berhasil mendapatkan list seri'));
-
-        // dd($response);
-        // return view('users', ['users' => $response]);
     }
 
     public function getDetailSeri(Request $request, GetDetailSeriService $service)
     {
         $response = $service->execute($request->route('id'));
 
-        dd($response);
+        dd(Auth::user());
         return view('users', ['users' => $response]);
     }
 }

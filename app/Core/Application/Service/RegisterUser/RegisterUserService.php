@@ -40,9 +40,9 @@ class RegisterUserService
 
         $image_url = ImageUpload::create(
             $request->getImage(),
-            'Company/Image',
+            'images',
             $request->getEmail(),
-            'Image'
+            'profile'
         )->upload();
 
         $user = User::create(
