@@ -11,13 +11,18 @@ declare module 'ziggy-js' {
     'auth.login': [];
     'auth.logout': [];
     'seri.index': [];
-    'create-cart': [];
-    'delete-cart': [
+    'seri.detail': [
       {
         name: 'id';
       },
     ];
-    'delete-cart-volume': [
+    'cart.create': [];
+    'cart.delete': [
+      {
+        name: 'id';
+      },
+    ];
+    'cart.delete.volume': [
       {
         name: 'id';
       },

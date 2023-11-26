@@ -32,39 +32,20 @@ export default function SeriPage({
             maxFilter={3}
           />
         </div>
+
         {success && (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
-            {data?.data.map(
-              (
-                {
-                  id,
-                  judul,
-                  penulis,
-                  skor,
-                  foto,
-                  volume,
-                  tahun_terbit,
-                  sinopsis,
-                  genre,
-                },
-                index,
-              ) => (
-                <MangaCard
-                  key={index}
-                  id={id}
-                  name={judul}
-                  author={penulis[0]}
-                  score={skor}
-                  imageUrl={foto}
-                  volumes={volume.length.toString()}
-                  year={tahun_terbit.split('/')[2]}
-                  synopsis={sinopsis}
-                  genre={genre}
-                />
-              ),
-            )}
+            {data?.data.map((manga, index) => (
+              <MangaCard
+                key={index}
+                {...manga}
+                penulis={manga.penulis[0]}
+                volume={manga.volume.length}
+              />
+            ))}
           </div>
         )}
+
         <Navigation
           baseUrl={route('seri.index')}
           pageCount={5}

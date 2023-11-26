@@ -78,7 +78,7 @@ class ImageUpload
         );
         if (!$uploaded)
             UserException::throw("Upload {$this->name} Gagal", 2003);
-        $full_path = "storage/" . $this->path . '/' . $file_front . "_" . $encrypted_seed . "." . $this->uploaded_file->getClientOriginalExtension();
+        $full_path = "/storage/" . $this->path . '/' . $file_front . "_" . $encrypted_seed . "." . $this->uploaded_file->getClientOriginalExtension();
         return $full_path;
     }
 }

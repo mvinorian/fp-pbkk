@@ -46,7 +46,6 @@ class SeriController extends Controller
     {
         $response = $service->execute($request->route('id'));
 
-        dd(Auth::user());
-        return view('users', ['users' => $response]);
+        return Inertia::render('seri/detail', $this->successWithDataProps($response, 'Berhasil mendapatkan detail seri'));
     }
 }

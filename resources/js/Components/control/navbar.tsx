@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import { AvatarImage } from '@radix-ui/react-avatar';
-import { ShoppingCart } from 'lucide-react';
+import { LogOut, ShoppingCart, UserIcon } from 'lucide-react';
 import React from 'react';
 
 import { cn } from '@/Libs/utils';
@@ -8,7 +8,14 @@ import { User } from '@/Types/entities/page';
 
 import { Avatar, AvatarFallback } from '../ui/avatar';
 import { Button } from '../ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '../ui/dropdown-menu';
 import Typography from '../ui/typography';
 
 export interface NavbarProps extends React.ComponentPropsWithoutRef<'nav'> {
@@ -18,6 +25,8 @@ export interface NavbarProps extends React.ComponentPropsWithoutRef<'nav'> {
 export default function Navbar({ user, className, ...rest }: NavbarProps) {
   const endpoint = location.href.split('?')[0];
 
+  const handleLogout = () => router.post(route('auth.logout'));
+
   return (
     <nav
       className={cn(
@@ -26,7 +35,7 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
       )}
       {...rest}
     >
-      <div className='flex items-center gap-2'>
+      <Link href={route('seri.index')} className='flex items-center gap-2'>
         <img
           src='/images/logo.png'
           alt='logo'
@@ -42,7 +51,7 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
         >
           Tamiyochi
         </Typography>
-      </div>
+      </Link>
 
       <div className='hidden md:flex gap-4 items-center'>
         <Link
@@ -100,25 +109,59 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
             </Button>
           </Link>
 
-          <Popover>
-            <PopoverTrigger>
-              <Avatar>
-                <AvatarImage src={user.image_url} alt='profile' />
-                <AvatarFallback>
-                  {user.name
-                    .split(' ')
-                    .map((name) => name[0])
-                    .join('')}
-                </AvatarFallback>
-              </Avatar>
-            </PopoverTrigger>
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger asChild>
+              <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
+                <Avatar className='h-8 w-8'>
+                  <AvatarImage
+                    src={user.image_url}
+                    alt='profile'
+                    className='w-full h-full object-cover'
+                  />
+                  <AvatarFallback>
+                    {user.name
+                      .split(' ')
+                      .map((name) => name[0])
+                      .join('')}
+                  </AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
 
-            <PopoverContent className='p-3 w-fit'>
-              <Link method='post' href={route('auth.logout')}>
-                <Button variant='destructive'>Logout</Button>
-              </Link>
-            </PopoverContent>
-          </Popover>
+            <DropdownMenuContent className='w-56' align='end' forceMount>
+              <DropdownMenuLabel className='space-y-1'>
+                <Typography variant='small-14/14' className='truncate'>
+                  {user.name}
+                </Typography>
+                <Typography
+                  variant='detail-12/20'
+                  weight='normal'
+                  className='leading-none text-muted-foreground/70'
+                >
+                  {user.email}
+                </Typography>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <UserIcon className='mr-2 w-4 h-4 text-foreground' />
+                <Typography as='span' variant='small-14/14' weight='medium'>
+                  Profile
+                </Typography>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => handleLogout()}>
+                <LogOut className='mr-2 w-4 h-4 text-destructive' />
+                <Typography
+                  as='span'
+                  variant='small-14/14'
+                  weight='medium'
+                  className='text-destructive'
+                >
+                  Log out
+                </Typography>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       )}
     </nav>

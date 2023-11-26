@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::post('/peminjaman', [PeminjamanController::class, 'create']);
 Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 
@@ -33,14 +34,14 @@ Route::get('/users', [UserController::class, 'getUserList']);
 // #region //*=============== seri ===============
 
 Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
-Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri']);
+Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail');
 
 // #region //*=============== cart ===============
 
-Route::get('/cart', [CartController::class, 'getCartUser']);
-Route::post('/cart', [CartController::class, 'createCart'])->name('create-cart');
-Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('delete-cart');
-Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('delete-cart-volume');
+Route::get('/cart', [CartController::class, 'getCartUser'])->name('cart.index');
+Route::post('/cart', [CartController::class, 'createCart'])->name('cart.create');
+Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('cart.delete');
+Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('cart.delete.volume');
 
 
 Route::get('/queue', function () {
