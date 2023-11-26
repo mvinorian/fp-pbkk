@@ -24,7 +24,7 @@ class CreateCartService
     private SqlCartRepository $cart_repository;
     private SqlVolumeRepository $volume_repository;
 
-    public function __construct(SqlUserRepository $cart_repository, SqlVolumeRepository $volume_repository)
+    public function __construct(SqlCartRepository $cart_repository, SqlVolumeRepository $volume_repository)
     {
         $this->cart_repository = $cart_repository;
         $this->volume_repository = $volume_repository;
@@ -43,7 +43,7 @@ class CreateCartService
             throw new Exception("Jumlah volume tidak mencukupi");
         }
 
-        for ($i=0; $i < $request->getJumlah(); $i++) { 
+        for ($i = 0; $i < $request->getJumlah(); $i++) {
             $input = Cart::create(
                 new UserId($user_id),
                 $request->getVolumeId()

@@ -1,3 +1,5 @@
+import { router } from '@inertiajs/react';
+
 import { Genre, Penulis } from '@/Types/entities/seri';
 
 import { ScrollArea, ScrollBar } from '../ui/scroll-area';
@@ -5,30 +7,36 @@ import Typography from '../ui/typography';
 
 export interface MangaCardProps {
   id: number;
-  name: string;
-  author: Penulis;
-  score: number;
-  imageUrl: string;
-  volumes: string;
-  year: string;
-  synopsis: string;
+  judul: string;
+  penulis: Penulis;
+  skor: number;
+  foto: string;
+  volume: number;
+  tahun_terbit: string;
+  sinopsis: string;
   genre?: Genre[];
 }
 
 export default function MangaCard({
-  name,
-  author,
-  imageUrl,
-  volumes,
-  year,
-  synopsis,
+  id,
+  judul,
+  penulis,
+  foto,
+  volume,
+  tahun_terbit,
+  sinopsis,
   genre,
 }: MangaCardProps) {
+  const handleDetail = () => router.visit(route('seri.detail', id));
+
   return (
     <div className='w-full flex h-60 rounded-xl bg-muted overflow-hidden'>
-      <div className='relative shrink-0 w-48 h-full cursor-pointer'>
+      <div
+        onClick={() => handleDetail()}
+        className='relative shrink-0 w-48 h-full cursor-pointer'
+      >
         <img
-          src={imageUrl}
+          src={foto}
           alt='manga-cover'
           width={200}
           height={300}
@@ -47,14 +55,16 @@ export default function MangaCard({
             weight='bold'
             className='text-background group-hover:text-primary-foreground truncate group-hover:overflow-auto group-hover:whitespace-normal'
           >
-            {name}
+            {judul}
           </Typography>
           <Typography
             variant='body-14/24'
             className='text-background group-hover:text-primary-foreground truncate'
           >
-            {author.nama_belakang +
-              (author.nama_depan && `, ${author.nama_depan}`)}
+            {penulis
+              ? penulis.nama_belakang +
+                (penulis.nama_depan && `, ${penulis.nama_depan}`)
+              : 'Unkown'}
           </Typography>
         </div>
       </div>
@@ -66,10 +76,10 @@ export default function MangaCard({
             weight='bold'
             className='space-x-1.5'
           >
-            {volumes} vol • {year}
+            {volume} vol • {tahun_terbit.split('/')[2]}
           </Typography>
           <ScrollArea className='h-full'>
-            <Typography variant='subtle-14/20'>{synopsis}</Typography>
+            <Typography variant='subtle-14/20'>{sinopsis}</Typography>
           </ScrollArea>
         </div>
 

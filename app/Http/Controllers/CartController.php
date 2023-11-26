@@ -40,7 +40,7 @@ class CartController extends Controller
             throw $e;
         }
         DB::commit();
-        return redirect()->route('sign-in');
+        return redirect()->back();
     }
 
     public function deleteCart(Request $request, DeleteCartService $service)
