@@ -19,7 +19,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/peminjaman', [PeminjamanController::class, 'create']);
+// #region //*=============== payment ============
+
+Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman');
 Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 
 // #region //*=============== user ===============
@@ -42,6 +44,12 @@ Route::get('/cart', [CartController::class, 'getCartUser'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'createCart'])->name('cart.create');
 Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('cart.delete');
 Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('cart.delete.volume');
+
+// #region //*=============== home ===============
+
+Route::get('/', function () {
+    return redirect(route('seri.index'));
+});
 
 
 Route::get('/queue', function () {

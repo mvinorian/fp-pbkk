@@ -42,6 +42,15 @@ class SqlCartRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function findByVolumeIdAndUserId(int $volume_id, UserId $user_id): ?Cart
+    {
+        $row = DB::table('cart')->where('volume_id', $volume_id)->where('user_id', $user_id->toString())->first();
+        if (!$row) {
+            return null;
+        }
+        return $this->constructFromRows([$row])[0];
+    }
+
     public function findByUserId(UserId $user_id): ?array
     {
         $rows = DB::table('cart')->where('user_id', $user_id->toString())->get();
@@ -52,9 +61,9 @@ class SqlCartRepository
         return $cart;
     }
 
-    public function delete(CartId $id): void
+    public function delete(int $volume_id): void
     {
-        DB::table('cart')->where('id', $id->toString())->delete();
+        DB::table('cart')->where('volume_id', $volume_id)->limit(1)->delete();
     }
 
     public function deleteByVolumeId(int $volume_id): void

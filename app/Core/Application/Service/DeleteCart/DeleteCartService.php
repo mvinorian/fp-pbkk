@@ -18,16 +18,16 @@ class DeleteCartService
     /**
      * @throws Exception
      */
-    public function execute(string $cart_id, string $user_id)
+    public function execute(int $volume_id, string $user_id)
     {
-        $check_cart = $this->cart_repository->find(new CartId($cart_id));
-        if (!$check_cart) {
-            throw new Exception("Cart tidak ditemukan");
-        }
-        if ($check_cart->getUserId() != $user_id) {
-            throw new Exception("Cart tidak ditemukan");
-        }
+        // $check_cart = $this->cart_repository->find(new CartId($cart_id));
+        // if (!$check_cart) {
+        //     throw new Exception("Cart tidak ditemukan");
+        // }
+        // if ($check_cart->getUserId() != $user_id) {
+        //     throw new Exception("Cart tidak ditemukan");
+        // }
 
-        $this->cart_repository->delete(new CartId($cart_id));
+        $this->cart_repository->delete($volume_id);
     }
 }
