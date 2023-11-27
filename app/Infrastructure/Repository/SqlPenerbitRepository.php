@@ -50,6 +50,12 @@ class SqlPenerbitRepository
         return $row->id;
     }
 
+    public function getAll(): array
+    {
+        $rows = DB::table('penerbit')->get();
+        return $rows->toArray();
+    }
+
     /**
      * @throws Exception
      */

@@ -15,6 +15,7 @@ use App\Core\Application\Service\GetSeriList\GetSeriListService;
 use App\Core\Application\Service\CreatePenulis\CreatePenulisService;
 use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
 use App\Core\Application\Service\CreatePenerbit\CreatePenerbitService;
+use App\Core\Application\Service\CreateSeriView\CreateSeriViewService;
 
 class SeriController extends Controller
 {
@@ -120,5 +121,11 @@ class SeriController extends Controller
         DB::commit();
 
         return redirect()->route('dashboard');
+    }
+
+    public function createSeriView(CreateSeriViewService $service)
+    {
+        $response = $service->execute();
+        return Inertia::render('seri/create', $this->successWithDataProps($response, 'Berhasil mendapatkan data untuk membuat seri'));
     }
 }

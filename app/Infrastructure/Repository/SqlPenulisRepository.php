@@ -68,6 +68,12 @@ class SqlPenulisRepository
         return $row->id;
     }
 
+    public function getAll(): array
+    {
+        $rows = DB::table('penulis')->get();
+        return $rows->toArray();
+    }
+
     /**
      * @throws Exception
      */
