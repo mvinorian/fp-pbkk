@@ -63,6 +63,11 @@ class SqlSeriRepository
         ];
     }
 
+    public function getLastSeriId() {
+        $row = DB::table('seri')->orderBy('id', 'desc')->first();
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */

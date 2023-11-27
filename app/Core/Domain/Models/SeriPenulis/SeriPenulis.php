@@ -19,6 +19,15 @@ class SeriPenulis
         $this->seri_id = $seri_id;
         $this->penulis_id = $penulis_id;
     }
+    
+    public static function create(int $id, int $seri_id, int $penulis_id)
+    {
+        return new self(
+            $id,
+            $seri_id,
+            $penulis_id
+        );
+    }
 
     public function getId(): int
     {

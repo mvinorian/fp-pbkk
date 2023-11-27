@@ -31,6 +31,15 @@ class SqlSeriPenulisRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getLastSeriPenulisId(): int
+    {
+        $row = DB::table('seri_penulis')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */

@@ -32,6 +32,19 @@ class Seri
         $this->foto = $foto;
     }
 
+    public static function create(int $id, int $penerbit_id, string $judul, string $sinopsis, string $tahun_terbit, string $skor, string $foto)
+    {
+        return new self(
+            $id,
+            $penerbit_id, 
+            $judul, 
+            $sinopsis, 
+            $tahun_terbit, 
+            $skor, 
+            $foto
+        );
+    }
+
     public function getId(): int
     {
         return $this->id;

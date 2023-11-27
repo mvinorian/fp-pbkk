@@ -3,20 +3,9 @@
 namespace App\Core\Application\Service\CreateCart;
 
 use Exception;
-use App\Core\Domain\Models\Email;
-use App\Exceptions\UserException;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use App\Core\Domain\Models\User\User;
-use App\Core\Domain\Models\User\UserType;
-use App\Core\Application\ImageUpload\ImageUpload;
-use App\Core\Application\Mail\AccountVerificationEmail;
-use App\Core\Domain\Models\AccountVerification\AccountVerification;
 use App\Core\Domain\Models\Cart\Cart;
 use App\Core\Domain\Models\User\UserId;
-use App\Core\Domain\Repository\AccountVerificationRepositoryInterface;
 use App\Infrastructure\Repository\SqlCartRepository;
-use App\Infrastructure\Repository\SqlUserRepository;
 use App\Infrastructure\Repository\SqlVolumeRepository;
 
 class CreateCartService

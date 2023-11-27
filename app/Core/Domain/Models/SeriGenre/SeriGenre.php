@@ -20,6 +20,15 @@ class SeriGenre
         $this->genre_id = $genre_id;
     }
 
+    public static function create(int $id, int $seri_id, int $genre_id)
+    {
+        return new self(
+            $id,
+            $seri_id,
+            $genre_id
+        );
+    }
+
     public function getId(): int
     {
         return $this->id;

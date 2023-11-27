@@ -30,6 +30,7 @@ Route::group(
     function () {
     }
 );
+Route::post('/admin/seri', [SeriController::class, 'create_seri'])->name('seri.create');
 
 // #region //*============ peminjaman ============
 

@@ -33,6 +33,15 @@ class SqlSeriGenreRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getLastSeriGenreId(): int
+    {
+        $row = DB::table('seri_genre')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */
