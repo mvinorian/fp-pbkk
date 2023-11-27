@@ -90,10 +90,10 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
 
       {!user ? (
         <div className='hidden md:flex gap-4 items-center'>
-          <Link href={route('auth.login.view')}>
+          <Link href={route('auth.login.index')}>
             <Button variant='secondary'>Sign In</Button>
           </Link>
-          <Link href={route('auth.register.view')}>
+          <Link href={route('auth.register.index')}>
             <Button>Sign Up</Button>
           </Link>
         </div>

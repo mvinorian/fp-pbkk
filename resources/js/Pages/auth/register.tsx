@@ -176,7 +176,7 @@ export default function SignUpPage({ success, message }: PageProps) {
               <Typography variant='body-14/24' weight='medium'>
                 Sudah punya akun?
               </Typography>
-              <Link href={route('auth.login.view')}>
+              <Link href={route('auth.login.index')}>
                 <Typography variant='body-14/24' weight='semibold'>
                   Masuk
                 </Typography>

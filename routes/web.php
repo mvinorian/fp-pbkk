@@ -30,10 +30,6 @@ Route::group(
     function () {
     }
 );
-Route::post('/admin/seri', [SeriController::class, 'createSeri'])->name('seri.create');
-Route::post('/admin/genre', [SeriController::class, 'createGenre'])->name('genre.create');
-Route::post('/admin/penerbit', [SeriController::class, 'createPenerbit'])->name('penerbit.create');
-Route::post('/admin/penulis', [SeriController::class, 'createPenulis'])->name('penulis.create');
 
 // #region //*============ peminjaman ============
 
@@ -42,8 +38,8 @@ Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 
 // #region //*=============== user ===============
 
-Route::inertia('/auth/register', 'auth/register')->name('auth.register.view');
-Route::inertia('/auth/login', 'auth/login')->name('auth.login.view');
+Route::inertia('/auth/register', 'auth/register')->name('auth.register.index');
+Route::inertia('/auth/login', 'auth/login')->name('auth.login.index');
 Route::post('/auth/register', [UserController::class, 'storeUser'])->name('auth.register');
 Route::post('/auth/login', [UserController::class, 'storeLogin'])->name('auth.login');
 Route::post('/auth/logout', [UserController::class, 'destroyLogin'])->name('auth.logout');
@@ -52,7 +48,12 @@ Route::get('/users', [UserController::class, 'getUserList']);
 // #region //*=============== seri ===============
 
 Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
-Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail');
+Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail')->middleware(['admin']);
+Route::get('/seri/create', [SeriController::class, 'createSeriView'])->name('seri.create.index');
+Route::post('/seri/create', [SeriController::class, 'create_seri'])->name('seri.create')->middleware(['admin']);
+Route::post('/seri/genre/create', [SeriController::class, 'createGenre'])->name('seri.genre.create')->middleware(['admin']);
+Route::post('/seri/penerbit/create', [SeriController::class, 'createPenerbit'])->name('seri.penerbit.create')->middleware(['admin']);
+Route::post('/seri/penulis/create', [SeriController::class, 'createPenulis'])->name('seri.penulis.create')->middleware(['admin']);
 
 // #region //*=============== cart ===============
 

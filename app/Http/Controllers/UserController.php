@@ -51,7 +51,7 @@ class UserController extends Controller
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();
-        return redirect()->route('auth.login.view');
+        return redirect()->route('auth.login.index');
     }
 
     public function storeLogin(Request $request)
@@ -76,7 +76,7 @@ class UserController extends Controller
     public function destroyLogin(): RedirectResponse
     {
         Auth::logout();
-        return redirect()->route('auth.login.view');
+        return redirect()->route('auth.login.index');
     }
 
     public function getUserList(GetUserListService $service)

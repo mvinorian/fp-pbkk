@@ -6,8 +6,8 @@ declare module 'ziggy-js' {
     'ignition.executeSolution': [];
     'ignition.updateConfig': [];
     'peminjaman.create': [];
-    'auth.register.view': [];
-    'auth.login.view': [];
+    'auth.register.index': [];
+    'auth.login.index': [];
     'auth.register': [];
     'auth.login': [];
     'auth.logout': [];
@@ -17,6 +17,11 @@ declare module 'ziggy-js' {
         name: 'id';
       },
     ];
+    'seri.create.index': [];
+    'seri.create': [];
+    'seri.genre.create': [];
+    'seri.penerbit.create': [];
+    'seri.penulis.create': [];
     'cart.index': [];
     'cart.create': [];
     'cart.delete': [

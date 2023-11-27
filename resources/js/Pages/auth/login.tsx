@@ -95,7 +95,7 @@ export default function SignInPage({ success, message }: PageProps) {
               <Typography variant='body-14/24' weight='medium'>
                 Belum punya akun?
               </Typography>
-              <Link href={route('auth.register.view')}>
+              <Link href={route('auth.register.index')}>
                 <Typography variant='body-14/24' weight='semibold'>
                   Daftar
                 </Typography>
