@@ -5,6 +5,7 @@ declare module 'ziggy-js' {
     'ignition.healthCheck': [];
     'ignition.executeSolution': [];
     'ignition.updateConfig': [];
+    'peminjaman.create': [];
     'auth.register.view': [];
     'auth.login.view': [];
     'auth.register': [];
@@ -16,6 +17,7 @@ declare module 'ziggy-js' {
         name: 'id';
       },
     ];
+    'cart.index': [];
     'cart.create': [];
     'cart.delete': [
       {

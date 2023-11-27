@@ -15,7 +15,7 @@ export default function VolumeCard({
   volume,
   jumlah_tersedia,
   harga_sewa,
-}: Volume) {
+}: VolumeCardProps) {
   const [order, setOrder] = React.useState(1);
 
   const handleCreateCart = () => {
@@ -102,7 +102,7 @@ export default function VolumeCard({
               onClick={() => handleCreateCart()}
               className='w-40 py-1 border border-primary rounded-md'
             >
-              <Plus />
+              <Plus className='mr-2 w-4 h-4' />
               Pinjaman
             </Button>
           </div>

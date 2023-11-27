@@ -13,23 +13,28 @@ use App\Core\Application\Service\CreatePeminjaman\CreatePeminjamanService;
 
 class PeminjamanController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         Configuration::setXenditKey(env('XENDIT_API_KEY', ""));
     }
 
-    public function create(Request $request, CreatePeminjamanService $service) {
+    public function create(Request $request, CreatePeminjamanService $service)
+    {
         DB::beginTransaction();
         try {
             $response = $service->execute($request->input('amount'));
         } catch (Throwable $e) {
             DB::rollBack();
+            dd($e);
             return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
         }
         DB::commit();
-        return response()->json($response['invoice_url']);
+
+        return Inertia::location($response['invoice_url']);
     }
 
-    public function webhook(Request $request) {
+    public function webhook(Request $request)
+    {
         $invoiceApi = new InvoiceApi();
         $getInvoice = $invoiceApi->getInvoiceById($request->input('id'));
 

@@ -74,9 +74,9 @@ export default function MangaCard({
           <Typography
             variant='body-14/24'
             weight='bold'
-            className='space-x-1.5'
+            className='flex gap-1.5'
           >
-            {volume} vol • {tahun_terbit.split('/')[2]}
+            <span>{volume} vol</span>•<span>{tahun_terbit.split('/')[2]}</span>
           </Typography>
           <ScrollArea className='h-full'>
             <Typography variant='subtle-14/20'>{sinopsis}</Typography>
