@@ -28,7 +28,7 @@ class GetCartUserService
     public function execute(string $user_id)
     {
         $volume = $this->cart_repository->getCartVolumeByUserId(new UserId($user_id));
-        
+
         $response = [];
         $total_pinjaman = 0;
         $total_harga_sewa = 0;
@@ -37,6 +37,7 @@ class GetCartUserService
             $count_jumlah_sewa = $this->cart_repository->countJumlahSewa($vol->getVolumeId(), new UserId($user_id));
             $seri = $this->seri_repository->find($list_volume->getSeriId());
             $response[] = new GetCartUserResponse(
+                $list_volume->getId(),
                 $seri->getFoto(),
                 $list_volume->getJumlahTersedia(),
                 $count_jumlah_sewa,
@@ -54,7 +55,7 @@ class GetCartUserService
             "total_pinjaman" => $total_pinjaman,
             "total_harga_sewa" => $total_harga_sewa
         ];
-        
+
         return $response_json;
     }
 }

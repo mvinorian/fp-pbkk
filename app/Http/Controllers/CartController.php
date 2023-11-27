@@ -10,16 +10,18 @@ use App\Core\Application\Service\CreateCart\CreateCartRequest;
 use App\Core\Application\Service\CreateCart\CreateCartService;
 use App\Core\Application\Service\DeleteCart\DeleteCartService;
 use App\Core\Application\Service\GetCartUser\GetCartUserService;
-use App\Core\Application\Service\DeleteCartByVolumeId\DeleteCartByVolumeIdService;
+use App\Core\Application\Service\DeleteCart\DeleteCartByVolumeIdService;
+use Inertia\Inertia;
 
 class CartController extends Controller
 {
     public function getCartUser(GetCartUserService $service)
     {
-        $cartList = $service->execute(Auth::user()->id);
-        dd($cartList);
-        return view('cart.index', compact('cartList'));
+        $response = $service->execute(Auth::user()->id);
+
+        return Inertia::render('cart/index', $this->successWithDataProps($response, 'Berhasil mendapatkan list cart'));
     }
+
     public function createCart(Request $request, CreateCartService $service)
     {
         $request->validate([
@@ -45,10 +47,6 @@ class CartController extends Controller
 
     public function deleteCart(Request $request, DeleteCartService $service)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
-
         DB::beginTransaction();
         try {
             $service->execute($request->route('id'), Auth::user()->id);
@@ -57,15 +55,11 @@ class CartController extends Controller
             throw $e;
         }
         DB::commit();
-        return redirect()->route('sign-in');
+        return redirect()->back();
     }
 
     public function deleteCartByVolumeId(Request $request, DeleteCartByVolumeIdService $service)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
-
         DB::beginTransaction();
         try {
             $service->execute($request->route('id'), Auth::user()->id);
@@ -74,6 +68,6 @@ class CartController extends Controller
             throw $e;
         }
         DB::commit();
-        return redirect()->route('sign-in');
+        return redirect()->back();
     }
 }

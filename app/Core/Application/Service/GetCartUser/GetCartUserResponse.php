@@ -6,18 +6,18 @@ use JsonSerializable;
 
 class GetCartUserResponse implements JsonSerializable
 {
-    // private string $id;
+    private int $volume_id;
     private string $foto;
-    private string $jumlah_tersedia;
-    private string $jumlah_sewa;
-    private string $harga_sewa;
-    private string $volume;
-    private string $harga_sub_total;
+    private int $jumlah_tersedia;
+    private int $jumlah_sewa;
+    private int $harga_sewa;
+    private int $volume;
+    private int $harga_sub_total;
     private string $judul_seri;
 
-    public function __construct(string $foto, string $jumlah_tersedia, string $jumlah_sewa, string $harga_sewa, string $volume, string $harga_sub_total, string $judul_seri)
+    public function __construct(int $volume_id, string $foto, int $jumlah_tersedia, int $jumlah_sewa, int $harga_sewa, int $volume, int $harga_sub_total, string $judul_seri)
     {
-        // $this->id = $id;
+        $this->volume_id = $volume_id;
         $this->foto = $foto;
         $this->jumlah_tersedia = $jumlah_tersedia;
         $this->jumlah_sewa = $jumlah_sewa;
@@ -30,7 +30,7 @@ class GetCartUserResponse implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            // 'id' => $this->id,
+            'volume_id' => $this->volume_id,
             'foto' => $this->foto,
             'jumlah_tersedia' => $this->jumlah_tersedia,
             'jumlah_sewa' => $this->jumlah_sewa,
