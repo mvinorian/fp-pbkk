@@ -19,21 +19,21 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::group(['middleware' => ['user'],],
+Route::group(
+    ['middleware' => ['user'],],
     function () {
-
     }
 );
 
-Route::group(['middleware' => ['admin'],],
+Route::group(
+    ['middleware' => ['admin'],],
     function () {
-
     }
 );
 
 // #region //*============ peminjaman ============
 
-Route::post('/peminjaman', [PeminjamanController::class, 'create']);
+Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 
 // #region //*=============== user ===============

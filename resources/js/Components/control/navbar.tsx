@@ -99,7 +99,7 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
         </div>
       ) : (
         <div className='hidden md:flex gap-4 items-center'>
-          <Link href={''}>
+          <Link href={route('cart.index')}>
             <Button
               size='icon'
               variant='ghost'

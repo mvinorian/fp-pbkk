@@ -34,17 +34,17 @@ class CreatePeminjamanService
     {
         $invoiceApi = new InvoiceApi();
         // $user_id = auth()->user()->id;
-        $user_id = "6c84fb9e-5ab2-4d98-b44b-9713a16d7a7e";
+        $user_id = "4020ae30-ebb2-491c-acb5-d0a7b104e799";
         $input = [
             'external_id' => PeminjamanId::generate()->toString(),
             "type" => "INVOICE",
-            "amount"=> $amount,
-            "callback_url"=> "http://localhost:8000/callback"
+            "amount" => $amount,
+            "callback_url" => "http://localhost:8000/callback"
         ];
         $response = $invoiceApi->createInvoice($input);
-        
+
         $peminjaman_id = new PeminjamanId($response['external_id']);
-        
+
         $invoice = Peminjaman::create(
             $peminjaman_id,
             new UserId($user_id),
@@ -54,19 +54,19 @@ class CreatePeminjamanService
             1,
             $response['amount']
         );
-        
-        $this->peminjaman_repository->persist($invoice);
-        
-        $carts = $this->cart_repository->findByUserId(new UserId($user_id));
-        foreach ($carts as $cart) {
-            $peminjaman_volume = PeminjamanVolume::create(
-                $peminjaman_id,
-                $cart->getVolumeId(),
-            );
-            $this->peminjaman_volume_repository->persist($peminjaman_volume);
 
-            $this->cart_repository->delete($cart->getId());
-        }
+        $this->peminjaman_repository->persist($invoice);
+
+        // $carts = $this->cart_repository->findByUserId(new UserId($user_id));
+        // foreach ($carts as $cart) {
+        //     $peminjaman_volume = PeminjamanVolume::create(
+        //         $peminjaman_id,
+        //         $cart->getVolumeId(),
+        //     );
+        //     $this->peminjaman_volume_repository->persist($peminjaman_volume);
+
+        //     $this->cart_repository->delete($cart->getId());
+        // }
 
         return $response;
     }
