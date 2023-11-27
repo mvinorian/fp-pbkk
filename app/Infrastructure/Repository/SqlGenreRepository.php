@@ -49,6 +49,26 @@ class SqlGenreRepository
         return $rows->toArray();
     }
 
+    public function getLastGenreId(): int
+    {
+        $row = DB::table('genre')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
+    public function findByName(string $name): ?Genre
+    {
+        $row = DB::table('genre')->where('nama', $name)->first();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows([$row])[0];
+    }
+
     /**
      * @throws Exception
      */

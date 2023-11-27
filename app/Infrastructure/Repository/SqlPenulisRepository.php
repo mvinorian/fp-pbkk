@@ -45,6 +45,29 @@ class SqlPenulisRepository
         return $penulis;
     }
 
+    public function findByName(string $nama_depan, string $nama_belakang): ?Penulis
+    {
+        $row = DB::table('penulis')
+            ->where('nama_depan', $nama_depan)
+            ->where('nama_belakang', $nama_belakang)
+            ->first();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows([$row])[0];
+    }
+
+    public function getLastPenulisId(): int
+    {
+        $row = DB::table('penulis')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */

@@ -23,6 +23,16 @@ class Penulis
         $this->peran = $peran;
     }
 
+    public static function create(int $id, string $nama_depan, string $nama_belakang, string $peran)
+    {
+        return new self(
+            $id,
+            $nama_depan,
+            $nama_belakang,
+            $peran
+        );
+    }
+
     public function getId(): int
     {
         return $this->id;

@@ -30,6 +30,26 @@ class SqlPenerbitRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function findByName(string $nama): ?Penerbit
+    {
+        $row = DB::table('penerbit')->where('nama', $nama)->first();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows([$row])[0];
+    }
+
+    public function getLastPenerbitId(): int
+    {
+        $row = DB::table('penerbit')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */

@@ -30,7 +30,10 @@ Route::group(
     function () {
     }
 );
-Route::post('/admin/seri', [SeriController::class, 'create_seri'])->name('seri.create');
+Route::post('/admin/seri', [SeriController::class, 'createSeri'])->name('seri.create');
+Route::post('/admin/genre', [SeriController::class, 'createGenre'])->name('genre.create');
+Route::post('/admin/penerbit', [SeriController::class, 'createPenerbit'])->name('penerbit.create');
+Route::post('/admin/penulis', [SeriController::class, 'createPenulis'])->name('penulis.create');
 
 // #region //*============ peminjaman ============
 

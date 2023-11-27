@@ -9,9 +9,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Core\Application\Service\CreateSeri\CreateSeriRequest;
 use App\Core\Application\Service\CreateSeri\CreateSeriService;
+use App\Core\Application\Service\CreateGenre\CreateGenreService;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
+use App\Core\Application\Service\CreatePenulis\CreatePenulisService;
 use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
+use App\Core\Application\Service\CreatePenerbit\CreatePenerbitService;
 
 class SeriController extends Controller
 {
@@ -53,7 +56,7 @@ class SeriController extends Controller
         return Inertia::render('seri/detail', $this->successWithDataProps($response, 'Berhasil mendapatkan detail seri'));
     }
 
-    public function create_seri(Request $request, CreateSeriService $service)
+    public function createSeri(Request $request, CreateSeriService $service)
     {
         $req = new CreateSeriRequest(
             $request->input('judul'),
@@ -68,6 +71,48 @@ class SeriController extends Controller
         DB::beginTransaction();
         try {
             $service->execute($req);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function createGenre(Request $request, CreateGenreService $service)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($request->input('nama'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function createPenerbit(Request $request, CreatePenerbitService $service)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($request->input('nama'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function createPenulis(Request $request, CreatePenulisService $service)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($request->input('nama_depan'), $request->input('nama_belakang'), $request->input('peran'));
         } catch (Throwable $e) {
             DB::rollBack();
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));

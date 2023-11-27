@@ -17,6 +17,14 @@ class Penerbit
         $this->nama = $nama;
     }
 
+    public static function create(int $id, string $nama)
+    {
+        return new self(
+            $id,
+            $nama
+        );
+    }
+
     /**
      * @return int
      */

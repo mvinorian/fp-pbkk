@@ -17,6 +17,14 @@ class Genre
         $this->nama = $nama;
     }
 
+    public static function create(int $id, string $nama)
+    {
+        return new self(
+            $id,
+            $nama
+        );
+    }
+
     public function getId(): int
     {
         return $this->id;
