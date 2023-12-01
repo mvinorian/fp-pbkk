@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Xendit\Invoice\InvoiceApi;
 use Illuminate\Support\Facades\DB;
 use App\Infrastructure\Repository\SqlPeminjamanRepository;
+use App\Core\Application\Service\WebhookXendit\WebhookXenditService;
+use App\Core\Application\Service\GetMyPeminjaman\GetMyPeminjamanService;
 use App\Core\Application\Service\CreatePeminjaman\CreatePeminjamanService;
 
 class PeminjamanController extends Controller
@@ -25,7 +27,6 @@ class PeminjamanController extends Controller
             $response = $service->execute($request->input('amount'));
         } catch (Throwable $e) {
             DB::rollBack();
-            dd($e);
             return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
         }
         DB::commit();
@@ -33,17 +34,15 @@ class PeminjamanController extends Controller
         return Inertia::location($response['invoice_url']);
     }
 
-    public function webhook(Request $request)
+    public function webhook(Request $request, WebhookXenditService $service)
     {
-        $invoiceApi = new InvoiceApi();
-        $getInvoice = $invoiceApi->getInvoiceById($request->input('id'));
+        $service->execute($request->input('external_id'));
+    }
 
-        $sql = new SqlPeminjamanRepository();
-        $payment = $sql->find($getInvoice['external_id']);
-
-        $payment->setStatus($getInvoice['status']);
-        $sql->persist($payment);
-
-        return response()->json($getInvoice);
+    public function getMyPeminjamanList(Request $request, GetMyPeminjamanService $service)
+    {
+        $response = $service->execute('fa621d02-4659-42a2-bb21-80d70e2cf953');
+        dd($response);
+        return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
     }
 }
