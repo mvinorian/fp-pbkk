@@ -55,6 +55,21 @@ class SqlPeminjamanRepository
     /**
      * @throws Exception
      */
+    public function getAllPeminjamanByUserId(string $user_id): array
+    {
+        $rows = DB::table('peminjaman')->where('user_id', $user_id)->get();
+
+        $peminjamans = [];
+        foreach ($rows as $row) {
+            $peminjamans[] = $this->constructFromRows([$row])[0];
+        }
+
+        return $peminjamans;
+    }
+
+    /**
+     * @throws Exception
+     */
     public function constructFromRows(array $rows): array
     {
         $peminjaman = [];

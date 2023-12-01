@@ -34,6 +34,17 @@ class SqlPeminjamanVolumeRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getAllPeminjamanVolumeByPeminjamanId(PeminjamanId $peminjaman_id): array
+    {
+        $rows = DB::table('peminjaman_volume')->where('peminjaman_id', $peminjaman_id->toString())->get();
+        
+        $peminjaman_volumes = [];
+        foreach ($rows as $row) {
+            $peminjaman_volumes[] = $this->constructFromRows([$row])[0];
+        }
+        return $peminjaman_volumes;
+    }
+
     /**
      * @throws Exception
      */
