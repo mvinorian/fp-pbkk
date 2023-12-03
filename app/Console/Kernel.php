@@ -2,9 +2,12 @@
 
 namespace App\Console;
 
-use Illuminate\Console\Scheduling\Schedule;
-use App\Infrastructure\Repository\SqlPeminjamanRepository;
 use DateTime;
+use App\Jobs\SendEmail;
+use Illuminate\Support\Stringable;
+use Illuminate\Console\Scheduling\Schedule;
+use App\Infrastructure\Repository\SqlUserRepository;
+use App\Infrastructure\Repository\SqlPeminjamanRepository;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -15,17 +18,21 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
+            $userSql = new SqlUserRepository();
             $peminjamanSql = new SqlPeminjamanRepository();
-            $peminjaman = $peminjamanSql->getAllPeminjaman("SETLED");
+            $peminjaman = $peminjamanSql->getAllPeminjaman("SUCCESS");
 
             foreach ($peminjaman as $p) {
-                $interval = $p->getPaidAt()->diff(new DateTime());
-                if ($interval->time > 86400) {
-                    $p->setStatus("RETURNED");
+                $interval = new DateTime($p->getPaidAt());
+                $interval = $interval->diff(new DateTime());
+                $user = $userSql->find($p->getUserId());
+                if ($interval->days > 3) {
+                    SendEmail::dispatch($user->getEmail()->toString(), $p->getId()->toString());
+                    $p->setStatus("EXPIRED");
                     $peminjamanSql->persist($p);
                 }
             }
-        })->everyFiveMinutes();
+        })->everyFiveSeconds();
     }
 
     /**
