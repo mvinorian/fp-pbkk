@@ -9,17 +9,18 @@ import { Button } from '../ui/button';
 
 export interface NavigationProps {
   baseUrl: string;
-  pageCount: number;
-  maxPage: number;
+  pageCount?: number;
+  maxPage?: number;
 }
 
 export default function Navigation({
   baseUrl,
-  pageCount,
-  maxPage,
+  pageCount = 5,
+  maxPage = 1,
 }: NavigationProps) {
   const query = queryString.parse(location.search, {
     arrayFormat: 'index',
+    parseNumbers: true,
   }) as PaginatedQuery;
 
   const [page, perPage] = [query.page ?? 1, query.per_page];
@@ -36,14 +37,12 @@ export default function Navigation({
   const pages = [...Array(maxPage)]
     .map((_, i) => i + 1)
     .slice(
-      page <= Math.floor(pageCount / 2)
+      page <= pageCount >> 2
         ? 0
         : page > maxPage - pageCount + 1
           ? maxPage - pageCount
-          : page - Math.floor(pageCount / 2),
-      page < Math.floor(pageCount / 2)
-        ? pageCount
-        : page + pageCount - Math.floor(pageCount / 2),
+          : page - (pageCount >> 1),
+      page < pageCount >> 1 ? pageCount : page + pageCount - (pageCount >> 1),
     );
 
   return (

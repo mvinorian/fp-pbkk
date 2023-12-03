@@ -48,7 +48,7 @@ Route::get('/users', [UserController::class, 'getUserList']);
 // #region //*=============== seri ===============
 
 Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
-Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail')->middleware(['admin']);
+Route::get('/seri/detail/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail');
 Route::get('/seri/create', [SeriController::class, 'createSeriView'])->name('seri.create.index');
 Route::post('/seri/create', [SeriController::class, 'createSeri'])->name('seri.create')->middleware(['admin']);
 Route::post('/seri/genre/create', [SeriController::class, 'createGenre'])->name('seri.genre.create')->middleware(['admin']);

@@ -1,9 +1,9 @@
 import { cn } from '@/Libs/utils';
 import { Genre, Penulis } from '@/Types/entities/seri';
 
-import Typography from '../ui/typography';
+import Typography from '../../ui/typography';
 
-export interface StatisticCardProps {
+export interface SeriStatisticCardProps {
   tahun_terbit: string;
   volume: number;
   penulis?: Penulis[];
@@ -11,13 +11,13 @@ export interface StatisticCardProps {
   className?: string;
 }
 
-export default function StatisticCard({
+export default function SeriStatisticCard({
   tahun_terbit,
   volume,
   penulis,
   genre,
   className,
-}: StatisticCardProps) {
+}: SeriStatisticCardProps) {
   return (
     <div className={cn('p-3 space-y-3 rounded-lg bg-background', className)}>
       <div className='space-y-0'>

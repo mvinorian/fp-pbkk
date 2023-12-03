@@ -1,7 +1,7 @@
 import React from 'react';
 
-import StatisticCard from '@/Components/card/statistic';
-import VolumeCard from '@/Components/card/volume';
+import SeriStatisticCard from '@/Components/card/seri/statistic';
+import SeriVolumeCard from '@/Components/card/seri/volume';
 import Typography from '@/Components/ui/typography';
 import { useIsOverflow } from '@/Hooks/use-is-overflow';
 import DashboardLayout from '@/Layouts/dashboard';
@@ -84,11 +84,11 @@ export default function SeriDetailPage({ data, user }: PageProps<Seri>) {
 
           {data &&
             data.volume.map((volume) => (
-              <VolumeCard key={volume.id} {...volume} />
+              <SeriVolumeCard key={volume.id} {...volume} />
             ))}
         </div>
         {data && (
-          <StatisticCard
+          <SeriStatisticCard
             {...data}
             volume={data.volume.length}
             className='w-full md:w-56'

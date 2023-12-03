@@ -5,17 +5,17 @@ import React from 'react';
 import { cn } from '@/Libs/utils';
 import { Volume } from '@/Types/entities/seri';
 
-import { Button } from '../ui/button';
-import Typography from '../ui/typography';
+import { Button } from '../../ui/button';
+import Typography from '../../ui/typography';
 
-export interface VolumeCardProps extends Volume {}
+export interface SeriVolumeCardProps extends Volume {}
 
-export default function VolumeCard({
+export default function SeriVolumeCard({
   id,
   volume,
   jumlah_tersedia,
   harga_sewa,
-}: VolumeCardProps) {
+}: SeriVolumeCardProps) {
   const [order, setOrder] = React.useState(1);
 
   const handleCreateCart = () => {

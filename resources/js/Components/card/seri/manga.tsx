@@ -2,10 +2,10 @@ import { router } from '@inertiajs/react';
 
 import { Genre, Penulis } from '@/Types/entities/seri';
 
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
-import Typography from '../ui/typography';
+import { ScrollArea, ScrollBar } from '../../ui/scroll-area';
+import Typography from '../../ui/typography';
 
-export interface MangaCardProps {
+export interface SeriMangaCardProps {
   id: number;
   judul: string;
   penulis: Penulis;
@@ -17,7 +17,7 @@ export interface MangaCardProps {
   genre?: Genre[];
 }
 
-export default function MangaCard({
+export default function SeriMangaCard({
   id,
   judul,
   penulis,
@@ -26,7 +26,7 @@ export default function MangaCard({
   tahun_terbit,
   sinopsis,
   genre,
-}: MangaCardProps) {
+}: SeriMangaCardProps) {
   const handleDetail = () => router.visit(route('seri.detail', id));
 
   return (
