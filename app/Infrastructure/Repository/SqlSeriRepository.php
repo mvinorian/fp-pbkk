@@ -68,6 +68,11 @@ class SqlSeriRepository
         return $row->id;
     }
 
+    public function delete(int $id): void
+    {
+        DB::table('seri')->where('id', $id)->delete();
+    }
+
     /**
      * @throws Exception
      */

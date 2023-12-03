@@ -54,6 +54,7 @@ Route::post('/seri/create', [SeriController::class, 'createSeri'])->name('seri.c
 Route::post('/seri/genre/create', [SeriController::class, 'createGenre'])->name('seri.genre.create')->middleware(['admin']);
 Route::post('/seri/penerbit/create', [SeriController::class, 'createPenerbit'])->name('seri.penerbit.create')->middleware(['admin']);
 Route::post('/seri/penulis/create', [SeriController::class, 'createPenulis'])->name('seri.penulis.create')->middleware(['admin']);
+Route::delete('/seri/delete', [SeriController::class, 'deleteSeri'])->name('seri.delete')->middleware(['admin']);
 
 // #region //*=============== cart ===============
 

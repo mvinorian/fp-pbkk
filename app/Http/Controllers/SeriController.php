@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Core\Application\Service\CreateSeri\CreateSeriRequest;
 use App\Core\Application\Service\CreateSeri\CreateSeriService;
+use App\Core\Application\Service\DeleteSeri\DeleteSeriService;
 use App\Core\Application\Service\CreateGenre\CreateGenreService;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
@@ -147,5 +148,22 @@ class SeriController extends Controller
     {
         $response = $service->execute();
         return Inertia::render('seri/create', $this->successWithDataProps($response, 'Berhasil mendapatkan data untuk membuat seri'));
+    }
+
+    public function deleteSeri(Request $request, DeleteSeriService $service)
+    {
+        $request->validate([
+            'id' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+            $service->execute($request->input('id'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->back();
     }
 }
