@@ -2,7 +2,9 @@
 
 namespace App\Core\Domain\Models\SeriPenulis;
 
-class SeriPenulis
+use Illuminate\Database\Eloquent\Model;
+
+class SeriPenulis extends Model
 {
     private int $id;
     private int $seri_id;

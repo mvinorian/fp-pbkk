@@ -2,7 +2,9 @@
 
 namespace App\Core\Domain\Models\Genre;
 
-class Genre
+use Illuminate\Database\Eloquent\Model;
+
+class Genre extends Model
 {
     private int $id;
     private string $nama;

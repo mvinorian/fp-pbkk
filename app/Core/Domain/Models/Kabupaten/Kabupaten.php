@@ -2,7 +2,11 @@
 
 namespace App\Core\Domain\Models\Kabupaten;
 
-class Kabupaten
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Kabupaten extends Model
 {
     private int $id;
     private int $provinsi_id;
@@ -42,5 +46,10 @@ class Kabupaten
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function user(): HasMany
+    {
+        return $this->hasMany(User::class);
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Core\Domain\Models\PeminjamanVolume;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Core\Domain\Models\Peminjaman\PeminjamanId;
 use App\Core\Domain\Models\PeminjamanVolume\PeminjamanVolumeId;
 
-class PeminjamanVolume
+class PeminjamanVolume extends Model
 {
     private PeminjamanVolumeId $id;
     private PeminjamanId $peminjaman_id;

@@ -2,13 +2,16 @@
 
 namespace App\Core\Domain\Models\User;
 
+use App\Core\Domain\Models\Cart\Cart;
 use Exception;
 use App\Core\Domain\Models\Email;
+use App\Core\Domain\Models\Peminjaman\Peminjaman;
 use Illuminate\Support\Facades\Hash;
 use App\Core\Domain\Models\User\UserId;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Authenticatable
+class User extends Model
 {
     private UserId $id;
     private int $kabupaten_id;
@@ -132,6 +135,16 @@ class User extends Authenticatable
     public function getHashedPassword(): string
     {
         return $this->hashed_password;
+    }
+    
+    public function cart(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function peminjaman(): HasMany
+    {
+        return $this->hasMany(Peminjaman::class);
     }
 
 }

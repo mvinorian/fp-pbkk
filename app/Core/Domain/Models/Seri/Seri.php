@@ -2,7 +2,14 @@
 
 namespace App\Core\Domain\Models\Seri;
 
-class Seri
+use App\Core\Domain\Models\SeriGenre\SeriGenre;
+use App\Core\Domain\Models\SeriPenulis\SeriPenulis;
+use App\Core\Domain\Models\Volume\Volume;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Seri extends Model
 {
     private int $id;
     private int $penerbit_id;
@@ -79,4 +86,25 @@ class Seri
     {
         return $this->foto;
     }
+
+    public function penerbit(): BelongsTo
+    {
+        return $this->belongsTo(Penerbit::class);
+    }
+
+    public function seriGenre(): HasMany
+    {
+        return $this->hasMany(SeriGenre::class);
+    }
+
+    public function seriPenulis(): HasMany
+    {
+        return $this->hasMany(SeriPenulis::class);
+    }
+
+    public function volume(): HasMany
+    {
+        return $this->hasMany(Volume::class);
+    }
+    
 }

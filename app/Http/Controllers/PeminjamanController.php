@@ -22,6 +22,9 @@ class PeminjamanController extends Controller
 
     public function create(Request $request, CreatePeminjamanService $service)
     {
+        $request->validate([
+            'amount' => 'required',
+        ]);
         DB::beginTransaction();
         try {
             $response = $service->execute($request->input('amount'));
@@ -36,6 +39,9 @@ class PeminjamanController extends Controller
 
     public function webhook(Request $request, WebhookXenditService $service)
     {
+        $request->validate([
+            'external_id' => 'required',
+        ]);
         $service->execute($request->input('external_id'));
     }
 

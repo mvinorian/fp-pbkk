@@ -2,7 +2,11 @@
 
 namespace App\Core\Domain\Models\Penerbit;
 
-class Penerbit
+use App\Core\Domain\Models\Seri\Seri;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Penerbit extends Model
 {
     private int $id;
     private string $nama;
@@ -39,5 +43,10 @@ class Penerbit
     public function getNama(): string
     {
         return $this->nama;
+    }
+
+    public function seri(): HasMany
+    {
+        return $this->hasMany(Seri::class);
     }
 }

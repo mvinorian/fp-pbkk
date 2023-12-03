@@ -3,8 +3,9 @@
 namespace App\Core\Domain\Models\Cart;
 
 use App\Core\Domain\Models\User\UserId;
+use Illuminate\Database\Eloquent\Model;
 
-class Cart
+class Cart extends Model
 {
     private CartId $id;
     private UserId $user_id;
@@ -45,4 +46,5 @@ class Cart
     {
         return $this->volume_id;
     }
+    
 }

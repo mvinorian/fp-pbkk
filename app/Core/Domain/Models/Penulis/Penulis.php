@@ -2,7 +2,11 @@
 
 namespace App\Core\Domain\Models\Penulis;
 
-class Penulis
+use App\Core\Domain\Models\SeriPenulis\SeriPenulis;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Penulis extends Model
 {
     private int $id;
     private string $nama_depan;
@@ -51,5 +55,10 @@ class Penulis
     public function getPeran(): string
     {
         return $this->peran;
+    }
+
+    public function seriPenulis(): HasMany
+    {
+        return $this->hasMany(SeriPenulis::class);
     }
 }

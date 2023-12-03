@@ -2,7 +2,11 @@
 
 namespace App\Core\Domain\Models\Volume;
 
-class Volume
+use App\Core\Domain\Models\PeminjamanVolume\PeminjamanVolume;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Volume extends Model
 {
     private int $id;
     private int $seri_id;
@@ -64,5 +68,15 @@ class Volume
     public function getHargaSewa(): int
     {
         return $this->harga_sewa;
+    }
+
+    public function cart(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function peminjamanVolume(): HasMany
+    {
+        return $this->hasMany(PeminjamanVolume::class);
     }
 }

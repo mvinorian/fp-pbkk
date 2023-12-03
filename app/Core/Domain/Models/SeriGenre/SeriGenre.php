@@ -2,7 +2,9 @@
 
 namespace App\Core\Domain\Models\SeriGenre;
 
-class SeriGenre
+use Illuminate\Database\Eloquent\Model;
+
+class SeriGenre extends Model
 {
     private int $id;
     private int $seri_id;

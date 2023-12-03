@@ -1,6 +1,5 @@
 <?php
 
-use Inertia\Inertia;
 use App\Jobs\SendEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -51,7 +50,7 @@ Route::get('/users', [UserController::class, 'getUserList']);
 Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
 Route::get('/seri/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail')->middleware(['admin']);
 Route::get('/seri/create', [SeriController::class, 'createSeriView'])->name('seri.create.index');
-Route::post('/seri/create', [SeriController::class, 'create_seri'])->name('seri.create')->middleware(['admin']);
+Route::post('/seri/create', [SeriController::class, 'createSeri'])->name('seri.create')->middleware(['admin']);
 Route::post('/seri/genre/create', [SeriController::class, 'createGenre'])->name('seri.genre.create')->middleware(['admin']);
 Route::post('/seri/penerbit/create', [SeriController::class, 'createPenerbit'])->name('seri.penerbit.create')->middleware(['admin']);
 Route::post('/seri/penulis/create', [SeriController::class, 'createPenulis'])->name('seri.penulis.create')->middleware(['admin']);

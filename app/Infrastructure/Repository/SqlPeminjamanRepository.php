@@ -57,7 +57,7 @@ class SqlPeminjamanRepository
      */
     public function getAllPeminjamanByUserId(string $user_id): array
     {
-        $rows = DB::table('peminjaman')->where('user_id', $user_id)->get();
+        $rows = DB::table('peminjaman')->where('user_id', $user_id)->where('status', 'SUCCESS')->get();
 
         $peminjamans = [];
         foreach ($rows as $row) {

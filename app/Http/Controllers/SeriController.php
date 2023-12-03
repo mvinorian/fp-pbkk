@@ -59,6 +59,15 @@ class SeriController extends Controller
 
     public function createSeri(Request $request, CreateSeriService $service)
     {
+        $request->validate([
+            'judul' => 'required',
+            'sinopsis' => 'required',
+            'tahun_terbit' => 'required',
+            'foto' => 'required',
+            'penerbit_id' => 'required',
+            'penulis_id' => 'required',
+            'genre_id' => 'required',
+        ]);
         $req = new CreateSeriRequest(
             $request->input('judul'),
             $request->input('sinopsis'),
@@ -83,6 +92,9 @@ class SeriController extends Controller
 
     public function createGenre(Request $request, CreateGenreService $service)
     {
+        $request->validate([
+            'nama' => 'required',
+        ]);
         DB::beginTransaction();
         try {
             $service->execute($request->input('nama'));
@@ -97,6 +109,9 @@ class SeriController extends Controller
 
     public function createPenerbit(Request $request, CreatePenerbitService $service)
     {
+        $request->validate([
+            'nama' => 'required',
+        ]);
         DB::beginTransaction();
         try {
             $service->execute($request->input('nama'));
@@ -111,6 +126,11 @@ class SeriController extends Controller
 
     public function createPenulis(Request $request, CreatePenulisService $service)
     {
+        $request->validate([
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'peran' => 'required',
+        ]);
         DB::beginTransaction();
         try {
             $service->execute($request->input('nama_depan'), $request->input('nama_belakang'), $request->input('peran'));

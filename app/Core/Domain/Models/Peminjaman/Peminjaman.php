@@ -3,8 +3,11 @@
 namespace App\Core\Domain\Models\Peminjaman;
 
 use App\Core\Domain\Models\User\UserId;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Core\Domain\Models\PeminjamanVolume\PeminjamanVolume;
 
-class Peminjaman
+class Peminjaman extends Model
 {
     private PeminjamanId $id;
     private UserId $user_id;
@@ -86,5 +89,9 @@ class Peminjaman
     {
         $this->status = $status;
     }
-    
+
+    public function peminjamanVolume(): HasMany
+    {
+        return $this->hasMany(PeminjamanVolume::class);
+    }
 }
