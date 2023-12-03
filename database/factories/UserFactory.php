@@ -21,6 +21,7 @@ class UserFactory extends Factory
     {
         return [
             'id' => UserId::generate()->toString(),
+            'kabupaten_id' => rand(1101, 1110),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'no_telp' => fake()->phoneNumber(),

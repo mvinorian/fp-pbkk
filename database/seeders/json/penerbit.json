@@ -1,1352 +1,902 @@
 [
   {
     "id": 1,
-    "nama": "Young Animal",
-    "created_at": "2023-05-29 20:39:56.397275+07",
-    "updated_at": "2023-05-29 20:39:56.397275+07"
+    "nama": "Young Animal"
   },
   {
     "id": 2,
-    "nama": "Shounen Jump (Weekly)",
-    "created_at": "2023-05-29 20:39:56.402978+07",
-    "updated_at": "2023-05-29 20:39:56.402978+07"
+    "nama": "Shounen Jump (Weekly)"
   },
   {
     "id": 3,
-    "nama": "Shounen Gangan",
-    "created_at": "2023-05-29 20:39:56.404064+07",
-    "updated_at": "2023-05-29 20:39:56.404064+07"
+    "nama": "Shounen Gangan"
   },
   {
     "id": 4,
-    "nama": "Ultra Jump",
-    "created_at": "2023-05-29 20:39:56.405114+07",
-    "updated_at": "2023-05-29 20:39:56.405114+07"
+    "nama": "Ultra Jump"
   },
   {
     "id": 5,
-    "nama": "Big Comic Spirits",
-    "created_at": "2023-05-29 20:39:56.406354+07",
-    "updated_at": "2023-05-29 20:39:56.406354+07"
+    "nama": "Big Comic Spirits"
   },
   {
     "id": 6,
-    "nama": "Morning",
-    "created_at": "2023-05-29 20:39:56.407042+07",
-    "updated_at": "2023-05-29 20:39:56.407042+07"
+    "nama": "Morning"
   },
   {
     "id": 7,
-    "nama": "Afternoon",
-    "created_at": "2023-05-29 20:39:56.408213+07",
-    "updated_at": "2023-05-29 20:39:56.408213+07"
+    "nama": "Afternoon"
   },
   {
     "id": 8,
-    "nama": "Shounen Magazine (Weekly)",
-    "created_at": "2023-05-29 20:39:56.409403+07",
-    "updated_at": "2023-05-29 20:39:56.409403+07"
+    "nama": "Shounen Magazine (Weekly)"
   },
   {
     "id": 9,
-    "nama": "Young Jump",
-    "created_at": "2023-05-29 20:39:56.410999+07",
-    "updated_at": "2023-05-29 20:39:56.410999+07"
+    "nama": "Young Jump"
   },
   {
     "id": 10,
-    "nama": "Shounen Jump+",
-    "created_at": "2023-05-29 20:39:56.412225+07",
-    "updated_at": "2023-05-29 20:39:56.412225+07"
+    "nama": "Shounen Jump+"
   },
   {
     "id": 11,
-    "nama": "Big Comic Original",
-    "created_at": "2023-05-29 20:39:56.413569+07",
-    "updated_at": "2023-05-29 20:39:56.413569+07"
+    "nama": "Big Comic Original"
   },
   {
     "id": 12,
-    "nama": "Tonari no Young Jump",
-    "created_at": "2023-05-29 20:39:56.415326+07",
-    "updated_at": "2023-05-29 20:39:56.415326+07"
+    "nama": "Tonari no Young Jump"
   },
   {
     "id": 13,
-    "nama": "Kakao",
-    "created_at": "2023-05-29 20:39:56.416406+07",
-    "updated_at": "2023-05-29 20:39:56.416406+07"
+    "nama": "Kakao"
   },
   {
     "id": 14,
-    "nama": "good! Afternoon",
-    "created_at": "2023-05-29 20:39:56.418651+07",
-    "updated_at": "2023-05-29 20:39:56.418651+07"
+    "nama": "good! Afternoon"
   },
   {
     "id": 15,
-    "nama": "Bessatsu Shounen Magazine",
-    "created_at": "2023-05-29 20:39:56.420331+07",
-    "updated_at": "2023-05-29 20:39:56.420331+07"
+    "nama": "Bessatsu Shounen Magazine"
   },
   {
     "id": 16,
-    "nama": "comico",
-    "created_at": "2023-05-29 20:39:56.42167+07",
-    "updated_at": "2023-05-29 20:39:56.42167+07"
+    "nama": "comico"
   },
   {
     "id": 17,
-    "nama": "Dengeki Daioh",
-    "created_at": "2023-05-29 20:39:56.422767+07",
-    "updated_at": "2023-05-29 20:39:56.422767+07"
+    "nama": "Dengeki Daioh"
   },
   {
     "id": 18,
-    "nama": "Hana to Yume",
-    "created_at": "2023-05-29 20:39:56.424478+07",
-    "updated_at": "2023-05-29 20:39:56.424478+07"
+    "nama": "Hana to Yume"
   },
   {
     "id": 19,
-    "nama": "Web Comic Gamma",
-    "created_at": "2023-05-29 20:39:56.426263+07",
-    "updated_at": "2023-05-29 20:39:56.426263+07"
+    "nama": "Web Comic Gamma"
   },
   {
     "id": 20,
-    "nama": "GFantasy",
-    "created_at": "2023-05-29 20:39:56.427711+07",
-    "updated_at": "2023-05-29 20:39:56.427711+07"
+    "nama": "GFantasy"
   },
   {
     "id": 21,
-    "nama": "Gessan",
-    "created_at": "2023-05-29 20:39:56.429344+07",
-    "updated_at": "2023-05-29 20:39:56.429344+07"
+    "nama": "Gessan"
   },
   {
     "id": 22,
-    "nama": "Naver Webtoon",
-    "created_at": "2023-05-29 20:39:56.431983+07",
-    "updated_at": "2023-05-29 20:39:56.431983+07"
+    "nama": "Naver Webtoon"
   },
   {
     "id": 23,
-    "nama": "Cookie",
-    "created_at": "2023-05-29 20:39:56.433228+07",
-    "updated_at": "2023-05-29 20:39:56.433228+07"
+    "nama": "Cookie"
   },
   {
     "id": 24,
-    "nama": "Comic Bunch",
-    "created_at": "2023-05-29 20:39:56.434946+07",
-    "updated_at": "2023-05-29 20:39:56.434946+07"
+    "nama": "Comic Bunch"
   },
   {
     "id": 25,
-    "nama": "Young Magazine (Weekly)",
-    "created_at": "2023-05-29 20:39:56.436702+07",
-    "updated_at": "2023-05-29 20:39:56.436702+07"
+    "nama": "Young Magazine (Weekly)"
   },
   {
     "id": 26,
-    "nama": "LaLa",
-    "created_at": "2023-05-29 20:39:56.438711+07",
-    "updated_at": "2023-05-29 20:39:56.438711+07"
+    "nama": "LaLa"
   },
   {
     "id": 27,
-    "nama": "MangaONE",
-    "created_at": "2023-05-29 20:39:56.441121+07",
-    "updated_at": "2023-05-29 20:39:56.441121+07"
+    "nama": "MangaONE"
   },
   {
     "id": 28,
-    "nama": "Young Ace",
-    "created_at": "2023-05-29 20:39:56.443797+07",
-    "updated_at": "2023-05-29 20:39:56.443797+07"
+    "nama": "Young Ace"
   },
   {
     "id": 29,
-    "nama": "Shounen Sunday",
-    "created_at": "2023-05-29 20:39:56.445963+07",
-    "updated_at": "2023-05-29 20:39:56.445963+07"
+    "nama": "Shounen Sunday"
   },
   {
     "id": 30,
-    "nama": "Young Champ",
-    "created_at": "2023-05-29 20:39:56.447751+07",
-    "updated_at": "2023-05-29 20:39:56.447751+07"
+    "nama": "Young Champ"
   },
   {
     "id": 31,
-    "nama": "",
-    "created_at": "2023-05-29 20:39:56.450666+07",
-    "updated_at": "2023-05-29 20:39:56.450666+07"
+    "nama": ""
   },
   {
     "id": 32,
-    "nama": "Shounen Magazine (Monthly)",
-    "created_at": "2023-05-29 20:39:56.453495+07",
-    "updated_at": "2023-05-29 20:39:56.453495+07"
+    "nama": "Shounen Magazine (Monthly)"
   },
   {
     "id": 33,
-    "nama": "Comica",
-    "created_at": "2023-05-29 20:39:56.455773+07",
-    "updated_at": "2023-05-29 20:39:56.455773+07"
+    "nama": "Comica"
   },
   {
     "id": 34,
-    "nama": "Shounen Sirius",
-    "created_at": "2023-05-29 20:39:56.457705+07",
-    "updated_at": "2023-05-29 20:39:56.457705+07"
+    "nama": "Shounen Sirius"
   },
   {
     "id": 35,
-    "nama": "Daum Webtoon",
-    "created_at": "2023-05-29 20:39:56.458961+07",
-    "updated_at": "2023-05-29 20:39:56.458961+07"
+    "nama": "Daum Webtoon"
   },
   {
     "id": 36,
-    "nama": "Monthly Action",
-    "created_at": "2023-05-29 20:39:56.461267+07",
-    "updated_at": "2023-05-29 20:39:56.461267+07"
+    "nama": "Monthly Action"
   },
   {
     "id": 37,
-    "nama": "Kurage Bunch",
-    "created_at": "2023-05-29 20:39:56.464827+07",
-    "updated_at": "2023-05-29 20:39:56.464827+07"
+    "nama": "Kurage Bunch"
   },
   {
     "id": 38,
-    "nama": "Jump SQ.",
-    "created_at": "2023-05-29 20:39:56.466862+07",
-    "updated_at": "2023-05-29 20:39:56.466862+07"
+    "nama": "Jump SQ."
   },
   {
     "id": 39,
-    "nama": "Comic POOL",
-    "created_at": "2023-05-29 20:39:56.46992+07",
-    "updated_at": "2023-05-29 20:39:56.46992+07"
+    "nama": "Comic POOL"
   },
   {
     "id": 40,
-    "nama": "Betsucomi",
-    "created_at": "2023-05-29 20:39:56.471889+07",
-    "updated_at": "2023-05-29 20:39:56.471889+07"
+    "nama": "Betsucomi"
   },
   {
     "id": 41,
-    "nama": "Jump SQ.Rise",
-    "created_at": "2023-05-29 20:39:56.473521+07",
-    "updated_at": "2023-05-29 20:39:56.473521+07"
+    "nama": "Jump SQ.Rise"
   },
   {
     "id": 42,
-    "nama": "Cheri+",
-    "created_at": "2023-05-29 20:39:56.476602+07",
-    "updated_at": "2023-05-29 20:39:56.476602+07"
+    "nama": "Cheri+"
   },
   {
     "id": 43,
-    "nama": "Comic Alive",
-    "created_at": "2023-05-29 20:39:56.478462+07",
-    "updated_at": "2023-05-29 20:39:56.478462+07"
+    "nama": "Comic Alive"
   },
   {
     "id": 44,
-    "nama": "Young King OURs",
-    "created_at": "2023-05-29 20:39:56.481021+07",
-    "updated_at": "2023-05-29 20:39:56.481021+07"
+    "nama": "Young King OURs"
   },
   {
     "id": 45,
-    "nama": "Business Jump",
-    "created_at": "2023-05-29 20:39:56.482647+07",
-    "updated_at": "2023-05-29 20:39:56.482647+07"
+    "nama": "Business Jump"
   },
   {
     "id": 46,
-    "nama": "Nakayoshi",
-    "created_at": "2023-05-29 20:39:56.485067+07",
-    "updated_at": "2023-05-29 20:39:56.485067+07"
+    "nama": "Nakayoshi"
   },
   {
     "id": 47,
-    "nama": "Animage",
-    "created_at": "2023-05-29 20:39:56.48692+07",
-    "updated_at": "2023-05-29 20:39:56.48692+07"
+    "nama": "Animage"
   },
   {
     "id": 48,
-    "nama": "Gangan Online",
-    "created_at": "2023-05-29 20:39:56.488157+07",
-    "updated_at": "2023-05-29 20:39:56.488157+07"
+    "nama": "Gangan Online"
   },
   {
     "id": 49,
-    "nama": "Mephisto",
-    "created_at": "2023-05-29 20:39:56.489802+07",
-    "updated_at": "2023-05-29 20:39:56.489802+07"
+    "nama": "Mephisto"
   },
   {
     "id": 50,
-    "nama": "Shounen Champion (Weekly)",
-    "created_at": "2023-05-29 20:39:56.491532+07",
-    "updated_at": "2023-05-29 20:39:56.491532+07"
+    "nama": "Shounen Champion (Weekly)"
   },
   {
     "id": 51,
-    "nama": "HiBaNa",
-    "created_at": "2023-05-29 20:39:56.49381+07",
-    "updated_at": "2023-05-29 20:39:56.49381+07"
+    "nama": "HiBaNa"
   },
   {
     "id": 52,
-    "nama": "Bessatsu Margaret",
-    "created_at": "2023-05-29 20:39:56.495601+07",
-    "updated_at": "2023-05-29 20:39:56.495601+07"
+    "nama": "Bessatsu Margaret"
   },
   {
     "id": 53,
-    "nama": "Shounen Sunday Super",
-    "created_at": "2023-05-29 20:39:56.497817+07",
-    "updated_at": "2023-05-29 20:39:56.497817+07"
+    "nama": "Shounen Sunday Super"
   },
   {
     "id": 54,
-    "nama": "Young King OURs GH",
-    "created_at": "2023-05-29 20:39:56.499069+07",
-    "updated_at": "2023-05-29 20:39:56.499069+07"
+    "nama": "Young King OURs GH"
   },
   {
     "id": 55,
-    "nama": "Harta",
-    "created_at": "2023-05-29 20:39:56.502344+07",
-    "updated_at": "2023-05-29 20:39:56.502344+07"
+    "nama": "Harta"
   },
   {
     "id": 56,
-    "nama": "Comic Garden",
-    "created_at": "2023-05-29 20:39:56.504959+07",
-    "updated_at": "2023-05-29 20:39:56.504959+07"
+    "nama": "Comic Garden"
   },
   {
     "id": 57,
-    "nama": "Young Sunday (Weekly)",
-    "created_at": "2023-05-29 20:39:56.506887+07",
-    "updated_at": "2023-05-29 20:39:56.506887+07"
+    "nama": "Young Sunday (Weekly)"
   },
   {
     "id": 58,
-    "nama": "Dessert",
-    "created_at": "2023-05-29 20:39:56.509021+07",
-    "updated_at": "2023-05-29 20:39:56.509021+07"
+    "nama": "Dessert"
   },
   {
     "id": 59,
-    "nama": "Margaret",
-    "created_at": "2023-05-29 20:39:56.511079+07",
-    "updated_at": "2023-05-29 20:39:56.511079+07"
+    "nama": "Margaret"
   },
   {
     "id": 60,
-    "nama": "Shounen Jump (Monthly)",
-    "created_at": "2023-05-29 20:39:56.513744+07",
-    "updated_at": "2023-05-29 20:39:56.513744+07"
+    "nama": "Shounen Jump (Monthly)"
   },
   {
     "id": 61,
-    "nama": "Comic Zenon",
-    "created_at": "2023-05-29 20:39:56.518672+07",
-    "updated_at": "2023-05-29 20:39:56.518672+07"
+    "nama": "Comic Zenon"
   },
   {
     "id": 62,
-    "nama": "Ura Sunday",
-    "created_at": "2023-05-29 20:39:56.519972+07",
-    "updated_at": "2023-05-29 20:39:56.519972+07"
+    "nama": "Ura Sunday"
   },
   {
     "id": 63,
-    "nama": "Morning Two",
-    "created_at": "2023-05-29 20:39:56.522232+07",
-    "updated_at": "2023-05-29 20:39:56.522232+07"
+    "nama": "Morning Two"
   },
   {
     "id": 64,
-    "nama": "Gangan Joker",
-    "created_at": "2023-05-29 20:39:56.524453+07",
-    "updated_at": "2023-05-29 20:39:56.524453+07"
+    "nama": "Gangan Joker"
   },
   {
     "id": 65,
-    "nama": "LaLa DX",
-    "created_at": "2023-05-29 20:39:56.52619+07",
-    "updated_at": "2023-05-29 20:39:56.52619+07"
+    "nama": "LaLa DX"
   },
   {
     "id": 66,
-    "nama": "Dengeki Maoh",
-    "created_at": "2023-05-29 20:39:56.528896+07",
-    "updated_at": "2023-05-29 20:39:56.528896+07"
+    "nama": "Dengeki Maoh"
   },
   {
     "id": 67,
-    "nama": "Opera",
-    "created_at": "2023-05-29 20:39:56.53106+07",
-    "updated_at": "2023-05-29 20:39:56.53106+07"
+    "nama": "Opera"
   },
   {
     "id": 68,
-    "nama": "Zipper",
-    "created_at": "2023-05-29 20:39:56.533812+07",
-    "updated_at": "2023-05-29 20:39:56.533812+07"
+    "nama": "Zipper"
   },
   {
     "id": 69,
-    "nama": "Be-Love",
-    "created_at": "2023-05-29 20:39:56.535058+07",
-    "updated_at": "2023-05-29 20:39:56.535058+07"
+    "nama": "Be-Love"
   },
   {
     "id": 70,
-    "nama": "The Sneaker",
-    "created_at": "2023-05-29 20:39:56.536271+07",
-    "updated_at": "2023-05-29 20:39:56.536271+07"
+    "nama": "The Sneaker"
   },
   {
     "id": 71,
-    "nama": "Comic Flapper",
-    "created_at": "2023-05-29 20:39:56.538671+07",
-    "updated_at": "2023-05-29 20:39:56.538671+07"
+    "nama": "Comic Flapper"
   },
   {
     "id": 72,
-    "nama": "ARIA",
-    "created_at": "2023-05-29 20:39:56.541097+07",
-    "updated_at": "2023-05-29 20:39:56.541097+07"
+    "nama": "ARIA"
   },
   {
     "id": 73,
-    "nama": "Bessatsu Friend",
-    "created_at": "2023-05-29 20:39:56.542937+07",
-    "updated_at": "2023-05-29 20:39:56.542937+07"
+    "nama": "Bessatsu Friend"
   },
   {
     "id": 74,
-    "nama": "Jump GIGA",
-    "created_at": "2023-05-29 20:39:56.544318+07",
-    "updated_at": "2023-05-29 20:39:56.544318+07"
+    "nama": "Jump GIGA"
   },
   {
     "id": 75,
-    "nama": "Flowers (Monthly)",
-    "created_at": "2023-05-29 20:39:56.545373+07",
-    "updated_at": "2023-05-29 20:39:56.545373+07"
+    "nama": "Flowers (Monthly)"
   },
   {
     "id": 76,
-    "nama": "Young Gangan",
-    "created_at": "2023-05-29 20:39:56.547266+07",
-    "updated_at": "2023-05-29 20:39:56.547266+07"
+    "nama": "Young Gangan"
   },
   {
     "id": 77,
-    "nama": "Craft",
-    "created_at": "2023-05-29 20:39:56.549231+07",
-    "updated_at": "2023-05-29 20:39:56.549231+07"
+    "nama": "Craft"
   },
   {
     "id": 78,
-    "nama": "Shounen Ace",
-    "created_at": "2023-05-29 20:39:56.550893+07",
-    "updated_at": "2023-05-29 20:39:56.550893+07"
+    "nama": "Shounen Ace"
   },
   {
     "id": 79,
-    "nama": "Comic Blade",
-    "created_at": "2023-05-29 20:39:56.553361+07",
-    "updated_at": "2023-05-29 20:39:56.553361+07"
+    "nama": "Comic Blade"
   },
   {
     "id": 80,
-    "nama": "Sunday Gene-X",
-    "created_at": "2023-05-29 20:39:56.55615+07",
-    "updated_at": "2023-05-29 20:39:56.55615+07"
+    "nama": "Sunday Gene-X"
   },
   {
     "id": 81,
-    "nama": "Emerald",
-    "created_at": "2023-05-29 20:39:56.557443+07",
-    "updated_at": "2023-05-29 20:39:56.557443+07"
+    "nama": "Emerald"
   },
   {
     "id": 82,
-    "nama": "Comp Ace",
-    "created_at": "2023-05-29 20:39:56.559111+07",
-    "updated_at": "2023-05-29 20:39:56.559111+07"
+    "nama": "Comp Ace"
   },
   {
     "id": 83,
-    "nama": "Comic High!",
-    "created_at": "2023-05-29 20:39:56.561841+07",
-    "updated_at": "2023-05-29 20:39:56.561841+07"
+    "nama": "Comic High!"
   },
   {
     "id": 84,
-    "nama": "CoroCoro Comic",
-    "created_at": "2023-05-29 20:39:56.563596+07",
-    "updated_at": "2023-05-29 20:39:56.563596+07"
+    "nama": "CoroCoro Comic"
   },
   {
     "id": 85,
-    "nama": "Big Gangan",
-    "created_at": "2023-05-29 20:39:56.564995+07",
-    "updated_at": "2023-05-29 20:39:56.564995+07"
+    "nama": "Big Gangan"
   },
   {
     "id": 86,
-    "nama": "Kiss",
-    "created_at": "2023-05-29 20:39:56.566342+07",
-    "updated_at": "2023-05-29 20:39:56.566342+07"
+    "nama": "Kiss"
   },
   {
     "id": 87,
-    "nama": "ihr hertZ",
-    "created_at": "2023-05-29 20:39:56.568187+07",
-    "updated_at": "2023-05-29 20:39:56.568187+07"
+    "nama": "ihr hertZ"
   },
   {
     "id": 88,
-    "nama": "GUSH",
-    "created_at": "2023-05-29 20:39:56.571112+07",
-    "updated_at": "2023-05-29 20:39:56.571112+07"
+    "nama": "GUSH"
   },
   {
     "id": 89,
-    "nama": "Ribon Magazine",
-    "created_at": "2023-05-29 20:39:56.572905+07",
-    "updated_at": "2023-05-29 20:39:56.572905+07"
+    "nama": "Ribon Magazine"
   },
   {
     "id": 90,
-    "nama": "Gene pixiv",
-    "created_at": "2023-05-29 20:39:56.575298+07",
-    "updated_at": "2023-05-29 20:39:56.575298+07"
+    "nama": "Gene pixiv"
   },
   {
     "id": 91,
-    "nama": "Sho-Comi",
-    "created_at": "2023-05-29 20:39:56.578458+07",
-    "updated_at": "2023-05-29 20:39:56.578458+07"
+    "nama": "Sho-Comi"
   },
   {
     "id": 92,
-    "nama": "Horror M",
-    "created_at": "2023-05-29 20:39:56.581726+07",
-    "updated_at": "2023-05-29 20:39:56.581726+07"
+    "nama": "Horror M"
   },
   {
     "id": 93,
-    "nama": "Comic Ryu",
-    "created_at": "2023-05-29 20:39:56.584527+07",
-    "updated_at": "2023-05-29 20:39:56.584527+07"
+    "nama": "Comic Ryu"
   },
   {
     "id": 94,
-    "nama": "Big Comic Superior",
-    "created_at": "2023-05-29 20:39:56.586236+07",
-    "updated_at": "2023-05-29 20:39:56.586236+07"
+    "nama": "Big Comic Superior"
   },
   {
     "id": 95,
-    "nama": "Comic@Bunch",
-    "created_at": "2023-05-29 20:39:56.588279+07",
-    "updated_at": "2023-05-29 20:39:56.588279+07"
+    "nama": "Comic@Bunch"
   },
   {
     "id": 96,
-    "nama": "Comic Dragon",
-    "created_at": "2023-05-29 20:39:56.591275+07",
-    "updated_at": "2023-05-29 20:39:56.591275+07"
+    "nama": "Comic Dragon"
   },
   {
     "id": 97,
-    "nama": "Manga Time Kirara Forward",
-    "created_at": "2023-05-29 20:39:56.593038+07",
-    "updated_at": "2023-05-29 20:39:56.593038+07"
+    "nama": "Manga Time Kirara Forward"
   },
   {
     "id": 98,
-    "nama": "Canna",
-    "created_at": "2023-05-29 20:39:56.594777+07",
-    "updated_at": "2023-05-29 20:39:56.594777+07"
+    "nama": "Canna"
   },
   {
     "id": 99,
-    "nama": "Ciao",
-    "created_at": "2023-05-29 20:39:56.596712+07",
-    "updated_at": "2023-05-29 20:39:56.596712+07"
+    "nama": "Ciao"
   },
   {
     "id": 100,
-    "nama": "Young King",
-    "created_at": "2023-05-29 20:39:56.598992+07",
-    "updated_at": "2023-05-29 20:39:56.598992+07"
+    "nama": "Young King"
   },
   {
     "id": 101,
-    "nama": "Mobile Man",
-    "created_at": "2023-05-29 20:39:56.601379+07",
-    "updated_at": "2023-05-29 20:39:56.601379+07"
+    "nama": "Mobile Man"
   },
   {
     "id": 102,
-    "nama": "Gangan Powered",
-    "created_at": "2023-05-29 20:39:56.603346+07",
-    "updated_at": "2023-05-29 20:39:56.603346+07"
+    "nama": "Gangan Powered"
   },
   {
     "id": 103,
-    "nama": "Comic Beam",
-    "created_at": "2023-05-29 20:39:56.605842+07",
-    "updated_at": "2023-05-29 20:39:56.605842+07"
+    "nama": "Comic Beam"
   },
   {
     "id": 104,
-    "nama": "twi4",
-    "created_at": "2023-05-29 20:39:56.608314+07",
-    "updated_at": "2023-05-29 20:39:56.608314+07"
+    "nama": "twi4"
   },
   {
     "id": 105,
-    "nama": "Manga Action",
-    "created_at": "2023-05-29 20:39:56.611116+07",
-    "updated_at": "2023-05-29 20:39:56.611116+07"
+    "nama": "Manga Action"
   },
   {
     "id": 106,
-    "nama": "Cocohana",
-    "created_at": "2023-05-29 20:39:56.613411+07",
-    "updated_at": "2023-05-29 20:39:56.613411+07"
+    "nama": "Cocohana"
   },
   {
     "id": 107,
-    "nama": "Cheese!",
-    "created_at": "2023-05-29 20:39:56.615766+07",
-    "updated_at": "2023-05-29 20:39:56.615766+07"
+    "nama": "Cheese!"
   },
   {
     "id": 108,
-    "nama": "Lezhin Comics Webtoon",
-    "created_at": "2023-05-29 20:39:56.617441+07",
-    "updated_at": "2023-05-29 20:39:56.617441+07"
+    "nama": "Lezhin Comics Webtoon"
   },
   {
     "id": 109,
-    "nama": "Star☆Girls",
-    "created_at": "2023-05-29 20:39:56.619146+07",
-    "updated_at": "2023-05-29 20:39:56.619146+07"
+    "nama": "Star☆Girls"
   },
   {
     "id": 110,
-    "nama": "Dear+",
-    "created_at": "2023-05-29 20:39:56.620285+07",
-    "updated_at": "2023-05-29 20:39:56.620285+07"
+    "nama": "Dear+"
   },
   {
     "id": 111,
-    "nama": "Ikki",
-    "created_at": "2023-05-29 20:39:56.621994+07",
-    "updated_at": "2023-05-29 20:39:56.621994+07"
+    "nama": "Ikki"
   },
   {
     "id": 112,
-    "nama": "Wings",
-    "created_at": "2023-05-29 20:39:56.623172+07",
-    "updated_at": "2023-05-29 20:39:56.623172+07"
+    "nama": "Wings"
   },
   {
     "id": 113,
-    "nama": "Young Champion Retsu",
-    "created_at": "2023-05-29 20:39:56.624327+07",
-    "updated_at": "2023-05-29 20:39:56.624327+07"
+    "nama": "Young Champion Retsu"
   },
   {
     "id": 114,
-    "nama": "Be x Boy GOLD",
-    "created_at": "2023-05-29 20:39:56.625406+07",
-    "updated_at": "2023-05-29 20:39:56.625406+07"
+    "nama": "Be x Boy GOLD"
   },
   {
     "id": 115,
-    "nama": "Young Champion Magazine",
-    "created_at": "2023-05-29 20:39:56.627092+07",
-    "updated_at": "2023-05-29 20:39:56.627092+07"
+    "nama": "Young Champion Magazine"
   },
   {
     "id": 116,
-    "nama": "Chara",
-    "created_at": "2023-05-29 20:39:56.628366+07",
-    "updated_at": "2023-05-29 20:39:56.628366+07"
+    "nama": "Chara"
   },
   {
     "id": 117,
-    "nama": "Gangan Wing",
-    "created_at": "2023-05-29 20:39:56.630173+07",
-    "updated_at": "2023-05-29 20:39:56.630173+07"
+    "nama": "Gangan Wing"
   },
   {
     "id": 118,
-    "nama": "Web Comic Apanta",
-    "created_at": "2023-05-29 20:39:56.632039+07",
-    "updated_at": "2023-05-29 20:39:56.632039+07"
+    "nama": "Web Comic Apanta"
   },
   {
     "id": 119,
-    "nama": "Young Magazine Kaizokuban",
-    "created_at": "2023-05-29 20:39:56.633868+07",
-    "updated_at": "2023-05-29 20:39:56.633868+07"
+    "nama": "Young Magazine Kaizokuban"
   },
   {
     "id": 120,
-    "nama": "drap",
-    "created_at": "2023-05-29 20:39:56.635867+07",
-    "updated_at": "2023-05-29 20:39:56.635867+07"
+    "nama": "drap"
   },
   {
     "id": 121,
-    "nama": "Grand Jump Premium",
-    "created_at": "2023-05-29 20:39:56.639632+07",
-    "updated_at": "2023-05-29 20:39:56.639632+07"
+    "nama": "Grand Jump Premium"
   },
   {
     "id": 122,
-    "nama": "CIEL TrèsTrès",
-    "created_at": "2023-05-29 20:39:56.641614+07",
-    "updated_at": "2023-05-29 20:39:56.641614+07"
+    "nama": "CIEL TrèsTrès"
   },
   {
     "id": 123,
-    "nama": "Famitsu Comic Clear",
-    "created_at": "2023-05-29 20:39:56.643944+07",
-    "updated_at": "2023-05-29 20:39:56.643944+07"
+    "nama": "Famitsu Comic Clear"
   },
   {
     "id": 124,
-    "nama": "RuTile",
-    "created_at": "2023-05-29 20:39:56.645755+07",
-    "updated_at": "2023-05-29 20:39:56.645755+07"
+    "nama": "RuTile"
   },
   {
     "id": 125,
-    "nama": "Shounen Champion (Monthly)",
-    "created_at": "2023-05-29 20:39:56.647905+07",
-    "updated_at": "2023-05-29 20:39:56.647905+07"
+    "nama": "Shounen Champion (Monthly)"
   },
   {
     "id": 126,
-    "nama": "Asuka",
-    "created_at": "2023-05-29 20:39:56.649262+07",
-    "updated_at": "2023-05-29 20:39:56.649262+07"
+    "nama": "Asuka"
   },
   {
     "id": 127,
-    "nama": "Dengeki Bunko Magazine",
-    "created_at": "2023-05-29 20:39:56.651009+07",
-    "updated_at": "2023-05-29 20:39:56.651009+07"
+    "nama": "Dengeki Bunko Magazine"
   },
   {
     "id": 128,
-    "nama": "Chance+",
-    "created_at": "2023-05-29 20:39:56.653869+07",
-    "updated_at": "2023-05-29 20:39:56.653869+07"
+    "nama": "Chance+"
   },
   {
     "id": 129,
-    "nama": "Comic ZERO-SUM",
-    "created_at": "2023-05-29 20:39:56.655081+07",
-    "updated_at": "2023-05-29 20:39:56.655081+07"
+    "nama": "Comic ZERO-SUM"
   },
   {
     "id": 130,
-    "nama": "Fellows!",
-    "created_at": "2023-05-29 20:39:56.656659+07",
-    "updated_at": "2023-05-29 20:39:56.656659+07"
+    "nama": "Fellows!"
   },
   {
     "id": 131,
-    "nama": "Young You",
-    "created_at": "2023-05-29 20:39:56.65754+07",
-    "updated_at": "2023-05-29 20:39:56.65754+07"
+    "nama": "Young You"
   },
   {
     "id": 132,
-    "nama": "Dragon Youth",
-    "created_at": "2023-05-29 20:39:56.660312+07",
-    "updated_at": "2023-05-29 20:39:56.660312+07"
+    "nama": "Dragon Youth"
   },
   {
     "id": 133,
-    "nama": "Asuka Ciel",
-    "created_at": "2023-05-29 20:39:56.662584+07",
-    "updated_at": "2023-05-29 20:39:56.662584+07"
+    "nama": "Asuka Ciel"
   },
   {
     "id": 134,
-    "nama": "Champion RED",
-    "created_at": "2023-05-29 20:39:56.664727+07",
-    "updated_at": "2023-05-29 20:39:56.664727+07"
+    "nama": "Champion RED"
   },
   {
     "id": 135,
-    "nama": "Grand Jump",
-    "created_at": "2023-05-29 20:39:56.667024+07",
-    "updated_at": "2023-05-29 20:39:56.667024+07"
+    "nama": "Grand Jump"
   },
   {
     "id": 136,
-    "nama": "Young Ace UP",
-    "created_at": "2023-05-29 20:39:56.670474+07",
-    "updated_at": "2023-05-29 20:39:56.670474+07"
+    "nama": "Young Ace UP"
   },
   {
     "id": 137,
-    "nama": "onBLUE",
-    "created_at": "2023-05-29 20:39:56.671722+07",
-    "updated_at": "2023-05-29 20:39:56.671722+07"
+    "nama": "onBLUE"
   },
   {
     "id": 138,
-    "nama": "Comic Gene",
-    "created_at": "2023-05-29 20:39:56.672898+07",
-    "updated_at": "2023-05-29 20:39:56.672898+07"
+    "nama": "Comic Gene"
   },
   {
     "id": 139,
-    "nama": "Comic Avarus",
-    "created_at": "2023-05-29 20:39:56.675274+07",
-    "updated_at": "2023-05-29 20:39:56.675274+07"
+    "nama": "Comic Avarus"
   },
   {
     "id": 140,
-    "nama": "Dragon Age",
-    "created_at": "2023-05-29 20:39:56.678757+07",
-    "updated_at": "2023-05-29 20:39:56.678757+07"
+    "nama": "Dragon Age"
   },
   {
     "id": 141,
-    "nama": "Cita Cita",
-    "created_at": "2023-05-29 20:39:56.680569+07",
-    "updated_at": "2023-05-29 20:39:56.680569+07"
+    "nama": "Cita Cita"
   },
   {
     "id": 142,
-    "nama": "Petit Comic",
-    "created_at": "2023-05-29 20:39:56.685061+07",
-    "updated_at": "2023-05-29 20:39:56.685061+07"
+    "nama": "Petit Comic"
   },
   {
     "id": 143,
-    "nama": "YOU",
-    "created_at": "2023-05-29 20:39:56.686303+07",
-    "updated_at": "2023-05-29 20:39:56.686303+07"
+    "nama": "YOU"
   },
   {
     "id": 144,
-    "nama": "Newtype",
-    "created_at": "2023-05-29 20:39:56.687527+07",
-    "updated_at": "2023-05-29 20:39:56.687527+07"
+    "nama": "Newtype"
   },
   {
     "id": 145,
-    "nama": "Comic Fans",
-    "created_at": "2023-05-29 20:39:56.689663+07",
-    "updated_at": "2023-05-29 20:39:56.689663+07"
+    "nama": "Comic Fans"
   },
   {
     "id": 146,
-    "nama": "Shounen Jump NEXT!",
-    "created_at": "2023-05-29 20:39:56.692083+07",
-    "updated_at": "2023-05-29 20:39:56.692083+07"
+    "nama": "Shounen Jump NEXT!"
   },
   {
     "id": 147,
-    "nama": "Comic Birz",
-    "created_at": "2023-05-29 20:39:56.694335+07",
-    "updated_at": "2023-05-29 20:39:56.694335+07"
+    "nama": "Comic Birz"
   },
   {
     "id": 148,
-    "nama": "HertZ",
-    "created_at": "2023-05-29 20:39:56.695497+07",
-    "updated_at": "2023-05-29 20:39:56.695497+07"
+    "nama": "HertZ"
   },
   {
     "id": 149,
-    "nama": "Cab",
-    "created_at": "2023-05-29 20:39:56.697682+07",
-    "updated_at": "2023-05-29 20:39:56.697682+07"
+    "nama": "Cab"
   },
   {
     "id": 150,
-    "nama": "Big Comic",
-    "created_at": "2023-05-29 20:39:56.699087+07",
-    "updated_at": "2023-05-29 20:39:56.699087+07"
+    "nama": "Big Comic"
   },
   {
     "id": 151,
-    "nama": "\"Dengeki Gs magazine\"",
-    "created_at": "2023-05-29 20:39:56.700311+07",
-    "updated_at": "2023-05-29 20:39:56.700311+07"
+    "nama": "\"Dengeki Gs magazine\""
   },
   {
     "id": 152,
-    "nama": "Stencil",
-    "created_at": "2023-05-29 20:39:56.702278+07",
-    "updated_at": "2023-05-29 20:39:56.702278+07"
+    "nama": "Stencil"
   },
   {
     "id": 153,
-    "nama": "Shuukan Bunshun",
-    "created_at": "2023-05-29 20:39:56.705165+07",
-    "updated_at": "2023-05-29 20:39:56.705165+07"
+    "nama": "Shuukan Bunshun"
   },
   {
     "id": 154,
-    "nama": "Nemuki",
-    "created_at": "2023-05-29 20:39:56.706245+07",
-    "updated_at": "2023-05-29 20:39:56.706245+07"
+    "nama": "Nemuki"
   },
   {
     "id": 155,
-    "nama": "Comic Days",
-    "created_at": "2023-05-29 20:39:56.708045+07",
-    "updated_at": "2023-05-29 20:39:56.708045+07"
+    "nama": "Comic Days"
   },
   {
     "id": 156,
-    "nama": "Sho-Comi Zoukan",
-    "created_at": "2023-05-29 20:39:56.710408+07",
-    "updated_at": "2023-05-29 20:39:56.710408+07"
+    "nama": "Sho-Comi Zoukan"
   },
   {
     "id": 157,
-    "nama": "\"Dengeki Gs Comic\"",
-    "created_at": "2023-05-29 20:39:56.711994+07",
-    "updated_at": "2023-05-29 20:39:56.711994+07"
+    "nama": "\"Dengeki Gs Comic\""
   },
   {
     "id": 158,
-    "nama": "Comic Dengeki Daioh \"g\"",
-    "created_at": "2023-05-29 20:39:56.714403+07",
-    "updated_at": "2023-05-29 20:39:56.714403+07"
+    "nama": "Comic Dengeki Daioh \"g\""
   },
   {
     "id": 159,
-    "nama": "Deluxe Margaret",
-    "created_at": "2023-05-29 20:39:56.717531+07",
-    "updated_at": "2023-05-29 20:39:56.717531+07"
+    "nama": "Deluxe Margaret"
   },
   {
     "id": 160,
-    "nama": "Princess",
-    "created_at": "2023-05-29 20:39:56.719378+07",
-    "updated_at": "2023-05-29 20:39:56.719378+07"
+    "nama": "Princess"
   },
   {
     "id": 161,
-    "nama": "Magazine Be x Boy",
-    "created_at": "2023-05-29 20:39:56.721148+07",
-    "updated_at": "2023-05-29 20:39:56.721148+07"
+    "nama": "Magazine Be x Boy"
   },
   {
     "id": 162,
-    "nama": "Comic Blade Zebel",
-    "created_at": "2023-05-29 20:39:56.723848+07",
-    "updated_at": "2023-05-29 20:39:56.723848+07"
+    "nama": "Comic Blade Zebel"
   },
   {
     "id": 163,
-    "nama": "Comic Yuri Hime",
-    "created_at": "2023-05-29 20:39:56.724927+07",
-    "updated_at": "2023-05-29 20:39:56.724927+07"
+    "nama": "Comic Yuri Hime"
   },
   {
     "id": 164,
-    "nama": "Mugen Anthology Series",
-    "created_at": "2023-05-29 20:39:56.72763+07",
-    "updated_at": "2023-05-29 20:39:56.72763+07"
+    "nama": "Mugen Anthology Series"
   },
   {
     "id": 165,
-    "nama": "Blade Online",
-    "created_at": "2023-05-29 20:39:56.729036+07",
-    "updated_at": "2023-05-29 20:39:56.729036+07"
+    "nama": "Blade Online"
   },
   {
     "id": 166,
-    "nama": "Gangan pixiv",
-    "created_at": "2023-05-29 20:39:56.730866+07",
-    "updated_at": "2023-05-29 20:39:56.730866+07"
+    "nama": "Gangan pixiv"
   },
   {
     "id": 167,
-    "nama": "Young Animal Arashi",
-    "created_at": "2023-05-29 20:39:56.732588+07",
-    "updated_at": "2023-05-29 20:39:56.732588+07"
+    "nama": "Young Animal Arashi"
   },
   {
     "id": 168,
-    "nama": "Manga Time Kirara",
-    "created_at": "2023-05-29 20:39:56.734211+07",
-    "updated_at": "2023-05-29 20:39:56.734211+07"
+    "nama": "Manga Time Kirara"
   },
   {
     "id": 169,
-    "nama": "AlphaPolis Web Manga",
-    "created_at": "2023-05-29 20:39:56.736096+07",
-    "updated_at": "2023-05-29 20:39:56.736096+07"
+    "nama": "AlphaPolis Web Manga"
   },
   {
     "id": 170,
-    "nama": "Comic Newtype",
-    "created_at": "2023-05-29 20:39:56.73803+07",
-    "updated_at": "2023-05-29 20:39:56.73803+07"
+    "nama": "Comic Newtype"
   },
   {
     "id": 171,
-    "nama": "Magazine pocket",
-    "created_at": "2023-05-29 20:39:56.740453+07",
-    "updated_at": "2023-05-29 20:39:56.740453+07"
+    "nama": "Magazine pocket"
   },
   {
     "id": 172,
-    "nama": "Manga Shounen",
-    "created_at": "2023-05-29 20:39:56.741704+07",
-    "updated_at": "2023-05-29 20:39:56.741704+07"
+    "nama": "Manga Shounen"
   },
   {
     "id": 173,
-    "nama": "Comic Tom (Monthly)",
-    "created_at": "2023-05-29 20:39:56.746441+07",
-    "updated_at": "2023-05-29 20:39:56.746441+07"
+    "nama": "Comic Tom (Monthly)"
   },
   {
     "id": 174,
-    "nama": "Bessatsu Hana to Yume",
-    "created_at": "2023-05-29 20:39:56.748941+07",
-    "updated_at": "2023-05-29 20:39:56.748941+07"
+    "nama": "Bessatsu Hana to Yume"
   },
   {
     "id": 175,
-    "nama": "pixiv Comic",
-    "created_at": "2023-05-29 20:39:56.750338+07",
-    "updated_at": "2023-05-29 20:39:56.750338+07"
+    "nama": "pixiv Comic"
   },
   {
     "id": 176,
-    "nama": "Gekkan! Spirits",
-    "created_at": "2023-05-29 20:39:56.752247+07",
-    "updated_at": "2023-05-29 20:39:56.752247+07"
+    "nama": "Gekkan! Spirits"
   },
   {
     "id": 177,
-    "nama": "Shounen Captain",
-    "created_at": "2023-05-29 20:39:56.755423+07",
-    "updated_at": "2023-05-29 20:39:56.755423+07"
+    "nama": "Shounen Captain"
   },
   {
     "id": 178,
-    "nama": "Comic Gardo",
-    "created_at": "2023-05-29 20:39:56.757953+07",
-    "updated_at": "2023-05-29 20:39:56.757953+07"
+    "nama": "Comic Gardo"
   },
   {
     "id": 179,
-    "nama": "Sunday Webry",
-    "created_at": "2023-05-29 20:39:56.759778+07",
-    "updated_at": "2023-05-29 20:39:56.759778+07"
+    "nama": "Sunday Webry"
   },
   {
     "id": 180,
-    "nama": "Super Jump",
-    "created_at": "2023-05-29 20:39:56.762594+07",
-    "updated_at": "2023-05-29 20:39:56.762594+07"
+    "nama": "Super Jump"
   },
   {
     "id": 181,
-    "nama": "Evening",
-    "created_at": "2023-05-29 20:39:56.766123+07",
-    "updated_at": "2023-05-29 20:39:56.766123+07"
+    "nama": "Evening"
   },
   {
     "id": 182,
-    "nama": "Judy",
-    "created_at": "2023-05-29 20:39:56.767751+07",
-    "updated_at": "2023-05-29 20:39:56.767751+07"
+    "nama": "Judy"
   },
   {
     "id": 183,
-    "nama": "Ichiraci",
-    "created_at": "2023-05-29 20:39:56.769442+07",
-    "updated_at": "2023-05-29 20:39:56.769442+07"
+    "nama": "Ichiraci"
   },
   {
     "id": 184,
-    "nama": "gateau",
-    "created_at": "2023-05-29 20:39:56.771331+07",
-    "updated_at": "2023-05-29 20:39:56.771331+07"
+    "nama": "gateau"
   },
   {
     "id": 185,
-    "nama": "Manga Time Kirara Carat",
-    "created_at": "2023-05-29 20:39:56.773076+07",
-    "updated_at": "2023-05-29 20:39:56.773076+07"
+    "nama": "Manga Time Kirara Carat"
   },
   {
     "id": 186,
-    "nama": "Chara Selection",
-    "created_at": "2023-05-29 20:39:56.776592+07",
-    "updated_at": "2023-05-29 20:39:56.776592+07"
+    "nama": "Chara Selection"
   },
   {
     "id": 187,
-    "nama": "Gundam Ace",
-    "created_at": "2023-05-29 20:39:56.779556+07",
-    "updated_at": "2023-05-29 20:39:56.779556+07"
+    "nama": "Gundam Ace"
   },
   {
     "id": 188,
-    "nama": "Comic Mahou no iLand",
-    "created_at": "2023-05-29 20:39:56.786816+07",
-    "updated_at": "2023-05-29 20:39:56.786816+07"
+    "nama": "Comic Mahou no iLand"
   },
   {
     "id": 189,
-    "nama": "Gust",
-    "created_at": "2023-05-29 20:39:56.788664+07",
-    "updated_at": "2023-05-29 20:39:56.788664+07"
+    "nama": "Gust"
   },
   {
     "id": 190,
-    "nama": "Boys Capi!",
-    "created_at": "2023-05-29 20:39:56.792864+07",
-    "updated_at": "2023-05-29 20:39:56.792864+07"
+    "nama": "Boys Capi!"
   },
   {
     "id": 191,
-    "nama": "Rinka",
-    "created_at": "2023-05-29 20:39:56.795173+07",
-    "updated_at": "2023-05-29 20:39:56.795173+07"
+    "nama": "Rinka"
   },
   {
     "id": 192,
-    "nama": "Hanaoto",
-    "created_at": "2023-05-29 20:39:56.797551+07",
-    "updated_at": "2023-05-29 20:39:56.797551+07"
+    "nama": "Hanaoto"
   },
   {
     "id": 193,
-    "nama": "Manga Cross",
-    "created_at": "2023-05-29 20:39:56.798775+07",
-    "updated_at": "2023-05-29 20:39:56.798775+07"
+    "nama": "Manga Cross"
   },
   {
     "id": 194,
-    "nama": "Bessatsu Shounen Champion",
-    "created_at": "2023-05-29 20:39:56.801655+07",
-    "updated_at": "2023-05-29 20:39:56.801655+07"
+    "nama": "Bessatsu Shounen Champion"
   },
   {
     "id": 195,
-    "nama": "Hana LaLa online",
-    "created_at": "2023-05-29 20:39:56.802899+07",
-    "updated_at": "2023-05-29 20:39:56.802899+07"
+    "nama": "Hana LaLa online"
   },
   {
     "id": 196,
-    "nama": "Comptiq",
-    "created_at": "2023-05-29 20:39:56.805032+07",
-    "updated_at": "2023-05-29 20:39:56.805032+07"
+    "nama": "Comptiq"
   },
   {
     "id": 197,
-    "nama": "Dengeki Comic Gao!",
-    "created_at": "2023-05-29 20:39:56.808072+07",
-    "updated_at": "2023-05-29 20:39:56.808072+07"
+    "nama": "Dengeki Comic Gao!"
   },
   {
     "id": 198,
-    "nama": "Kurofune x LINE Manga",
-    "created_at": "2023-05-29 20:39:56.811868+07",
-    "updated_at": "2023-05-29 20:39:56.811868+07"
+    "nama": "Kurofune x LINE Manga"
   },
   {
     "id": 199,
-    "nama": "Dra-Dra Sharp#",
-    "created_at": "2023-05-29 20:39:56.814102+07",
-    "updated_at": "2023-05-29 20:39:56.814102+07"
+    "nama": "Dra-Dra Sharp#"
   },
   {
     "id": 200,
-    "nama": "Comic MeDu",
-    "created_at": "2023-05-29 20:39:56.818355+07",
-    "updated_at": "2023-05-29 20:39:56.818355+07"
+    "nama": "Comic MeDu"
   },
   {
     "id": 201,
-    "nama": "The Hana to Yume",
-    "created_at": "2023-05-29 20:39:56.822752+07",
-    "updated_at": "2023-05-29 20:39:56.822752+07"
+    "nama": "The Hana to Yume"
   },
   {
     "id": 202,
-    "nama": "Comic Meteor",
-    "created_at": "2023-05-29 20:39:56.825005+07",
-    "updated_at": "2023-05-29 20:39:56.825005+07"
+    "nama": "Comic Meteor"
   },
   {
     "id": 203,
-    "nama": "Comic Bridge",
-    "created_at": "2023-05-29 20:39:56.827035+07",
-    "updated_at": "2023-05-29 20:39:56.827035+07"
+    "nama": "Comic Bridge"
   },
   {
     "id": 204,
-    "nama": "One Piece Magazine",
-    "created_at": "2023-05-29 20:39:56.833768+07",
-    "updated_at": "2023-05-29 20:39:56.833768+07"
+    "nama": "One Piece Magazine"
   },
   {
     "id": 205,
-    "nama": "TYPE-MOON Comic Ace",
-    "created_at": "2023-05-29 20:39:56.835766+07",
-    "updated_at": "2023-05-29 20:39:56.835766+07"
+    "nama": "TYPE-MOON Comic Ace"
   },
   {
     "id": 206,
-    "nama": "Young Magazine the 3rd",
-    "created_at": "2023-05-29 20:39:56.839157+07",
-    "updated_at": "2023-05-29 20:39:56.839157+07"
+    "nama": "Young Magazine the 3rd"
   },
   {
     "id": 207,
-    "nama": "Kindai Mahjong",
-    "created_at": "2023-05-29 20:39:56.842155+07",
-    "updated_at": "2023-05-29 20:39:56.842155+07"
+    "nama": "Kindai Mahjong"
   },
   {
     "id": 208,
-    "nama": "Comic REX",
-    "created_at": "2023-05-29 20:39:56.844088+07",
-    "updated_at": "2023-05-29 20:39:56.844088+07"
+    "nama": "Comic REX"
   },
   {
     "id": 209,
-    "nama": "Comic Corona",
-    "created_at": "2023-05-29 20:39:56.845335+07",
-    "updated_at": "2023-05-29 20:39:56.845335+07"
+    "nama": "Comic Corona"
   },
   {
     "id": 210,
-    "nama": "Feel Young",
-    "created_at": "2023-05-29 20:39:56.846523+07",
-    "updated_at": "2023-05-29 20:39:56.846523+07"
+    "nama": "Feel Young"
   },
   {
     "id": 211,
-    "nama": "Comic Polaris",
-    "created_at": "2023-05-29 20:39:56.847728+07",
-    "updated_at": "2023-05-29 20:39:56.847728+07"
+    "nama": "Comic Polaris"
   },
   {
     "id": 212,
-    "nama": "Manga Erotics F",
-    "created_at": "2023-05-29 20:39:56.848797+07",
-    "updated_at": "2023-05-29 20:39:56.848797+07"
+    "nama": "Manga Erotics F"
   },
   {
     "id": 213,
-    "nama": "b-boy Omegaverse",
-    "created_at": "2023-05-29 20:39:56.850477+07",
-    "updated_at": "2023-05-29 20:39:56.850477+07"
+    "nama": "b-boy Omegaverse"
   },
   {
     "id": 214,
-    "nama": "Wink",
-    "created_at": "2023-05-29 20:39:56.853801+07",
-    "updated_at": "2023-05-29 20:39:56.853801+07"
+    "nama": "Wink"
   },
   {
     "id": 215,
-    "nama": "Sylph",
-    "created_at": "2023-05-29 20:39:56.856057+07",
-    "updated_at": "2023-05-29 20:39:56.856057+07"
+    "nama": "Sylph"
   },
   {
     "id": 216,
-    "nama": "Omegaverse Project",
-    "created_at": "2023-05-29 20:39:56.860292+07",
-    "updated_at": "2023-05-29 20:39:56.860292+07"
+    "nama": "Omegaverse Project"
   },
   {
     "id": 217,
-    "nama": "Quick Japan",
-    "created_at": "2023-05-29 20:39:56.862224+07",
-    "updated_at": "2023-05-29 20:39:56.862224+07"
+    "nama": "Quick Japan"
   },
   {
     "id": 218,
-    "nama": "Shounen Magazine R",
-    "created_at": "2023-05-29 20:39:56.863959+07",
-    "updated_at": "2023-05-29 20:39:56.863959+07"
+    "nama": "Shounen Magazine R"
   },
   {
     "id": 219,
-    "nama": "Palcy",
-    "created_at": "2023-05-29 20:39:56.865665+07",
-    "updated_at": "2023-05-29 20:39:56.865665+07"
+    "nama": "Palcy"
   },
   {
     "id": 220,
-    "nama": "Comic Tatan",
-    "created_at": "2023-05-29 20:39:56.869132+07",
-    "updated_at": "2023-05-29 20:39:56.869132+07"
+    "nama": "Comic Tatan"
   },
   {
     "id": 221,
-    "nama": "Comic Rush",
-    "created_at": "2023-05-29 20:39:56.871004+07",
-    "updated_at": "2023-05-29 20:39:56.871004+07"
+    "nama": "Comic Rush"
   },
   {
     "id": 222,
-    "nama": "Super Beboy Comics",
-    "created_at": "2023-05-29 20:39:56.872839+07",
-    "updated_at": "2023-05-29 20:39:56.872839+07"
+    "nama": "Super Beboy Comics"
   },
   {
     "id": 223,
-    "nama": "Daiwon",
-    "created_at": "2023-05-29 20:39:56.875632+07",
-    "updated_at": "2023-05-29 20:39:56.875632+07"
+    "nama": "Daiwon"
   },
   {
     "id": 224,
-    "nama": "Jump X",
-    "created_at": "2023-05-29 20:39:56.877314+07",
-    "updated_at": "2023-05-29 20:39:56.877314+07"
+    "nama": "Jump X"
   },
   {
     "id": 225,
-    "nama": "Manga Club",
-    "created_at": "2023-05-29 20:39:56.87966+07",
-    "updated_at": "2023-05-29 20:39:56.87966+07"
+    "nama": "Manga Club"
   }
 ]

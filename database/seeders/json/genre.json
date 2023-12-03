@@ -1,128 +1,86 @@
 [
   {
     "id": 1,
-    "nama": "Action",
-    "created_at": "2023-05-29 19:48:48.799058+07",
-    "updated_at": "2023-05-29 19:48:48.799058+07"
+    "nama": "Action"
   },
   {
     "id": 2,
-    "nama": "Adventure",
-    "created_at": "2023-05-29 19:48:48.803425+07",
-    "updated_at": "2023-05-29 19:48:48.803425+07"
+    "nama": "Adventure"
   },
   {
     "id": 4,
-    "nama": "Drama",
-    "created_at": "2023-05-29 19:48:48.803997+07",
-    "updated_at": "2023-05-29 19:48:48.803997+07"
+    "nama": "Drama"
   },
   {
     "id": 5,
-    "nama": "Fantasy",
-    "created_at": "2023-05-29 19:48:48.804506+07",
-    "updated_at": "2023-05-29 19:48:48.804506+07"
+    "nama": "Fantasy"
   },
   {
     "id": 6,
-    "nama": "Horror",
-    "created_at": "2023-05-29 19:48:48.805027+07",
-    "updated_at": "2023-05-29 19:48:48.805027+07"
+    "nama": "Horror"
   },
   {
     "id": 7,
-    "nama": "Supernatural",
-    "created_at": "2023-05-29 19:48:48.805544+07",
-    "updated_at": "2023-05-29 19:48:48.805544+07"
+    "nama": "Supernatural"
   },
   {
     "id": 8,
-    "nama": "Mystery",
-    "created_at": "2023-05-29 19:48:48.806327+07",
-    "updated_at": "2023-05-29 19:48:48.806327+07"
+    "nama": "Mystery"
   },
   {
     "id": 10,
-    "nama": "Psychological",
-    "created_at": "2023-05-29 19:48:48.807033+07",
-    "updated_at": "2023-05-29 19:48:48.807033+07"
+    "nama": "Psychological"
   },
   {
     "id": 11,
-    "nama": "Comedy",
-    "created_at": "2023-05-29 19:48:48.807658+07",
-    "updated_at": "2023-05-29 19:48:48.807658+07"
+    "nama": "Comedy"
   },
   {
     "id": 12,
-    "nama": "Suspense",
-    "created_at": "2023-05-29 19:48:48.808162+07",
-    "updated_at": "2023-05-29 19:48:48.808162+07"
+    "nama": "Suspense"
   },
   {
     "id": 13,
-    "nama": "Sports",
-    "created_at": "2023-05-29 19:48:48.808234+07",
-    "updated_at": "2023-05-29 19:48:48.808234+07"
+    "nama": "Sports"
   },
   {
     "id": 14,
-    "nama": "Sci-Fi",
-    "created_at": "2023-05-29 19:48:48.808884+07",
-    "updated_at": "2023-05-29 19:48:48.808884+07"
+    "nama": "Sci-Fi"
   },
   {
     "id": 15,
-    "nama": "Ecchi",
-    "created_at": "2023-05-29 19:48:48.808884+07",
-    "updated_at": "2023-05-29 19:48:48.808884+07"
+    "nama": "Ecchi"
   },
   {
     "id": 16,
-    "nama": "Romance",
-    "created_at": "2023-05-29 19:48:48.809504+07",
-    "updated_at": "2023-05-29 19:48:48.809504+07"
+    "nama": "Romance"
   },
   {
     "id": 3,
-    "nama": "Award Winning",
-    "created_at": "2023-05-29 19:48:48.803997+07",
-    "updated_at": "2023-05-29 19:48:48.803997+07"
+    "nama": "Award Winning"
   },
   {
     "id": 17,
-    "nama": "Girls Love",
-    "created_at": "2023-05-29 19:48:48.810112+07",
-    "updated_at": "2023-05-29 19:48:48.810112+07"
+    "nama": "Girls Love"
   },
   {
     "id": 9,
-    "nama": "Slice of Life",
-    "created_at": "2023-05-29 19:48:48.806835+07",
-    "updated_at": "2023-05-29 19:48:48.806835+07"
+    "nama": "Slice of Life"
   },
   {
     "id": 18,
-    "nama": "Boys Love",
-    "created_at": "2023-05-29 19:48:48.810112+07",
-    "updated_at": "2023-05-29 19:48:48.810112+07"
+    "nama": "Boys Love"
   },
   {
     "id": 19,
-    "nama": "Erotica",
-    "created_at": "2023-05-29 19:48:48.810112+07",
-    "updated_at": "2023-05-29 19:48:48.810112+07"
+    "nama": "Erotica"
   },
   {
     "id": 20,
-    "nama": "Hentai",
-    "created_at": "2023-05-29 19:48:48.810112+07",
-    "updated_at": "2023-05-29 19:48:48.810112+07"
+    "nama": "Hentai"
   },
   {
     "id": 21,
-    "nama": "Gourmet",
-    "created_at": "2023-05-29 19:48:48.810112+07",
-    "updated_at": "2023-05-29 19:48:48.810112+07"
+    "nama": "Gourmet"
   }
 ]
