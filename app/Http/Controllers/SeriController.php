@@ -80,14 +80,14 @@ class SeriController extends Controller
 
         DB::beginTransaction();
         try {
-            $service->execute($req);
+            $seri_id = $service->execute($req);
         } catch (Throwable $e) {
             DB::rollBack();
-            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+            return Inertia::render('seri/create', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('seri.detail', $seri_id);
     }
 
     public function createGenre(Request $request, CreateGenreService $service)

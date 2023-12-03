@@ -18,6 +18,8 @@ export type Genre = {
   nama: string;
 };
 
+export type Penerbit = Genre;
+
 export type Seri = {
   id: number;
   judul: string;
@@ -29,6 +31,12 @@ export type Seri = {
   volume: Volume[];
   penulis: Penulis[];
   genre: Genre[];
+};
+
+export type SeriCreateResponse = {
+  genres: Genre[];
+  penulis: Penulis[];
+  penerbit: Penerbit[];
 };
 
 export type SeriMeta = {

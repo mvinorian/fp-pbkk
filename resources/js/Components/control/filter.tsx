@@ -78,7 +78,10 @@ export default function Filter({
   return (
     <Command
       onKeyDown={handleKeyDown}
-      className={cn('w-full overflow-visible bg-transparent', className)}
+      className={cn(
+        'overflow-x-clip overflow-y-visible bg-transparent',
+        className,
+      )}
     >
       <div className='group border border-input h-10 flex items-center px-3 text-sm ring-offset-background rounded-md focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2'>
         <ScrollArea className='w-full'>

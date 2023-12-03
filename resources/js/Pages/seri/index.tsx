@@ -32,6 +32,7 @@ export default function SeriPage({
               filterData={genreData}
               placeholder='Select Genres'
               maxFilter={3}
+              className='grow'
             />
             {user?.user_type === 'admin' && (
               <Link href={route('seri.create.index')}>

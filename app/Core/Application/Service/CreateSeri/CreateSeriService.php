@@ -46,14 +46,14 @@ class CreateSeriService
         if (!$check_penerbit) {
             throw new Exception("Penerbit tidak ditemukan");
         }
-     
+
         foreach ($request->getPenulisId() as $penulis) {
             $check_penulis = $this->penulis_repository->find($penulis);
             if (!$check_penulis) {
                 throw new Exception("Penulis tidak ditemukan");
             }
         }
-     
+
         foreach ($request->getGenreId() as $genre) {
             $check_genre = $this->genre_repository->find($genre);
             if (!$check_genre) {
@@ -67,7 +67,7 @@ class CreateSeriService
             $request->getJudul(),
             'seri'
         )->upload();
-        
+
         $seri_id = $this->seri_repository->getLastSeriId();
         $seri = Seri::create(
             $seri_id + 1,
@@ -78,7 +78,7 @@ class CreateSeriService
             10,
             $image_url
         );
-        
+
         $this->seri_repository->persist($seri);
 
         foreach ($request->getPenulisId() as $penulis) {
@@ -100,5 +100,7 @@ class CreateSeriService
             );
             $this->seri_genre_repository->persist($seri_genre);
         }
+
+        return $seri_id + 1;
     }
 }
