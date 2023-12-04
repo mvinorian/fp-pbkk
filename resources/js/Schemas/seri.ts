@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const SeriDetailSchema = z.object({
+export const SeriSchema = z.object({
   judul: z.string().min(1, 'Judul tidak boleh kosong'),
   sinopsis: z.string().min(1, 'Sinopsis tidak boleh kosong'),
   tahun_terbit: z.date({ required_error: 'Tahun terbit tidak boleh kosong' }),
@@ -18,8 +18,23 @@ export const SeriDetailSchema = z.object({
       'Gambar mangan hanya boleh bertipe .png, .jpg, atau .jpeg',
     ),
   penerbit_id: z.number({ required_error: 'Penerbit tidak boleh kosong' }),
-  penulis_id: z.number().array().min(1, 'Penulis tidak boleh kosong'),
-  genre_id: z.number().array().min(1, 'Genre tidak boleh kosong'),
+  penulis_id: z
+    .number({ required_error: 'Penulis tidak boleh kosong' })
+    .array(),
+  genre_id: z.number({ required_error: 'Genre tidak boleh kosong' }).array(),
+  volume: z
+    .array(
+      z.object({
+        volume: z.number({ required_error: 'Volume tidak boleh kosong' }),
+        harga_sewa: z.string({
+          required_error: 'Harga sewa tidak boleh kosong',
+        }),
+        jumlah_tersedia: z.string({
+          required_error: 'Jumlah tersedia tidak boleh kosong',
+        }),
+      }),
+    )
+    .min(1, 'Volume tersedia tidak boleh kosong'),
 });
 
-export type SeriDetailRequest = z.infer<typeof SeriDetailSchema>;
+export type SeriRequest = z.infer<typeof SeriSchema>;

@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
                 $interval = new DateTime($p->getPaidAt());
                 $interval = $interval->diff(new DateTime());
                 $user = $userSql->find($p->getUserId());
-                if ($interval->days > 3) {
+                if ($interval->days > 7) {
                     SendEmail::dispatch($user->getEmail()->toString(), $p->getId()->toString());
                     $p->setStatus("EXPIRED");
                     $peminjamanSql->persist($p);
@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

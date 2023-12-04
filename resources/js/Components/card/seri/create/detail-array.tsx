@@ -26,7 +26,7 @@ import {
 import { ScrollArea, ScrollBar } from '@/Components/ui/scroll-area';
 import Typography from '@/Components/ui/typography';
 import { cn } from '@/Libs/utils';
-import { SeriDetailRequest } from '@/Schemas/seri';
+import { SeriRequest } from '@/Schemas/seri';
 import { Penulis, SeriCreateResponse } from '@/Types/entities/seri';
 
 export interface SeriCreateDetailArrayCardProps extends SeriCreateResponse {}
@@ -36,7 +36,7 @@ export default function SeriCreateDetailArrayCard({
   penerbit,
   penulis,
 }: SeriCreateDetailArrayCardProps) {
-  const form = useFormContext<SeriDetailRequest>();
+  const form = useFormContext<SeriRequest>();
   const { control } = form;
 
   const filteredPenerbit = penerbit.filter(({ nama }) => nama !== '');

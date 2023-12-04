@@ -19,10 +19,10 @@ import {
 } from '@/Components/ui/popover';
 import { Textarea } from '@/Components/ui/textarea';
 import { cn } from '@/Libs/utils';
-import { SeriDetailRequest } from '@/Schemas/seri';
+import { SeriRequest } from '@/Schemas/seri';
 
 export default function SeriCreateDetailDescriptionCard() {
-  const { control } = useFormContext<SeriDetailRequest>();
+  const { control } = useFormContext<SeriRequest>();
 
   return (
     <div className='p-6 space-y-3 rounded-lg bg-background'>
