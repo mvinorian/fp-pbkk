@@ -88,7 +88,7 @@ class SeriController extends Controller
             $request->input('genre_id'),
             $request->input('volume')
         );
-        
+
         DB::beginTransaction();
         try {
             $seri_id = $service->execute($req);
@@ -257,11 +257,12 @@ class SeriController extends Controller
             $service->execute($id);
         } catch (Throwable $e) {
             DB::rollBack();
+            throw $e;
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();
 
-        return redirect()->back();
+        return redirect()->route('seri.index');
     }
 
     public function updateSeri(Request $request, UpdateSeriService $service, string $id)
@@ -281,7 +282,7 @@ class SeriController extends Controller
             $request->input('genre_id'),
             $request->input('volume')
         );
-        
+
         DB::beginTransaction();
         try {
             $seri_id = $service->execute($req);

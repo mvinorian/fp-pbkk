@@ -6,6 +6,7 @@ declare module 'ziggy-js' {
     'ignition.executeSolution': [];
     'ignition.updateConfig': [];
     'peminjaman.create': [];
+    'peminjaman.index': [];
     'auth.register.index': [];
     'auth.login.index': [];
     'auth.register': [];
@@ -22,6 +23,7 @@ declare module 'ziggy-js' {
     'seri.genre.create': [];
     'seri.penerbit.create': [];
     'seri.penulis.create': [];
+    'seri.delete': [];
     'cart.index': [];
     'cart.create': [];
     'cart.delete': [

@@ -40,7 +40,7 @@ export default function SeriVolumeCard({
             Volume {volume}
           </Typography>
           <Typography variant='body-14/24' className='text-muted-foreground/50'>
-            Rp. {harga_sewa.toLocaleString('id-ID')} / hari
+            Rp. {harga_sewa.toLocaleString('id-ID')} / 3 hari
           </Typography>
         </div>
 

@@ -1,5 +1,5 @@
 import { router } from '@inertiajs/react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronsLeft, ChevronsRight } from 'lucide-react';
 import queryString from 'query-string';
 
 import { cn } from '@/Libs/utils';
@@ -52,7 +52,7 @@ export default function Navigation({
         disabled={page == 1}
         onClick={() => handleNavigation(1, perPage)}
       >
-        <ChevronLeft className='h-4 w-4' />
+        <ChevronsLeft className='h-4 w-4' />
       </Button>
       {pages.map((pageNumber, id) => (
         <Button
@@ -70,7 +70,7 @@ export default function Navigation({
         disabled={page == maxPage}
         onClick={() => handleNavigation(maxPage, perPage)}
       >
-        <ChevronRight className='h-4 w-4' />
+        <ChevronsRight className='h-4 w-4' />
       </Button>
     </div>
   );

@@ -43,7 +43,7 @@ export default function SeriPage({
         </div>
 
         {success && (
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
+          <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
             {data?.data.map((manga, index) => (
               <SeriMangaCard
                 key={index}

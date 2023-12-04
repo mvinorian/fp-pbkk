@@ -1,7 +1,20 @@
+import { router } from '@inertiajs/react';
 import React from 'react';
 
 import SeriStatisticCard from '@/Components/card/seri/statistic';
 import SeriVolumeCard from '@/Components/card/seri/volume';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/Components/ui/alert-dialog';
+import { Button } from '@/Components/ui/button';
 import Typography from '@/Components/ui/typography';
 import { useIsOverflow } from '@/Hooks/use-is-overflow';
 import DashboardLayout from '@/Layouts/dashboard';
@@ -13,6 +26,8 @@ export default function SeriDetailPage({ data, user }: PageProps<Seri>) {
   const [longSynopsis, setLongSynopsis] = React.useState(false);
   const synopsisRef = React.useRef<HTMLDivElement>(null);
   const [isOverflow] = useIsOverflow(synopsisRef);
+
+  const handleDelete = () => router.delete(route('seri.delete', data?.id));
 
   return (
     <DashboardLayout user={user} className='relative bg-muted'>
@@ -53,9 +68,41 @@ export default function SeriDetailPage({ data, user }: PageProps<Seri>) {
             )}
             ref={synopsisRef}
           >
-            <Typography as='h1' variant='h2-30/36' weight='bold'>
-              {data?.judul}
-            </Typography>
+            <div className='flex justify-between items-center'>
+              <Typography as='h1' variant='h2-30/36' weight='bold'>
+                {data?.judul}
+              </Typography>
+              {user?.user_type === 'admin' && (
+                <div className='flex gap-2'>
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button variant='outline'>Hapus Manga</Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Apakah Anda yakin?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          Anda akan menghapus manga dengan judul{' '}
+                          <strong>"{data?.judul}"</strong> dari sistem data
+                          Tamiyochi. Aksi ini tidak bisa diubah lagi.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogFooter>
+                          <AlertDialogCancel>Batal</AlertDialogCancel>
+                          <Button asChild variant='destructive'>
+                            <AlertDialogAction onClick={() => handleDelete()}>
+                              Hapus Manga
+                            </AlertDialogAction>
+                          </Button>
+                        </AlertDialogFooter>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                  <Button>Edit Detail</Button>
+                </div>
+              )}
+            </div>
             <Typography variant='p-16/24' className='w-full'>
               {data?.sinopsis}
             </Typography>

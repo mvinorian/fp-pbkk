@@ -63,13 +63,16 @@ class SqlSeriRepository
         ];
     }
 
-    public function getLastSeriId() {
+    public function getLastSeriId()
+    {
         $row = DB::table('seri')->orderBy('id', 'desc')->first();
         return $row->id;
     }
 
     public function delete(int $id): void
     {
+        DB::table('seri_genre')->where('seri_id', $id)->delete();
+        DB::table('seri_penulis')->where('seri_id', $id)->delete();
         DB::table('seri')->where('id', $id)->delete();
     }
 
