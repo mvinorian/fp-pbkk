@@ -30,6 +30,17 @@ class Volume extends Model
         $this->harga_sewa = $harga_sewa;
     }
 
+    public static function create(int $id, int $seri_id, int $volume, int $jumlah_tersedia, int $harga_sewa)
+    {
+        return new self(
+            $id,
+            $seri_id,
+            $volume,
+            $jumlah_tersedia,
+            $harga_sewa
+        );
+    }
+
     /**
      * @return int
      */

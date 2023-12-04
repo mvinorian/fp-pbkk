@@ -68,6 +68,7 @@ class SeriController extends Controller
             'penerbit_id' => 'required',
             'penulis_id' => 'required',
             'genre_id' => 'required',
+            'volume' => 'required',
         ]);
         $req = new CreateSeriRequest(
             $request->input('judul'),
@@ -76,14 +77,16 @@ class SeriController extends Controller
             $request->file('foto'),
             $request->input('penerbit_id'),
             $request->input('penulis_id'),
-            $request->input('genre_id')
+            $request->input('genre_id'),
+            $request->input('volume')
         );
-
+        
         DB::beginTransaction();
         try {
             $seri_id = $service->execute($req);
         } catch (Throwable $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return Inertia::render('seri/create', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();

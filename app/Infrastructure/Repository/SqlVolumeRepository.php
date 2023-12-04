@@ -52,6 +52,15 @@ class SqlVolumeRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function getLastVolumeId(): int
+    {
+        $row = DB::table('volume')->orderBy('id', 'desc')->first();
+        if (!$row) {
+            return 0;
+        }
+        return $row->id;
+    }
+
     /**
      * @throws Exception
      */

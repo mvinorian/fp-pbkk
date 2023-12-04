@@ -13,8 +13,9 @@ class CreateSeriRequest
     private string $penerbit_id;
     private array $penulis_id;
     private array $genre_id;
+    private array $volume;
 
-    public function __construct(string $judul, string $sinopsis, string $tahun_terbit, UploadedFile $foto, string $penerbit_id, array $penulis_id, array $genre_id)
+    public function __construct(string $judul, string $sinopsis, string $tahun_terbit, UploadedFile $foto, string $penerbit_id, array $penulis_id, array $genre_id, array $volume)
     {
         $this->judul = $judul;
         $this->sinopsis = $sinopsis;
@@ -23,6 +24,7 @@ class CreateSeriRequest
         $this->penerbit_id = $penerbit_id;
         $this->penulis_id = $penulis_id;
         $this->genre_id = $genre_id;
+        $this->volume = $volume;
     }
 
     public function getJudul(): string
@@ -58,5 +60,10 @@ class CreateSeriRequest
     public function getGenreId(): array
     {
         return $this->genre_id;
+    }
+
+    public function getVolume(): array
+    {
+        return $this->volume;
     }
 }

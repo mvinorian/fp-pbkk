@@ -9,6 +9,7 @@ use App\Core\Domain\Models\User\UserId;
 use App\Core\Domain\Models\SeriGenre\SeriGenre;
 use App\Core\Application\ImageUpload\ImageUpload;
 use App\Core\Domain\Models\SeriPenulis\SeriPenulis;
+use App\Core\Domain\Models\Volume\Volume;
 use App\Infrastructure\Repository\SqlCartRepository;
 use App\Infrastructure\Repository\SqlSeriRepository;
 use App\Infrastructure\Repository\SqlGenreRepository;
@@ -26,8 +27,9 @@ class CreateSeriService
     private SqlGenreRepository $genre_repository;
     private SqlSeriPenulisRepository $seri_penulis_repository;
     private SqlSeriGenreRepository $seri_genre_repository;
+    private SqlVolumeRepository $volume_repository;
 
-    public function __construct(SqlSeriRepository $seri_repository, SqlPenerbitRepository $penerbit_repository, SqlPenulisRepository $penulis_repository, SqlGenreRepository $genre_repository, SqlSeriPenulisRepository $seri_penulis_repository, SqlSeriGenreRepository $seri_genre_repository)
+    public function __construct(SqlSeriRepository $seri_repository, SqlPenerbitRepository $penerbit_repository, SqlPenulisRepository $penulis_repository, SqlGenreRepository $genre_repository, SqlSeriPenulisRepository $seri_penulis_repository, SqlSeriGenreRepository $seri_genre_repository, SqlVolumeRepository $volume_repository)
     {
         $this->seri_repository = $seri_repository;
         $this->penerbit_repository = $penerbit_repository;
@@ -35,6 +37,7 @@ class CreateSeriService
         $this->genre_repository = $genre_repository;
         $this->seri_penulis_repository = $seri_penulis_repository;
         $this->seri_genre_repository = $seri_genre_repository;
+        $this->volume_repository = $volume_repository;
     }
 
     /**
@@ -99,6 +102,18 @@ class CreateSeriService
                 $genre
             );
             $this->seri_genre_repository->persist($seri_genre);
+        }
+
+        foreach ($request->getVolume() as $volume) {
+            $volume_id = $this->volume_repository->getLastVolumeId();
+            $volumeSql = Volume::create(
+                $volume_id + 1,
+                $seri->getId(),
+                $volume['volume'],
+                $volume['jumlah_tersedia'],
+                $volume['harga_sewa']
+            );
+            $this->volume_repository->persist($volumeSql);
         }
 
         return $seri_id + 1;
