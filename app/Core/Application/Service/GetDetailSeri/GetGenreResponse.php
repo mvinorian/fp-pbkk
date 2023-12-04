@@ -6,16 +6,16 @@ use JsonSerializable;
 
 class GetGenreResponse implements JsonSerializable
 {
-    private string $id;
+    private int $id;
     private string $nama;
-    
 
-    public function __construct(string $id, string $nama)
+
+    public function __construct(int $id, string $nama)
     {
         $this->id = $id;
         $this->nama = $nama;
     }
-    
+
     public function jsonSerialize(): array
     {
         return [

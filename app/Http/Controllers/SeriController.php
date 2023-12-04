@@ -208,6 +208,15 @@ class SeriController extends Controller
         return Inertia::render('seri/create', $this->successWithDataProps($response, 'Berhasil mendapatkan data untuk membuat seri'));
     }
 
+    public function updateSeriView(GetDetailSeriService $getDetailService, CreateSeriViewService $createSeriViewService, string $id)
+    {
+        $response = [
+            'data' => $getDetailService->execute($id),
+            'meta' => $createSeriViewService->execute($id)
+        ];
+        return Inertia::render('seri/update', $this->successWithDataProps($response, 'Berhasil mendapatkan data untuk mengupdate seri'));
+    }
+
     public function deleteSeri(DeleteSeriService $service, string $id)
     {
         DB::beginTransaction();
@@ -267,10 +276,6 @@ class SeriController extends Controller
 
     public function updateSeri(Request $request, UpdateSeriService $service, string $id)
     {
-        $request->validate([
-            'id' => 'required'
-        ]);
-
         $req = new UpdateSeriRequest(
             $id,
             $request->input('judul'),

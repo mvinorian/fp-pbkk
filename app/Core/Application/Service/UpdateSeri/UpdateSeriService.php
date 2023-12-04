@@ -46,12 +46,18 @@ class UpdateSeriService
         if (!$seri) {
             throw new Exception("Seri tidak ditemukan");
         }
+        $this->seri_penulis_repository->deleteBySeriId($seri->getId());
+        $this->seri_genre_repository->deleteBySeriId($seri->getId());
+        $this->volume_repository->deleteBySeriId($seri->getId());
+
         if ($request->getPenerbitId()) {
             $check_penerbit = $this->penerbit_repository->find($request->getPenerbitId());
             if (!$check_penerbit) {
                 throw new Exception("Penerbit tidak ditemukan");
             }
+        }
 
+        if ($request->getPenulisId()) {
             foreach ($request->getPenulisId() as $penulis) {
                 $check_penulis = $this->penulis_repository->find($penulis);
                 if (!$check_penulis) {
@@ -69,6 +75,16 @@ class UpdateSeriService
             }
         }
 
+        $imageUrl = null;
+        if ($request->getFoto()) {
+            $imageUrl = ImageUpload::create(
+                $request->getFoto(),
+                'images',
+                $request->getJudul(),
+                'seri'
+            )->upload();
+        }
+
         $seriUpdate = Seri::create(
             $seri->getId(),
             $request->getPenerbitId() ?? $seri->getPenerbitId(),
@@ -76,15 +92,10 @@ class UpdateSeriService
             $request->getSinopsis() ?? $seri->getSinopsis(),
             $request->getTahunTerbit() ?? $seri->getTahunTerbit(),
             10,
-            ImageUpload::create(
-                $request->getFoto(),
-                'images',
-                $request->getJudul(),
-                'seri'
-            )->upload() ?? $seri->getFoto()
+            $imageUrl ?? $seri->getFoto()
         );
 
-        $this->seri_repository->persist($seri);
+        $this->seri_repository->persist($seriUpdate);
 
         if ($request->getPenulisId()) {
             foreach ($request->getPenulisId() as $penulis) {

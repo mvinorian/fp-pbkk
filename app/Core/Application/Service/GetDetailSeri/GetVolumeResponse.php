@@ -6,14 +6,14 @@ use JsonSerializable;
 
 class GetVolumeResponse implements JsonSerializable
 {
-    private string $id;
+    private int $id;
     private string $volume;
     private string $jumlah_tersedia;
     private string $harga_sewa;
     private string $seri_id;
-    
 
-    public function __construct(string $id, string $volume, string $jumlah_tersedia, string $harga_sewa, string $seri_id)
+
+    public function __construct(int $id, string $volume, string $jumlah_tersedia, string $harga_sewa, string $seri_id)
     {
         $this->id = $id;
         $this->volume = $volume;

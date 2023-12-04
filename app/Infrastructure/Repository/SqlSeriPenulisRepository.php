@@ -40,6 +40,11 @@ class SqlSeriPenulisRepository
         return $row->id;
     }
 
+    public function deleteBySeriId(string $seri_id): void
+    {
+        DB::table('seri_penulis')->where('seri_id', $seri_id)->delete();
+    }
+
     /**
      * @throws Exception
      */

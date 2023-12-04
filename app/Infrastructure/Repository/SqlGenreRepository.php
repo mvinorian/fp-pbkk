@@ -33,8 +33,9 @@ class SqlGenreRepository
     public function getGenreBySeriId(int $seri_id): array
     {
         $rows = DB::table('genre')
-            ->join('seri_genre', 'genre.id', '=', 'seri_genre.genre_id')
+            ->leftJoin('seri_genre', 'genre.id', '=', 'seri_genre.genre_id')
             ->where('seri_genre.seri_id', $seri_id)
+            ->select('genre.*')
             ->get();
         $genre = [];
         foreach ($rows as $row) {

@@ -35,8 +35,9 @@ class SqlPenulisRepository
     public function getPenulisBySeriId(int $seri_id): array
     {
         $rows = DB::table('penulis')
-            ->join('seri_penulis', 'penulis.id', '=', 'seri_penulis.penulis_id')
+            ->leftJoin('seri_penulis', 'penulis.id', '=', 'seri_penulis.penulis_id')
             ->where('seri_penulis.seri_id', $seri_id)
+            ->select('penulis.*')
             ->get();
         $penulis = [];
         foreach ($rows as $row) {
