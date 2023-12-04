@@ -20,8 +20,17 @@ import {
 import { Textarea } from '@/Components/ui/textarea';
 import { cn } from '@/Libs/utils';
 import { SeriRequest } from '@/Schemas/seri';
+import { Seri } from '@/Types/entities/seri';
 
-export default function SeriCreateDetailDescriptionCard() {
+export interface SeriCreateDetailDescriptionCardProps {
+  defaultValue?: Seri;
+  isUpdate?: boolean;
+}
+
+export default function SeriCreateDetailDescriptionCard({
+  defaultValue,
+  isUpdate = false,
+}: SeriCreateDetailDescriptionCardProps) {
   const { control } = useFormContext<SeriRequest>();
 
   return (
@@ -108,14 +117,35 @@ export default function SeriCreateDetailDescriptionCard() {
         render={({ field: { value: _value, onChange, ...field } }) => (
           <FormItem>
             <FormLabel>Gambar Manga</FormLabel>
-            <FormControl>
-              <Input
-                type='file'
-                accept='image/png, image/jpg, image/jpeg'
-                onChange={(e) => onChange(e.target.files)}
-                {...field}
-              />
-            </FormControl>
+            {isUpdate && (
+              <div className='w-56 h-80 -mt-32 rounded-xl overflow-hidden shadow-md'>
+                <img
+                  src={defaultValue?.foto}
+                  alt='manga-cover'
+                  width={200}
+                  height={300}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src =
+                      'https://downloadwap.com/thumbs2/wallpapers/2022/p2/abstract/47/e9ne9732.jpg';
+                  }}
+                  className='w-full h-full object-cover'
+                />
+              </div>
+            )}
+            <div className={'flex items-center gap-2'}>
+              {isUpdate && (
+                <FormLabel className='shrink-0'>Ganti Gambar</FormLabel>
+              )}
+              <FormControl>
+                <Input
+                  type='file'
+                  accept='image/png, image/jpg, image/jpeg'
+                  onChange={(e) => onChange(e.target.files)}
+                  {...field}
+                />
+              </FormControl>
+            </div>
             <FormMessage />
           </FormItem>
         )}

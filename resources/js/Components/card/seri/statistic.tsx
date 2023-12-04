@@ -6,6 +6,7 @@ import Typography from '../../ui/typography';
 export interface SeriStatisticCardProps {
   tahun_terbit: string;
   volume: number;
+  penerbit: string;
   penulis?: Penulis[];
   genre?: Genre[];
   className?: string;
@@ -14,6 +15,7 @@ export interface SeriStatisticCardProps {
 export default function SeriStatisticCard({
   tahun_terbit,
   volume,
+  penerbit,
   penulis,
   genre,
   className,
@@ -35,6 +37,15 @@ export default function SeriStatisticCard({
         </Typography>
         <Typography variant='body-14/24' className='text-muted-foreground/50'>
           {volume} Volume
+        </Typography>
+      </div>
+
+      <div className='space-y-0'>
+        <Typography variant='body-14/24' weight='semibold'>
+          Penerbit
+        </Typography>
+        <Typography variant='body-14/24' className='text-muted-foreground/50'>
+          {penerbit ?? 'Tidak diketahui'}
         </Typography>
       </div>
 

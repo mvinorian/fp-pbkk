@@ -1,16 +1,18 @@
-import React from 'react';
-
 import SeriCreateDetailArrayCard from '@/Components/card/seri/create/detail-array';
 import SeriCreateDetailDescriptionCard from '@/Components/card/seri/create/detail-description';
 import { Button } from '@/Components/ui/button';
 import Typography from '@/Components/ui/typography';
-import { SeriCreateResponse } from '@/Types/entities/seri';
+import { Seri, SeriCreateResponse } from '@/Types/entities/seri';
 
 export interface SeriCreateDetailContainerProps extends SeriCreateResponse {
+  defaultValue?: Seri;
+  isUpdate?: boolean;
   onNext: () => void;
 }
 
 export default function SeriCreateDetailContainer({
+  defaultValue,
+  isUpdate = false,
   onNext,
   ...props
 }: SeriCreateDetailContainerProps) {
@@ -23,7 +25,10 @@ export default function SeriCreateDetailContainer({
         <Button onClick={onNext}>Selanjutnya</Button>
       </div>
 
-      <SeriCreateDetailDescriptionCard />
+      <SeriCreateDetailDescriptionCard
+        isUpdate={isUpdate}
+        defaultValue={defaultValue}
+      />
       <SeriCreateDetailArrayCard {...props} />
     </div>
   );

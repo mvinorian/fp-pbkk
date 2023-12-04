@@ -1,4 +1,4 @@
-import { router } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import React from 'react';
 
 import SeriStatisticCard from '@/Components/card/seri/statistic';
@@ -88,18 +88,19 @@ export default function SeriDetailPage({ data, user }: PageProps<Seri>) {
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
-                        <AlertDialogFooter>
-                          <AlertDialogCancel>Batal</AlertDialogCancel>
-                          <Button asChild variant='destructive'>
-                            <AlertDialogAction onClick={() => handleDelete()}>
-                              Hapus Manga
-                            </AlertDialogAction>
-                          </Button>
-                        </AlertDialogFooter>
+                        <AlertDialogCancel>Batal</AlertDialogCancel>
+                        <Button asChild variant='destructive'>
+                          <AlertDialogAction onClick={() => handleDelete()}>
+                            Hapus Manga
+                          </AlertDialogAction>
+                        </Button>
                       </AlertDialogFooter>
                     </AlertDialogContent>
                   </AlertDialog>
-                  <Button>Edit Detail</Button>
+
+                  <Link href={route('seri.update.index', data?.id)}>
+                    <Button>Edit Detail</Button>
+                  </Link>
                 </div>
               )}
             </div>

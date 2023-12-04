@@ -28,6 +28,7 @@ export type Seri = {
   skor: number;
   foto: string;
   penerbit_id: number;
+  penerbit: string;
   volume: Volume[];
   penulis: Penulis[];
   genre: Genre[];

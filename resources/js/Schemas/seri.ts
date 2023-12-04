@@ -16,7 +16,8 @@ export const SeriSchema = z.object({
       (files) =>
         ['image/png', 'image/jpg', 'image/jpeg'].includes(files[0].type),
       'Gambar mangan hanya boleh bertipe .png, .jpg, atau .jpeg',
-    ),
+    )
+    .optional(),
   penerbit_id: z.number({ required_error: 'Penerbit tidak boleh kosong' }),
   penulis_id: z
     .number({ required_error: 'Penulis tidak boleh kosong' })

@@ -6,7 +6,13 @@ import { Button } from '@/Components/ui/button';
 import Typography from '@/Components/ui/typography';
 import { SeriRequest } from '@/Schemas/seri';
 
-export default function SeriCreateVolumeContainer() {
+export interface SeriCreateVolumeContainerProps {
+  isUpdate?: boolean;
+}
+
+export default function SeriCreateVolumeContainer({
+  isUpdate = false,
+}: SeriCreateVolumeContainerProps) {
   const { control } = useFormContext<SeriRequest>();
 
   const { fields, append, remove } = useFieldArray({ control, name: 'volume' });
@@ -17,7 +23,9 @@ export default function SeriCreateVolumeContainer() {
         <Typography variant='h2-30/36' weight='bold'>
           Volume Manga
         </Typography>
-        <Button type='submit'>Tambah Manga</Button>
+        <Button type='submit'>
+          {isUpdate ? 'Simpan Perubahan' : 'Tambah Manga'}
+        </Button>
       </div>
 
       <div className='space-y-3'>

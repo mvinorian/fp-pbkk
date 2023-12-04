@@ -19,11 +19,55 @@ declare module 'ziggy-js' {
       },
     ];
     'seri.create.index': [];
+    'seri.update.index': [
+      {
+        name: 'id';
+      },
+    ];
     'seri.create': [];
     'seri.genre.create': [];
     'seri.penerbit.create': [];
     'seri.penulis.create': [];
-    'seri.delete': [];
+    'seri.update': [
+      {
+        name: 'id';
+      },
+    ];
+    'genre.update': [
+      {
+        name: 'id';
+      },
+    ];
+    'penerbit.update': [
+      {
+        name: 'id';
+      },
+    ];
+    'penulis.update': [
+      {
+        name: 'id';
+      },
+    ];
+    'seri.delete': [
+      {
+        name: 'id';
+      },
+    ];
+    'genre.delete': [
+      {
+        name: 'id';
+      },
+    ];
+    'penerbit.delete': [
+      {
+        name: 'id';
+      },
+    ];
+    'penulis.delete': [
+      {
+        name: 'id';
+      },
+    ];
     'cart.index': [];
     'cart.create': [];
     'cart.delete': [
