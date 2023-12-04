@@ -45,6 +45,17 @@ class SqlSeriPenulisRepository
         DB::table('seri_penulis')->where('seri_id', $seri_id)->delete();
     }
 
+    public function findFirst(string $seri_id): ?SeriPenulis
+    {
+        $row = DB::table('seri_penulis')->where('seri_id', $seri_id)->first();
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->constructFromRows([$row])[0];
+    }
+
     /**
      * @throws Exception
      */

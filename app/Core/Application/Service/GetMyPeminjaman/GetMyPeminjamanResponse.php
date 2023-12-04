@@ -7,37 +7,37 @@ use JsonSerializable;
 class GetMyPeminjamanResponse implements JsonSerializable
 {
     private int $volume_id;
+    private string $status;
+    private string $tanggal_peminjaman;
+    private string $volume;
+    private string $judul;
+    private string $penulis_nama_depan;
+    private string $penulis_nama_belakang;
     private string $foto;
-    private int $jumlah_tersedia;
-    private int $jumlah_sewa;
-    private int $harga_sewa;
-    private int $volume;
-    private int $harga_sub_total;
-    private string $judul_seri;
 
-    public function __construct(int $volume_id, string $foto, int $jumlah_tersedia, int $jumlah_sewa, int $harga_sewa, int $volume, int $harga_sub_total, string $judul_seri)
+    public function __construct(int $volume_id, string $status, string $tanggal_peminjaman, string $volume, string $judul, string $penulis_nama_depan, string $penulis_nama_belakang, string $foto)
     {
         $this->volume_id = $volume_id;
-        $this->foto = $foto;
-        $this->jumlah_tersedia = $jumlah_tersedia;
-        $this->jumlah_sewa = $jumlah_sewa;
-        $this->harga_sewa = $harga_sewa;
+        $this->status = $status;
+        $this->tanggal_peminjaman = $tanggal_peminjaman;
         $this->volume = $volume;
-        $this->harga_sub_total = $harga_sub_total;
-        $this->judul_seri = $judul_seri;
+        $this->judul = $judul;
+        $this->penulis_nama_depan = $penulis_nama_depan;
+        $this->penulis_nama_belakang = $penulis_nama_belakang;
+        $this->foto = $foto;
     }
 
     public function jsonSerialize(): array
     {
         return [
             'volume_id' => $this->volume_id,
-            'foto' => $this->foto,
-            'jumlah_tersedia' => $this->jumlah_tersedia,
-            'jumlah_sewa' => $this->jumlah_sewa,
-            'harga_sewa' => $this->harga_sewa,
+            'status' => $this->status,
+            'tanggal_peminjaman' => $this->tanggal_peminjaman,
             'volume' => $this->volume,
-            'harga_sub_total' => $this->harga_sub_total,
-            'judul_seri' => $this->judul_seri,
+            'judul' => $this->judul,
+            'penulis_nama_depan' => $this->penulis_nama_depan,
+            'penulis_nama_belakang' => $this->penulis_nama_belakang,
+            'foto' => $this->foto,
         ];
     }
 }

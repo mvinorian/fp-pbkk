@@ -23,15 +23,14 @@ class CreatePeminjamanService
     /**
      * @throws Exception
      */
-    public function execute(string $amount)
+    public function execute(string $amount, string $user_id)
     {
         $invoiceApi = new InvoiceApi();
-        $user_id = "fa621d02-4659-42a2-bb21-80d70e2cf953";
         $input = [
             'external_id' => PeminjamanId::generate()->toString(),
             "type" => "INVOICE",
             "amount" => $amount,
-            "callback_url" => "https://1fef-2a09-bac1-34c0-50-00-279-45.ngrok-free.app/peminjaman/webhook"
+            "callback_url" => "https://5a74-2001-448a-50e0-60f7-888-98b5-e790-801b.ngrok-free.app/peminjaman/webhook"
         ];
         $response = $invoiceApi->createInvoice($input);
 

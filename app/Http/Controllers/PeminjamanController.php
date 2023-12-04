@@ -12,6 +12,7 @@ use App\Infrastructure\Repository\SqlPeminjamanRepository;
 use App\Core\Application\Service\WebhookXendit\WebhookXenditService;
 use App\Core\Application\Service\GetMyPeminjaman\GetMyPeminjamanService;
 use App\Core\Application\Service\CreatePeminjaman\CreatePeminjamanService;
+use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends Controller
 {
@@ -27,9 +28,10 @@ class PeminjamanController extends Controller
         ]);
         DB::beginTransaction();
         try {
-            $response = $service->execute($request->input('amount'));
+            $response = $service->execute($request->input('amount'), Auth::user()->id);
         } catch (Throwable $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
         }
         DB::commit();
@@ -45,9 +47,14 @@ class PeminjamanController extends Controller
         $service->execute($request->input('external_id'));
     }
 
-    public function getMyPeminjamanList(Request $request, GetMyPeminjamanService $service)
+    public function getMyPeminjamanList(GetMyPeminjamanService $service)
     {
-        $response = $service->execute('fa621d02-4659-42a2-bb21-80d70e2cf953');
+        try {
+            $response = $service->execute(Auth::user()->id);
+        } catch (Throwable $e) {
+            dd($e->getMessage());
+            return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
+        }
         dd($response);
         return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
     }
