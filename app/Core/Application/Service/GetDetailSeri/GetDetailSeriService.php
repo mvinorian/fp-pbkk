@@ -81,7 +81,7 @@ class GetDetailSeriService
             $detail_seri->getTahunTerbit(),
             $detail_seri->getSkor(),
             $detail_seri->getFoto(),
-            $penerbit->getNama(),
+            $penerbit,
             $volume,
             $penulis,
             $genre,

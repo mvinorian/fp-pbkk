@@ -10,7 +10,7 @@ class Penulis extends Model
 {
     private int $id;
     private string $nama_depan;
-    private string $nama_belakang;
+    private ?string $nama_belakang;
     private string $peran;
 
     /**
@@ -19,7 +19,7 @@ class Penulis extends Model
      * @param string $nama_belakang
      * @param string $peran
      */
-    public function __construct(int $id, string $nama_depan, string $nama_belakang, string $peran)
+    public function __construct(int $id, string $nama_depan, ?string $nama_belakang, string $peran)
     {
         $this->id = $id;
         $this->nama_depan = $nama_depan;
@@ -27,7 +27,7 @@ class Penulis extends Model
         $this->peran = $peran;
     }
 
-    public static function create(int $id, string $nama_depan, string $nama_belakang, string $peran)
+    public static function create(int $id, string $nama_depan, ?string $nama_belakang, string $peran)
     {
         return new self(
             $id,
@@ -47,7 +47,7 @@ class Penulis extends Model
         return $this->nama_depan;
     }
 
-    public function getNamaBelakang(): string
+    public function getNamaBelakang(): ?string
     {
         return $this->nama_belakang;
     }

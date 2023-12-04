@@ -2,6 +2,7 @@
 
 namespace App\Core\Application\Service\GetDetailSeri;
 
+use App\Core\Domain\Models\Penerbit\Penerbit;
 use JsonSerializable;
 
 class GetDetailSeriResponse implements JsonSerializable
@@ -12,12 +13,12 @@ class GetDetailSeriResponse implements JsonSerializable
     private string $tahun_terbit;
     private string $skor;
     private string $foto;
-    private string $penerbit;
+    private Penerbit $penerbit;
     private array $volume;
     private array $penulis;
     private array $genre;
 
-    public function __construct(string $id, string $judul, string $sinopsis, string $tahun_terbit, string $skor, string $foto, string $penerbit, array $volume, array $penulis, array $genre)
+    public function __construct(string $id, string $judul, string $sinopsis, string $tahun_terbit, string $skor, string $foto, Penerbit $penerbit, array $volume, array $penulis, array $genre)
     {
         $this->id = $id;
         $this->judul = $judul;
@@ -40,7 +41,10 @@ class GetDetailSeriResponse implements JsonSerializable
             'tahun_terbit' => $this->tahun_terbit,
             'skor' => $this->skor,
             'foto' => $this->foto,
-            'penerbit' => $this->penerbit,
+            'penerbit' => [
+                'id' => $this->penerbit->getId(),
+                'nama' => $this->penerbit->getNama(),
+            ],
             'volume' => $this->volume,
             'penulis' => $this->penulis,
             'genre' => $this->genre

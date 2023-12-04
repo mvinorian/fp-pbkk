@@ -1,3 +1,4 @@
+import { router } from '@inertiajs/react';
 import { Check, ChevronDown, X } from 'lucide-react';
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -49,55 +50,91 @@ export default function SeriCreateDetailArrayCard({
       <FormField
         control={control}
         name='penerbit_id'
-        render={({ field }) => (
-          <FormItem className='flex flex-col'>
-            <FormLabel>Penerbit Manga</FormLabel>
-            <Popover>
-              <PopoverTrigger asChild>
-                <FormControl>
-                  <Button
-                    variant='outline'
-                    role='combobox'
-                    className='justify-between'
-                  >
-                    {field.value
-                      ? filteredPenerbit.find(({ id }) => id === field.value)
-                          ?.nama
-                      : 'Pilih Penerbit'}
-                    <ChevronDown className='ml-2 h-4 w-4 shrink-0' />
-                  </Button>
-                </FormControl>
-              </PopoverTrigger>
+        render={({ field }) => {
+          const [searchedPenerbit, setSearchedPenerbit] = React.useState('');
+          const handleCreatePenerbit = () =>
+            router.post(route('seri.penerbit.create'), {
+              nama: searchedPenerbit,
+            });
 
-              <PopoverContent align='start' className='p-0'>
-                <Command>
-                  <CommandInput placeholder='Cari Penerbit' />
-                  <CommandEmpty>Tidak ada penerbit.</CommandEmpty>
-                  <ScrollArea className='h-96'>
-                    <CommandGroup>
-                      {filteredPenerbit.map(({ id, nama }) => (
-                        <CommandItem
-                          value={nama}
-                          key={id}
-                          onSelect={() => form.setValue('penerbit_id', id)}
-                        >
-                          <Check
-                            className={cn(
-                              'mr-2 h-4 w-4',
-                              field.value === id ? 'opacity-100' : 'opacity-0',
-                            )}
-                          />
-                          {nama}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </ScrollArea>
-                </Command>
-              </PopoverContent>
-            </Popover>
-            <FormMessage />
-          </FormItem>
-        )}
+          return (
+            <FormItem className='flex flex-col'>
+              <FormLabel>Penerbit Manga</FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant='outline'
+                      role='combobox'
+                      className='justify-between'
+                    >
+                      {field.value
+                        ? filteredPenerbit.find(({ id }) => id === field.value)
+                            ?.nama
+                        : 'Pilih Penerbit'}
+                      <ChevronDown className='ml-2 h-4 w-4 shrink-0' />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+
+                <PopoverContent align='start' className='p-0'>
+                  <Command>
+                    <CommandInput
+                      value={searchedPenerbit}
+                      onValueChange={setSearchedPenerbit}
+                      placeholder='Cari Penerbit'
+                    />
+                    <CommandEmpty>
+                      <Typography
+                        as='p'
+                        onClick={handleCreatePenerbit}
+                        variant='small-14/14'
+                        className='pl-8 pr-3 py-2 h-8 flex items-center rounded-sm hover:bg-muted hover:text-foreground/75 cursor-default'
+                      >
+                        Tambah penerbit {searchedPenerbit}
+                      </Typography>
+                    </CommandEmpty>
+                    <ScrollArea className='h-96'>
+                      <CommandGroup>
+                        {filteredPenerbit.map(({ id, nama }) => (
+                          <CommandItem
+                            value={nama}
+                            key={id}
+                            onSelect={() => form.setValue('penerbit_id', id)}
+                          >
+                            <Check
+                              className={cn(
+                                'mr-2 h-4 w-4',
+                                field.value === id
+                                  ? 'opacity-100'
+                                  : 'opacity-0',
+                              )}
+                            />
+                            {nama}
+                          </CommandItem>
+                        ))}
+                        {!!searchedPenerbit &&
+                          !penerbit
+                            .map(({ nama }) => nama?.toLowerCase())
+                            .includes(searchedPenerbit.toLowerCase()) && (
+                            <CommandItem
+                              value={searchedPenerbit}
+                              id='0'
+                              onSelect={handleCreatePenerbit}
+                              className='pl-8'
+                            >
+                              Tambah penerbit {searchedPenerbit}
+                            </CommandItem>
+                          )}
+                      </CommandGroup>
+                    </ScrollArea>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+              <FormMessage />
+            </FormItem>
+          );
+        }}
       />
 
       <FormField
@@ -112,6 +149,15 @@ export default function SeriCreateDetailArrayCard({
           const addPenulis = (penulis_id: number) =>
             form.setValue('penulis_id', [penulis_id, ...selectedPenulis]);
           const [searchedPenulis, setSearchedPenulis] = React.useState('');
+          const handleCreatePenulis = () => {
+            const namaPenulis = searchedPenulis.split(' ');
+
+            router.post(route('seri.penulis.create'), {
+              nama_depan: namaPenulis[0],
+              nama_belakang: namaPenulis.length > 1 ? namaPenulis[1] : '',
+              peran: 'penulis',
+            });
+          };
 
           return (
             <FormItem className='w-full flex flex-col'>
@@ -162,6 +208,8 @@ export default function SeriCreateDetailArrayCard({
                     <ScrollArea className='h-96'>
                       <CommandEmpty className='p-1'>
                         <Typography
+                          as='p'
+                          onClick={handleCreatePenulis}
                           variant='small-14/14'
                           className='pl-8 pr-3 py-2 h-8 flex items-center rounded-sm hover:bg-muted hover:text-foreground/75 cursor-default'
                         >
@@ -200,6 +248,7 @@ export default function SeriCreateDetailArrayCard({
                             <CommandItem
                               value={searchedPenulis}
                               id='0'
+                              onSelect={handleCreatePenulis}
                               className='pl-8'
                             >
                               Tambah penulis {searchedPenulis}
@@ -228,6 +277,10 @@ export default function SeriCreateDetailArrayCard({
           const addGenre = (genre_id: number) =>
             form.setValue('genre_id', [genre_id, ...selectedGenre]);
           const [searchedGenre, setSearchedGenre] = React.useState('');
+          const handleCreateGenre = () =>
+            router.post(route('seri.genre.create'), {
+              nama: searchedGenre,
+            });
 
           return (
             <FormItem className='w-full flex flex-col'>
@@ -276,6 +329,8 @@ export default function SeriCreateDetailArrayCard({
                     <ScrollArea className='h-96'>
                       <CommandEmpty className='p-1'>
                         <Typography
+                          as='p'
+                          onClick={handleCreateGenre}
                           variant='small-14/14'
                           className='pl-8 pr-3 py-2 h-8 flex items-center rounded-sm hover:bg-muted hover:text-foreground/75 cursor-default'
                         >
@@ -311,6 +366,7 @@ export default function SeriCreateDetailArrayCard({
                             <CommandItem
                               value={searchedGenre}
                               id='0'
+                              onSelect={handleCreateGenre}
                               className='pl-8'
                             >
                               Tambah genre {searchedGenre}

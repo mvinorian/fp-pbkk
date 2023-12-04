@@ -116,7 +116,7 @@ class SeriController extends Controller
         }
         DB::commit();
 
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 
     public function updateGenre(Request $request, UpdateGenreService $service, string $id)
@@ -147,7 +147,7 @@ class SeriController extends Controller
         }
         DB::commit();
 
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 
     public function updatePenerbit(Request $request, UpdatePenerbitService $service, string $id)
@@ -168,19 +168,18 @@ class SeriController extends Controller
     {
         $request->validate([
             'nama_depan' => 'required',
-            'nama_belakang' => 'required',
             'peran' => 'required',
         ]);
         DB::beginTransaction();
         try {
-            $service->execute($request->input('nama_depan'), $request->input('nama_belakang'), $request->input('peran'));
+            $service->execute($request->input('nama_depan'), $request->input('nama_belakang') ?? 'Sensei', $request->input('peran'));
         } catch (Throwable $e) {
             DB::rollBack();
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
         }
         DB::commit();
 
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 
     public function updatePenulis(Request $request, UpdatePenulisService $service, string $id)

@@ -1,12 +1,12 @@
 import { cn } from '@/Libs/utils';
-import { Genre, Penulis } from '@/Types/entities/seri';
+import { Genre, Penerbit, Penulis } from '@/Types/entities/seri';
 
 import Typography from '../../ui/typography';
 
 export interface SeriStatisticCardProps {
   tahun_terbit: string;
   volume: number;
-  penerbit: string;
+  penerbit?: Penerbit;
   penulis?: Penulis[];
   genre?: Genre[];
   className?: string;
@@ -45,7 +45,7 @@ export default function SeriStatisticCard({
           Penerbit
         </Typography>
         <Typography variant='body-14/24' className='text-muted-foreground/50'>
-          {penerbit ?? 'Tidak diketahui'}
+          {penerbit?.nama ?? 'Tidak diketahui'}
         </Typography>
       </div>
 

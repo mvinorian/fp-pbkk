@@ -29,7 +29,7 @@ export default function SeriUpdatePage({
       sinopsis: data?.data.sinopsis,
       tahun_terbit: new Date(data?.data.tahun_terbit ?? ''),
       genre_id: data?.data.genre.map(({ id }) => id),
-      penerbit_id: data?.data.penerbit_id,
+      penerbit_id: data?.data.penerbit.id,
       penulis_id: data?.data.penulis.map(({ id }) => id),
       volume: data?.data.volume.map(
         ({ volume, harga_sewa, jumlah_tersedia }) =>
