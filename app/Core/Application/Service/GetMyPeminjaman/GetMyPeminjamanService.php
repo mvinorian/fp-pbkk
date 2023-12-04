@@ -10,6 +10,8 @@ use App\Infrastructure\Repository\SqlPeminjamanVolumeRepository;
 use App\Core\Application\Service\GetMyPeminjaman\GetMyPeminjamanResponse;
 use App\Infrastructure\Repository\SqlPenulisRepository;
 use App\Infrastructure\Repository\SqlSeriPenulisRepository;
+use Carbon\Carbon;
+use DateTime;
 
 class GetMyPeminjamanService
 {
@@ -44,10 +46,15 @@ class GetMyPeminjamanService
                 $seri = $this->seri_repository->find($volume->getSeriId());
                 $seri_penulis = $this->seri_penulis_repository->findFirst($seri->getId());
                 $penulis = $this->penulis_repository->find($seri_penulis->getSeriId());
+
+                $tanggal_pengembalian = Carbon::parse($peminjaman->getPaidAt())->addDays(7);
+                $sisa_hari = $tanggal_pengembalian->diff(Carbon::now());
                 $peminjaman_response[] = new GetMyPeminjamanResponse(
                     $volume->getId(),
                     $peminjaman->getStatus(),
                     $peminjaman->getPaidAt(),
+                    $tanggal_pengembalian,
+                    $sisa_hari->days + 1,
                     $volume->getVolume(),
                     $seri->getJudul(),
                     $penulis->getNamaDepan(),

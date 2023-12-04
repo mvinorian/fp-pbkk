@@ -55,7 +55,6 @@ class PeminjamanController extends Controller
             dd($e->getMessage());
             return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
         }
-        dd($response);
-        return Inertia::render('auth/register', $this->errorProps(1022, 'Email sudah terdaftar'));
+        return Inertia::render('peminjaman/index', $this->successWithDataProps($response, 'Berhasil mendapatkan list peminjaman'));
     }
 }

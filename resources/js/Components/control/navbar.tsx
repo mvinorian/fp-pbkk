@@ -75,12 +75,22 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
         </Link>
 
         {user && (
-          <Link href=''>
+          <Link
+            href={route('peminjaman.index')}
+            className={cn(
+              endpoint.includes(route('peminjaman.index')) &&
+                'pointer-events-none',
+            )}
+          >
             <Typography
               as='h1'
               variant='h3-24/32'
               weight='semibold'
-              className='text-background/50 hover:text-background transition-colors'
+              className={cn(
+                endpoint.includes(route('peminjaman.index'))
+                  ? 'text-background'
+                  : 'text-background/50 hover:text-background transition-colors',
+              )}
             >
               Manga Terpinjam
             </Typography>

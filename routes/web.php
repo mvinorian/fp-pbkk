@@ -34,7 +34,7 @@ Route::group(
 
 Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
-Route::get('/peminjaman', [PeminjamanController::class, 'getMyPeminjamanList'])->name('peminjaman.index');
+Route::get('/peminjaman', [PeminjamanController::class, 'getMyPeminjamanList'])->name('peminjaman.index')->middleware(['user']);
 
 // #region //*=============== user ===============
 
