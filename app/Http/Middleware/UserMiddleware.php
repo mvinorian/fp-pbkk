@@ -16,10 +16,7 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::attempt()) {
-            return $next($request);
-        } else {
-            return redirect()->route('seri.index');
-        }
+        if (!Auth::check()) abort(404);
+        return $next($request);
     }
 }

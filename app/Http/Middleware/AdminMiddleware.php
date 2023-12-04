@@ -16,10 +16,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->user_type == "admin") {
-            return $next($request);
-        } else {
-            return Inertia::render('error/403');
-        }
+        if (Auth::check() == false) abort(404);
+        if (Auth::user()->user_type != "admin") abort(403);
+
+        return $next($request);
     }
 }
