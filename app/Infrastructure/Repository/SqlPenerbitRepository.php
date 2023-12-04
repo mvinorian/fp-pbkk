@@ -56,6 +56,11 @@ class SqlPenerbitRepository
         return $rows->toArray();
     }
 
+    public function delete(int $id): void
+    {
+        DB::table('penerbit')->where('id', $id)->delete();
+    }
+
     /**
      * @throws Exception
      */

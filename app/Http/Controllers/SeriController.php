@@ -6,17 +6,25 @@ use Throwable;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\Core\Application\Service\CreateSeri\CreateSeriRequest;
 use App\Core\Application\Service\CreateSeri\CreateSeriService;
 use App\Core\Application\Service\DeleteSeri\DeleteSeriService;
+use App\Core\Application\Service\UpdateSeri\UpdateSeriRequest;
+use App\Core\Application\Service\UpdateSeri\UpdateSeriService;
 use App\Core\Application\Service\CreateGenre\CreateGenreService;
+use App\Core\Application\Service\DeleteGenre\DeleteGenreService;
 use App\Core\Application\Service\GetSeriList\GetSeriListRequest;
 use App\Core\Application\Service\GetSeriList\GetSeriListService;
+use App\Core\Application\Service\UpdateGenre\UpdateGenreService;
 use App\Core\Application\Service\CreatePenulis\CreatePenulisService;
+use App\Core\Application\Service\DeletePenulis\DeletePenulisService;
 use App\Core\Application\Service\GetDetailSeri\GetDetailSeriService;
+use App\Core\Application\Service\UpdatePenulis\UpdatePenulisService;
 use App\Core\Application\Service\CreatePenerbit\CreatePenerbitService;
 use App\Core\Application\Service\CreateSeriView\CreateSeriViewService;
+use App\Core\Application\Service\DeletePenerbit\DeletePenerbitService;
+use App\Core\Application\Service\UpdatePenerbit\UpdatePenerbitService;
 
 class SeriController extends Controller
 {
@@ -111,6 +119,20 @@ class SeriController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function updateGenre(Request $request, UpdateGenreService $service, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($id, $request->input('nama'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
     public function createPenerbit(Request $request, CreatePenerbitService $service)
     {
         $request->validate([
@@ -119,6 +141,20 @@ class SeriController extends Controller
         DB::beginTransaction();
         try {
             $service->execute($request->input('nama'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function updatePenerbit(Request $request, UpdatePenerbitService $service, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($id, $request->input('nama'));
         } catch (Throwable $e) {
             DB::rollBack();
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
@@ -147,20 +183,36 @@ class SeriController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function updatePenulis(Request $request, UpdatePenulisService $service, string $id)
+    {
+        $request->validate([
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'peran' => 'required',
+        ]);
+        DB::beginTransaction();
+        try {
+            $service->execute($id, $request->input('nama_depan'), $request->input('nama_belakang'), $request->input('peran'));
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('dashboard');
+    }
+
     public function createSeriView(CreateSeriViewService $service)
     {
         $response = $service->execute();
         return Inertia::render('seri/create', $this->successWithDataProps($response, 'Berhasil mendapatkan data untuk membuat seri'));
     }
 
-    public function deleteSeri(Request $request, DeleteSeriService $service)
+    public function deleteSeri(DeleteSeriService $service, string $id)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
         DB::beginTransaction();
         try {
-            $service->execute($request->input('id'));
+            $service->execute($id);
         } catch (Throwable $e) {
             DB::rollBack();
             return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
@@ -168,5 +220,78 @@ class SeriController extends Controller
         DB::commit();
 
         return redirect()->back();
+    }
+
+    public function deleteGenre(DeleteGenreService $service, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($id);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->back();
+    }
+
+    public function deletePenerbit(DeletePenerbitService $service, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($id);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->back();
+    }
+
+    public function deletePenulis(DeletePenulisService $service, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $service->execute($id);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            return Inertia::render('auth/register', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->back();
+    }
+
+    public function updateSeri(Request $request, UpdateSeriService $service, string $id)
+    {
+        $request->validate([
+            'id' => 'required'
+        ]);
+
+        $req = new UpdateSeriRequest(
+            $id,
+            $request->input('judul'),
+            $request->input('sinopsis'),
+            $request->input('tahun_terbit'),
+            $request->file('foto'),
+            $request->input('penerbit_id'),
+            $request->input('penulis_id'),
+            $request->input('genre_id'),
+            $request->input('volume')
+        );
+        
+        DB::beginTransaction();
+        try {
+            $seri_id = $service->execute($req);
+        } catch (Throwable $e) {
+            DB::rollBack();
+            dd($e->getMessage());
+            return Inertia::render('seri/update', $this->errorProps($e->getCode(), $e->getMessage()));
+        }
+        DB::commit();
+
+        return redirect()->route('seri.detail', $seri_id);
     }
 }

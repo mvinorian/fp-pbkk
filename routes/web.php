@@ -50,12 +50,18 @@ Route::get('/users', [UserController::class, 'getUserList']);
 Route::get('/seri', [SeriController::class, 'getSeriList'])->name('seri.index');
 Route::get('/seri/detail/{id}', [SeriController::class, 'getDetailSeri'])->name('seri.detail');
 Route::get('/seri/create', [SeriController::class, 'createSeriView'])->name('seri.create.index')->middleware(['admin']);
-Route::post('/seri/create', [SeriController::class, 'createSeri'])->name('seri.create');
-// ->middleware(['admin']);
+Route::post('/seri/create', [SeriController::class, 'createSeri'])->name('seri.create')->middleware(['admin']);
 Route::post('/seri/genre/create', [SeriController::class, 'createGenre'])->name('seri.genre.create')->middleware(['admin']);
 Route::post('/seri/penerbit/create', [SeriController::class, 'createPenerbit'])->name('seri.penerbit.create')->middleware(['admin']);
 Route::post('/seri/penulis/create', [SeriController::class, 'createPenulis'])->name('seri.penulis.create')->middleware(['admin']);
-Route::delete('/seri/delete', [SeriController::class, 'deleteSeri'])->name('seri.delete')->middleware(['admin']);
+Route::put('/seri/update/{id}', [SeriController::class, 'updateSeri'])->name('seri.update')->middleware(['admin']);
+Route::put('/seri/genre/update/{id}', [SeriController::class, 'updateGenre'])->name('genre.update')->middleware(['admin']);
+Route::put('/seri/penerbit/update/{id}', [SeriController::class, 'updatePenerbit'])->name('penerbit.update')->middleware(['admin']);
+Route::put('/seri/penulis/update/{id}', [SeriController::class, 'updatePenulis'])->name('penulis.update')->middleware(['admin']);
+Route::delete('/seri/delete/{id}', [SeriController::class, 'deleteSeri'])->name('seri.delete')->middleware(['admin']);
+Route::delete('/seri/genre/delete/{id}', [SeriController::class, 'deleteGenre'])->name('genre.delete')->middleware(['admin']);
+Route::delete('/seri/penerbit/delete/{id}', [SeriController::class, 'deletePenerbit'])->name('penerbit.delete')->middleware(['admin']);
+Route::delete('/seri/penulis/delete/{id}', [SeriController::class, 'deletePenulis'])->name('penulis.delete')->middleware(['admin']);
 
 // #region //*=============== cart ===============
 

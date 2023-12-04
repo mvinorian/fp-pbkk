@@ -74,6 +74,11 @@ class SqlPenulisRepository
         return $rows->toArray();
     }
 
+    public function delete(int $id): void
+    {
+        DB::table('penulis')->where('id', $id)->delete();
+    }
+
     /**
      * @throws Exception
      */

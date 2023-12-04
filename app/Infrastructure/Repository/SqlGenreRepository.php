@@ -69,6 +69,11 @@ class SqlGenreRepository
         return $this->constructFromRows([$row])[0];
     }
 
+    public function delete(int $id): void
+    {
+        DB::table('genre')->where('id', $id)->delete();
+    }
+
     /**
      * @throws Exception
      */
