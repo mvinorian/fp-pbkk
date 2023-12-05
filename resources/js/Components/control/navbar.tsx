@@ -1,6 +1,6 @@
 import { Link, router } from '@inertiajs/react';
 import { AvatarImage } from '@radix-ui/react-avatar';
-import { LogOut, ShoppingCart, UserIcon } from 'lucide-react';
+import { LogOut, ShoppingCart } from 'lucide-react';
 import React from 'react';
 
 import { cn } from '@/Libs/utils';
@@ -151,13 +151,13 @@ export default function Navbar({ user, className, ...rest }: NavbarProps) {
                   {user.email}
                 </Typography>
               </DropdownMenuLabel>
-              <DropdownMenuSeparator />
+              {/* <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <UserIcon className='mr-2 w-4 h-4 text-foreground' />
                 <Typography as='span' variant='small-14/14' weight='medium'>
                   Profile
                 </Typography>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => handleLogout()}>
                 <LogOut className='mr-2 w-4 h-4 text-destructive' />

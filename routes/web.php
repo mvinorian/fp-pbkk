@@ -18,21 +18,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::group(
-    ['middleware' => ['user'],],
-    function () {
-    }
-);
-
-Route::group(
-    ['middleware' => ['admin'],],
-    function () {
-    }
-);
-
 // #region //*============ peminjaman ============
 
-Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman.create');
+Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman.create')->middleware(['user']);
 Route::post('/peminjaman/webhook', [PeminjamanController::class, 'webhook']);
 Route::get('/peminjaman', [PeminjamanController::class, 'getMyPeminjamanList'])->name('peminjaman.index')->middleware(['user']);
 
@@ -42,8 +30,8 @@ Route::inertia('/auth/register', 'auth/register')->name('auth.register.index');
 Route::inertia('/auth/login', 'auth/login')->name('auth.login.index');
 Route::post('/auth/register', [UserController::class, 'storeUser'])->name('auth.register');
 Route::post('/auth/login', [UserController::class, 'storeLogin'])->name('auth.login');
-Route::post('/auth/logout', [UserController::class, 'destroyLogin'])->name('auth.logout');
-Route::get('/users', [UserController::class, 'getUserList']);
+Route::post('/auth/logout', [UserController::class, 'destroyLogin'])->name('auth.logout')->middleware(['user']);
+Route::get('/users', [UserController::class, 'getUserList'])->middleware(['admin']);
 
 // #region //*=============== seri ===============
 
@@ -66,10 +54,10 @@ Route::delete('/seri/penulis/delete/{id}', [SeriController::class, 'deletePenuli
 
 // #region //*=============== cart ===============
 
-Route::get('/cart', [CartController::class, 'getCartUser'])->name('cart.index');
-Route::post('/cart', [CartController::class, 'createCart'])->name('cart.create');
-Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('cart.delete');
-Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('cart.delete.volume');
+Route::get('/cart', [CartController::class, 'getCartUser'])->name('cart.index')->middleware(['user']);
+Route::post('/cart', [CartController::class, 'createCart'])->name('cart.create')->middleware(['user']);
+Route::delete('/cart/{id}', [CartController::class, 'deleteCart'])->name('cart.delete')->middleware(['user']);
+Route::delete('/cart/volume/{id}', [CartController::class, 'deleteCartByVolumeId'])->name('cart.delete.volume')->middleware(['user']);
 
 // #region //*=============== home ===============
 

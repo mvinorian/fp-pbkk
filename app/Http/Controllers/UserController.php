@@ -67,7 +67,7 @@ class UserController extends Controller
         ];
 
         if (Auth::attempt($userdata)) {
-            return redirect()->back();
+            return redirect()->route('seri.index');
         }
 
         return Inertia::render('auth/login', $this->errorProps(1234, 'Email atau Password Salah'));
