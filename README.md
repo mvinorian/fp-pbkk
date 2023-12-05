@@ -1,5 +1,9 @@
 # How to run the project
 
+## Video Demo
+
+[https://youtu.be/U-ezwIWAU-U?si=UeqZ5v_P8dlajHaB](https://youtu.be/U-ezwIWAU-U?si=UeqZ5v_P8dlajHaB)
+
 ## Clone the repository
 
 ```sh
