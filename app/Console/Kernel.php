@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
             }
         })->everyFiveSeconds();
 
-        $schedule->command('php artisan queue:work')->everySixHours();
+        $schedule->command('queue:work')->everySixHours();
     }
 
     /**
