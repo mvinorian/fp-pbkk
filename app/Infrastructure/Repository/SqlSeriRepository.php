@@ -73,6 +73,7 @@ class SqlSeriRepository
     {
         DB::table('seri_genre')->where('seri_id', $id)->delete();
         DB::table('seri_penulis')->where('seri_id', $id)->delete();
+        DB::table('volume')->where('seri_id', $id)->delete();
         DB::table('seri')->where('id', $id)->delete();
     }
 
