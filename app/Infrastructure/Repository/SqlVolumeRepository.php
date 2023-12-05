@@ -66,6 +66,16 @@ class SqlVolumeRepository
         DB::table('volume')->where('seri_id', $seri_id)->delete();
     }
 
+    public function decrementJumlahTersedia(int $id): void 
+    {
+        DB::table('volume')->where('id', $id)->decrement('jumlah_tersedia');
+    }
+
+    public function incrementJumlahTersedia(int $id): void 
+    {
+        DB::table('volume')->where('id', $id)->increment('jumlah_tersedia');
+    }
+
     /**
      * @throws Exception
      */
